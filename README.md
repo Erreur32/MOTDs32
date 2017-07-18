@@ -17,7 +17,7 @@ MOTDs32 installation instructions
 
 
 
-                              MOTDstat Documentation
+MOTDstat Documentation
 ================================================================================
 
 Original project:
