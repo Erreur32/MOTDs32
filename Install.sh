@@ -26,7 +26,7 @@ fi
 
 
 ### Insdtall modules
-
+mkdir /etc/motds32
 cp  Stats32 /etc/motds32/Stats32
 
 ## Install Crontab
