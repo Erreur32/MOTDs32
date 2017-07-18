@@ -11,6 +11,7 @@
 # original project: Pavol Krigler <pavol.krigler@gelogic.net>
 #
 
+
 echo -n "Do you wish to install the missing package (y/n)? "
 old_stty_cfg=$(stty -g)
 stty raw -echo
@@ -24,24 +25,21 @@ else
 fi
 
 
-## install missing package
-# apt-get install -y  ntp figlet 
+### Insdtall modules
 
-## start Installation
-
-#make install
 cp  Stats32 /etc/motds32/Stats32
 
 ## Install Crontab
 
-echo "add in crontab --> */5 * * * *  /usr/bin/motds32 -g (generation each 5 minutes)"
-#crontab << FIN
-#$(crontab -l)
+echo "add ENTRY in crontab  (generation each 5 minutes)"
 
-###  MOTDs32 generation
-#*/5 * * * *   /etc/motds32/Stats32  > /etc/motds32/Stats32.txt |  /usr/bin/motds32 -g 2>1
+crontab << FIN
+$(crontab -l)
+
+###  MOTDs32 generation (5 min)
+*/5 * * * *     /usr/bin/motds32 -g 2>1
 ###
-#FIN
+FIN
 
 /usr/bin/motds32 -g
 
