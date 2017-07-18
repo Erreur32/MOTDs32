@@ -1,12 +1,9 @@
 MOTDs32 installation instructions
 ==================================
 
-Original project:
-http://www.gelogic.net/
-
-(2017) New Custom project MOTDs32
+(2017) New project MOTDs32
 https://motds32.echosystem.fr
-
+https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
 ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
 |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
@@ -15,23 +12,24 @@ https://motds32.echosystem.fr
 `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 
 	   |  +	Ｓｔａｔｓ３２   |
-
-
-
+	   
+	   
 System requirements
 ===================
      o Unix/Linux operating system with bash
 
 
-Installation instructions
-=========================
+Installation 
+============
 
-      As root execute THIS all-in-one command:
+      As root execute this command (default):
 
            ./Install.sh
 
 
-###  OLD way 
+
+
+########  install only motd (long way)  
      
      1. try this  
         
