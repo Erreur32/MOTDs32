@@ -1,7 +1,8 @@
 MOTDs32 installation instructions
 ==================================
 
-(2017) New project MOTDs32
+(2017) New project MOTDs32 by Erreur32
+
 https://motds32.echosystem.fr
 https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
@@ -22,7 +23,7 @@ System requirements
 Installation 
 ============
 
-      As root execute this command (default):
+      As root execute this command (the easy way!):
 
            ./Install.sh
 
