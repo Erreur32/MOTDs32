@@ -82,6 +82,35 @@ partition      free  usg | Memory      used kB  [%] | service(s)        (count)
                          |                          | udp6/2001:41d0:d:2e5:::123
                          |                          | udp6/::1:123
 
+          _                         _                    __
+  ___  ___| |__   ___  ___ _   _ ___| |_ ___ _ __ ___    / _|_ __
+ / _ \/ __| '_ \ / _ \/ __| | | / __| __/ _ \ '_ ` _ \  | |_| '__|
+|  __/ (__| | | | (_) \__ \ |_| \__ \ ||  __/ | | | | |_|  _| |
+ \___|\___|_| |_|\___/|___/\__, |___/\__\___|_| |_| |_(_)_| |_|
+                           |___/
+/bin/bash ==> root
+
+ 00:05:44 up 64 days,  5:35,  3 users,  load average: 1,18, 0,84, 0,70
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+erreur32 pts/0    213.173.170.22   15:43    6:51m  1.62s  0.03s sshd: erreur32 [priv]
+erreur32 pts/1    2a01:e35:8aa3:87 18:35    1:06m  2.55s  0.02s sshd: erreur32 [priv]
+erreur32 pts/2    2a01:e35:8aa3:87 18:44    2.00s  3.29s  0.02s sshd: erreur32 [priv]
+
+Debian GNU/Linux 8.8 (jessie) (3.16.0-4-amd64).
+Kernel Info:    Linux 3.16.0-4-amd64 x86_64
+
+-----------     ---     ------------    ----------
+System load :   1.18    IP Address:     37.187.162.229
+Memory usage:   14.4%   System uptime:  64 days
+Usage on /  :   68%     Swap usage:     0.0%
+Local Users :   3       Processes:      286
+-----------     ---     ------------    ----------
+
+  mercredi 19 juillet 2017, 00:05:44 (UTC+0200)
+
+
+
+
 Explanation of the report
 -------------------------
 
@@ -91,4 +120,7 @@ Explanation of the report
          |         |                |                   |      |
          V         V                V                   V      V                  
 hosting.gelogic.net*+ > status at 19:15 > 5min load is 1.06 on 4 cpu(s)
+```
+
+
 ```
