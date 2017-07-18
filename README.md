@@ -59,22 +59,28 @@ To apply the changes, restart the SSH server daemon.
 
 Sample MOTDstat report
 ======================
-```
-       hosting.gelogic.net*+ > status at 19:15 > 5min load is 1.06 on 4 cpu(s)
 
-      Disk status        |      Memory status       |     Service status      
-partition      free  usg | Memory      used kB  [%] | services          (count)
-/              2.7G  41% | Memory:     1013676  97% | tcp/192.168.7.13:80
-/boot          100M  14% | Swap:             6   0% | tcp/192.168.7.13:443
-/var            33G  11% | Buffers:     506268      | tcp/127.0.0.1:3306
-/var/log       8.7G   4% | Cached:     2490812      | tcp/192.168.10.8:22
-/tmp           4.4G   4% |                          | tcp/127.0.0.1:25
-                         |                          | udp/127.0.0.1:161
-                         |                          | udp/192.168.10.8:123
-                         |                          | ntpd
-                         |                          | httpd               (15)
-                         |                          | mysqld              (2)
-                         |                          | master
+```
+00:03:47 19/07 root@echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
+
+motds32 check motd file
+        echosystem.fr  > status at 00:03 > 5min load is 0.75 on 8 cpu(s)
+
+      Disk status        |      Memory status       |     Service status
+partition      free  usg | Memory      used kB  [%] | service(s)        (count)
+/              5,9G  68% | Memory:    61431116  92% | tcp/0.0.0.0:2222
+/home          1,5T  12% | Swap:          3500   0% | tcp6/:::2222
+                         | Buffers:    1266580      | tcp/0.0.0.0:25
+                         | Cached:    50682196      | tcp6/:::25
+                         |                          | tcp/127.0.0.1:8080
+                         |                          | tcp6/:::80
+                         |                          | tcp6/:::443
+                         |                          | udp/37.187.162.229:123
+                         |                          | udp/127.0.0.1:123
+                         |                          | udp/0.0.0.0:123
+                         |                          | udp6/fe80::ec4:7aff:fe0f:123
+                         |                          | udp6/2001:41d0:d:2e5:::123
+                         |                          | udp6/::1:123
 
 Explanation of the report
 -------------------------
