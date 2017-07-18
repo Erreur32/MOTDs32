@@ -1,21 +1,19 @@
-
 [![coverage report](https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg)](https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master)
 
 MOTDs32 installation instructions
 ==================================
 
-(2017) New project MOTDs32 by Erreur32
+ (2017) New project MOTDs32 by Erreur32
 
-https://motds32.echosystem.fr
-https://gitlab.echosystem.fr/Erreur32/MOTDs32
+   https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
-,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
-|   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
-|  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' <  .-' .'
-|  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
-`--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
+    ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
+    |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
+    |  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' <  .-' .'
+    |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
+    `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 
-	   |  +	Ｓｔａｔｓ３２   |
+	          |  +	Ｓｔａｔｓ３２   |
 
 
 
@@ -25,7 +23,7 @@ https://gitlab.echosystem.fr/Erreur32/MOTDs32
 Original project:
 http://www.gelogic.net/ 
 
-     MOTDstat will dynamicaly generate the /etc/motd file with current 
+MOTDstat will dynamicaly generate the /etc/motd file with current 
 information about system resources and usage. Using crontab the script will 
 periodically display status of system resources and services. The original 
 message of the day is now stored in /etc/motd.orig file.
@@ -61,30 +59,32 @@ INSTALLATION:
 ============
  (git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git)
  
- type : ./Install.sh
+ type in the directory: 
+       
+       ./Install.sh
  
  UPDATE:
  ======
 
-cd /PATH/MOTDs32
-git pull
+    cd /PATH/MOTDs32
+    git pull
 
 
 Customisation:
 =============
-     When you want MOTD to be displayed while logging via SSH client you will
+When you want MOTD to be displayed while logging via SSH client you will
 have to change setting on the SSH daemon as following: /etc/ssh/sshd_config
 
 	~snip~
 	PrintMotd yes
 	~snip~
 
-     To apply the changes, restart the SSH server daemon.
+To apply the changes, restart the SSH server daemon.
 
 
 Sample MOTDstat report
 ======================
-                           
+```
        hosting.gelogic.net*+ > status at 19:15 > 5min load is 1.06 on 4 cpu(s)
 
       Disk status        |      Memory status       |     Service status      
@@ -110,3 +110,4 @@ Explanation of the report
          |         |                |                   |      |
          V         V                V                   V      V                  
 hosting.gelogic.net*+ > status at 19:15 > 5min load is 1.06 on 4 cpu(s)
+```
