@@ -12,7 +12,7 @@
 #
 
 
-echo -n "Do you wish to install the missing package (y/n)? "
+echo -n "Do you wish to install the missing package before (y/n)?  install  ntp figlet "
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
