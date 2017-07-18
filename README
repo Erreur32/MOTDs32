@@ -1,12 +1,9 @@
 MOTDs32 installation instructions
 ==================================
 
-Original project:
-http://www.gelogic.net/
-
-(2017) New Custom project MOTDs32
+(2017) New project MOTDs32
 https://motds32.echosystem.fr
-
+https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
 ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
 |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
@@ -22,6 +19,9 @@ https://motds32.echosystem.fr
                               MOTDstat Documentation
 ================================================================================
 
+Original project:
+http://www.gelogic.net/ 
+
      MOTDstat will dynamicaly generate the /etc/motd file with current 
 information about system resources and usage. Using crontab the script will 
 periodically display status of system resources and services. The original 
@@ -29,7 +29,7 @@ message of the day is now stored in /etc/motd.orig file.
      By configuring e-mail address you'll receive the notifications about 
 following issues:
 
-        o high CPU load (configurable warning/critical limits)
+    o high CPU load (configurable warning/critical limits)
 	o exceeding disk space (configurable warning/critical limits on 
           partitions)
 	o intensive usage of SWAP space (configurable warning/critical limits)
@@ -56,7 +56,16 @@ be send.
 
 INSTALLATION: 
 ============
+ (git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git)
+ 
  type : ./Install.sh
+ 
+ UPDATE:
+ ======
+
+cd /PATH/MOTDs32
+git pull
+
 
 Customisation:
 =============
