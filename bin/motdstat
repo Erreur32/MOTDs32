@@ -1,0 +1,641 @@
+#!/bin/bash
+#
+# Author: Krigler Pavol
+# Version 0.0.4
+#
+# MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
+# about system status and usage. 
+#
+# Copyright 2013 Pavol Krigler <pavol.krigler@gelogic.net>
+#
+# This file is part of MOTDstat.
+#
+#    MOTDstat is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    MOTDstat is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with MOTDstat.  If not, see <http://www.gnu.org/licenses/>.
+
+
+# Path to the configuration file
+CONFIGFILE="/etc/motdstat/motdstat.conf"
+
+# Message of the day file
+MOTD='/etc/motd'
+
+# List of network services which MUST be running  
+NETSERVICE_LIST="/etc/motdstat/netservice"
+
+# List of processes which MUST be running
+PROCESS_LIST="/etc/motdstat/process"
+
+# List of partitions and usage limits
+PARTITION_TABLE="/etc/motdstat/fstab_limits"
+
+# List of processes which could be autodiscovered during installation
+AUTO_PROCESS_DISCOVERY="sshd apache dhcpd named ntpd nscd postfix slapd smbd atd crond smartd dovecot master mysqld"
+
+# List of network ports which could be autodiscovered during installation
+AUTO_NETSERVICE_DISCOVERY="21 22 25 80 443 123"
+
+#
+# Do not modify lines below
+#
+VERSION="0.0.4"
+LINES=0
+
+TMPDIR="/tmp"
+STATS_DIR="/var/cache/motdstat"
+COLL_MEM="$TMPDIR/.motdstat_mem_$$"
+COLL_DISK="$TMPDIR/.motdstat_disk_$$"
+COLL_PROC="$TMPDIR/.motdstat_proc_$$"
+COLL_EMPTY="$TMPDIR/.motdstat_empty_$$"
+
+# Set default VARIABLES 
+function set_default_values() {
+	DISK_USAGE_WARNING=80
+	DISK_USAGE_CRITICAL=90
+	SWAP_USAGE_WARNING=10
+	SWAP_USAGE_CRITICAL=30
+	CPU_WARNING=90
+	CPU_CRITICAL=100
+	MAX_ROWS_LIMIT=15
+	MAILQ_WARNING=0
+	CHECK_NTP="NO"
+	ENABLE_SYSLOG="NO"
+	NTP_PROBLEM_EXEC=""
+	LOAD_TRESHOLD_EXEC=""
+	SWAP_TRESHOLD_EXEC=""
+	DISK_TRESHOLD_EXEC=""
+}
+
+# Clean temporary files
+test -e $COLL_EMPTY && rm -f $COLL_EMPTY
+
+# Make a copy of original MOTD file if exits
+if [ ! -e "${MOTD}.orig" ]; then
+	test -e ${MOTD}	&& cp $MOTD ${MOTD}.orig || touch ${MOTD}.orig
+fi
+
+
+#
+# Append message to the report (and to syslog if enabled)
+#
+function report() {
+	REPORT=$REPORT"${1}\n"
+	test $ENABLE_SYSLOG = "YES" && logger -t motdstat -- "${1}" 
+}
+
+#
+# Colored text
+#
+function red () {
+    echo -e "\e[1;31m$1\e[0;39m"
+}
+
+function green () {
+    echo -e "\e[1;32m$1\e[0;39m"
+}
+
+function yellow () {
+    echo -e "\e[1;33m$1\e[0;39m"
+}
+
+function bold () {
+    echo -e "\033[1m$1\033[0m"
+}
+
+# Trim the line to 24 characters
+function normalize() {
+        LENGTH=$(echo $PART | wc -c)
+
+        if [ $LENGTH -gt 24 ]; then
+                CUT=$(echo $PART | sed -e 's/^\(.......\).*\(.............\)/\1...\2/')
+                PART=$CUT
+        fi
+}
+
+#
+# Generate list of the most used processess
+#
+function gen_process_list() {
+	local PROCESS
+	local PGREP
+
+	echo "Generating \"process\" configuration file to ${PROCESS_LIST} from autodiscovery"
+
+	# Generate process file header
+	echo "#" > ${PROCESS_LIST}
+	echo "# List of processes that MUST be running" >> ${PROCESS_LIST}
+	echo "#" >> ${PROCESS_LIST}
+	echo "# (The following processes where found through autodiscovery)" >> ${PROCESS_LIST}
+
+	test $(which pgrep 2>/dev/null >/dev/null && echo OK || echo NOK) != "OK" && return
+
+	for PROCESS in ${AUTO_PROCESS_DISCOVERY}; do
+		pgrep -x ${PROCESS} > /dev/null
+		PGREP=$?
+		test ${PGREP} -eq 0 && echo ${PROCESS} >> ${PROCESS_LIST}
+	done	
+}
+
+#
+# Generate netservice list
+#
+function gen_netservice_list() {
+	local NETSTAT
+	local ENTRY
+	local RESULT
+
+	echo "Generating \"netservice\" configuration file to ${NETSERVICE_LIST} from autodiscovery"
+
+	# Generate process file header
+	echo "#" > ${NETSERVICE_LIST}
+	echo "# List of local network services that MUST be running" >> ${NETSERVICE_LIST}
+	echo "#" >> ${NETSERVICE_LIST}
+	echo "# (The following processes where found through autodiscovery)" >> ${NETSERVICE_LIST}
+	echo "# PROTOCOL   IP_ADDRESS:PORT                PROCESS NAME" >> ${NETSERVICE_LIST}
+
+	test $(which netstat 2>/dev/null >/dev/null && echo OK || echo NOK) != "OK" && return
+
+	NETSTAT=$(netstat -nlp | egrep "^tcp *|^udp *" | sed -e 's/[0-9]*\///' | sed -e 's/LISTEN//' | sed -e 's/: .*$//' | awk '{printf "%-13s%-30s %s\n", $1, $4, $6}')
+
+	for ENTRY in ${AUTO_NETSERVICE_DISCOVERY}; do
+		RESULT=$(echo "${NETSTAT}" | egrep ":${ENTRY} *")
+		test -n "${RESULT}" && echo "${RESULT}" >> ${NETSERVICE_LIST}
+	done	
+}
+
+# Process status
+function checkprocess {
+	test ! -f ${PROCESS_LIST} && gen_process_list
+
+	if [ -s ${PROCESS_LIST} ]; then
+	    for PROC in $(egrep -v "^#|^$" ${PROCESS_LIST}); do
+		PROCES=$(ps ax | grep "$PROC" | grep -v "grep" | grep -vc "checkclient")
+		if [ $PROCES -gt 0 ]; then
+			if [ $PROCES -eq 1 ]; then
+				green "$PROC" >> $COLL_PROC
+			else
+				green "$PROC ($PROCES)" | awk '{printf("%-26s %4s\n", $1, $2)}' >> $COLL_PROC
+	    		fi
+        	else	
+			report "CRITICAL: Process \"${PROC}\" is not running"
+			red "$PROC is not running" >> $COLL_PROC
+			NOT_RUNNING=1
+		fi
+    		done
+	fi
+
+	cp $COLL_PROC ${COLL_PROC}.tmp
+
+	test -n "$NOT_RUNNING" && red "    Service status      " > $COLL_PROC || green "    Service status      " > $COLL_PROC
+
+    cat ${COLL_PROC}.tmp >> $COLL_PROC
+}
+
+
+# Memory status
+function memory() {
+    bold "Memory      used kB  [%]" > $COLL_MEM
+    MEMTOTAL=$(grep "MemTotal" /proc/meminfo | awk '{print $2}')
+    MEMFREE=$(grep "MemFree" /proc/meminfo | awk '{print $2}')
+    SWAPTOTAL=$(grep "SwapTotal" /proc/meminfo | awk '{print $2}')
+    SWAPFREE=$(grep "SwapFree" /proc/meminfo | awk '{print $2}')
+
+    PERCENTOM=$(echo $MEMFREE $MEMTOTAL | awk '{printf("%d", ($2-$1)/$2*100)}')
+    test $SWAPTOTAL -eq 0 && PERCENTOS=0 || PERCENTOS=$(echo $SWAPFREE $SWAPTOTAL | awk '{printf("%d", ($2-$1)/$2*100)}')
+       
+    SWAP=$(printf "Swap: %13d %3d%%\n" $(($SWAPTOTAL-$SWAPFREE)) $PERCENTOS)
+
+    # MEMORY USAGE
+    printf "Memory: %11d %3d%%\n" $(($MEMTOTAL-$MEMFREE)) $PERCENTOM >> $COLL_MEM
+
+    if [ $PERCENTOS -ge $SWAP_USAGE_CRITICAL ] || [ $SWAPTOTAL -eq 0 ]; then
+	red "$SWAP" >> $COLL_MEM
+	CR_MEM=1
+	report "WARNING: usage of the SWAP space is more than ${SWAP_USAGE_CRITICAL}%"
+
+	# Execute custom command
+	if [ -n "${SWAP_TRESHOLD_EXEC}" ]; then
+		report "WARNING: executing command: \"$SWAP_TRESHOLD_EXEC\""
+		report "--->%---"
+		report "$(eval ${SWAP_TRESHOLD_EXEC} 2>&1)"
+		report "--->%---"
+	fi
+    else
+	
+	if [ $PERCENTOS -ge $SWAP_USAGE_WARNING ] && [ $PERCENTOS -lt $SWAP_USAGE_CRITICAL ]; then
+	    yellow "$SWAP" >> $COLL_MEM
+    	    WR_MEM=1
+	    report "CRITICAL: usage of the SWAP space is more than ${SWAP_USAGE_WARNING}%"
+		# Execute custom command
+		if [ -n "${SWAP_TRESHOLD_EXEC}" ]; then
+			report "CRITICAL: executing command: \"$SWAP_TRESHOLD_EXEC\""
+			report "--->%---"
+			report "$(eval ${SWAP_TRESHOLD_EXEC} 2>&1)"
+			report "--->%---"
+		fi
+        else
+	    echo "$SWAP" >> $COLL_MEM
+	fi
+    fi
+
+    grep Buffer /proc/meminfo | awk '{printf("%-10s %8s     \n",$1,$2)}' >> $COLL_MEM
+    grep "^Cached" /proc/meminfo | awk '{printf("%-10s %8s     \n",$1,$2)}' >> $COLL_MEM
+
+    cp $COLL_MEM ${COLL_MEM}.tmp
+
+    green "     Memory status      " > $COLL_MEM
+    test -n "$CR_MEM" && red "     Memory status      " > $COLL_MEM
+    test -n "$WR_MEM" && yellow "     Memory status      " > $COLL_MEM
+
+    cat ${COLL_MEM}.tmp >> $COLL_MEM
+}
+
+
+# Disk status
+function disk() {
+
+    STATUS_DISK=$(egrep -v "^#|^ *#" /etc/motdstat/fstab_limits)
+    
+    IFS=$'\n'
+
+    for DEVICE in $STATUS_DISK
+    do
+	# Read Mount Point path and limits
+	MP=$(echo "${DEVICE}" | awk {'print $1'})
+	MP_USAGE_WARNING=$(echo "${DEVICE}" | awk {'print $2'})
+	MP_USAGE_CRITICAL=$(echo "${DEVICE}" | awk {'print $3'})
+
+	# If Warning and Critical limit are not set to GLOBAL defaults
+	test -z ${MP_USAGE_WARNING} && MP_USAGE_WARNING=$DISK_USAGE_WARNING
+	test -z ${MP_USAGE_CRITICAL} && MP_USAGE_CRITICAL=$DISK_USAGE_CRITICAL
+
+
+	# Fixed problems with long device names and new line
+	PART_RESULT=$(df -h "${MP}" 2>/dev/null)
+	DF_RESULT=$?
+
+	# Check if the partition exists
+	if [ ${DF_RESULT} -eq 0 ]; then
+
+	PART=$(echo "${PART_RESULT}" | grep '\/' | tr -d '\n' | awk '{printf("%-13s %5s %4s\n",$6,$4,$5)}' | tr -d '%')
+
+	normalize
+
+	USAGE=$(echo $PART | awk '{print $3}')
+	PARTITION=$(echo $PART | awk '{print $1}')
+
+	if [ $USAGE -ge $MP_USAGE_WARNING ] && [ $USAGE -lt $MP_USAGE_CRITICAL ]; then
+		yellow "${PART}%" >> $COLL_DISK && WR_NOTICE=1
+		report "WARNING: usage of $PARTITION partition is ${USAGE}% and limit is ${MP_USAGE_WARNING}%"
+
+		# Execute custom command
+		if [ -n "${DISK_TRESHOLD_EXEC}" ]; then
+			report "WARNING: executing command: \"$DISK_TRESHOLD_EXEC\""
+			report "--->%---"
+			report "$(eval ${DISK_TRESHOLD_EXEC} 2>&1)"
+			report "--->%---"
+		fi
+		continue
+	fi
+	
+	if [ $USAGE -ge $MP_USAGE_CRITICAL ]; then
+		red "${PART}%" >> $COLL_DISK && CR_NOTICE=1
+		report "CRITICAL: usage of $PARTITION partition is ${USAGE}% and limit is ${MP_USAGE_CRITICAL}%"
+
+		# Execute custom command
+		if [ -n "${DISK_TRESHOLD_EXEC}" ]; then
+			report "CRITICAL: executing command: \"$DISK_TRESHOLD_EXEC\""
+			report "--->%---"
+			report "$(eval ${DISK_TRESHOLD_EXEC} 2>&1)"
+			report "--->%---"
+		fi
+	fi
+        test $USAGE -lt $MP_USAGE_WARNING && echo "${PART}%" >> $COLL_DISK
+
+
+	else
+		red "$(printf "%-13.13s NotMounted" ${MP})" >> $COLL_DISK && CR_NOTICE=1
+		report "CRITICAL: mount point $MP is not mounted"
+	fi
+
+    done 
+
+    unset IFS
+
+    cat $COLL_DISK | sort -k 3 -nr > ${COLL_DISK}.tmp	
+
+    green "      Disk status       " > $COLL_DISK
+    test -n "$CR_NOTICE" && red "      Disk status       " > $COLL_DISK
+    test -n "$WR_NOTICE" && yellow "      Disk status       " > $COLL_DISK
+
+
+    bold  "partition      free  usg" >> $COLL_DISK
+    cat ${COLL_DISK}.tmp >> $COLL_DISK
+}
+
+function getmaxrow () {
+    DISK_NUM=$(wc -l $COLL_DISK | awk '{print $1}')
+    test $DISK_NUM -gt $LINES && LINES=$DISK_NUM
+    MEM_NUM=$(wc -l $COLL_MEM | awk '{print $1}')
+    test $MEM_NUM -gt $LINES && LINES=$MEM_NUM
+    PROC_NUM=$(wc -l $COLL_PROC | awk '{print $1}') 
+    test $PROC_NUM -gt $LINES && LINES=$PROC_NUM 
+}
+
+# Join 3 cols together
+function join () {
+    getmaxrow
+    MEM_NUM=$(($MEM_NUM + 1))
+    DISK_NUM=$(($DISK_NUM + 1))
+
+    test -e $COLL_EMPTY && rm -f $COLL_EMPTY
+    for I in $(seq $DISK_NUM $LINES); do echo "                        " >> $COLL_DISK; done
+    for I in $(seq $MEM_NUM $LINES); do echo "                        " >> $COLL_MEM; done   
+
+    for I in $(seq $LINES); do echo ' | ' >> $COLL_EMPTY; done
+}
+
+# Center text
+function echo_center {
+	LENGTH=${#1}
+	printf "%$(((80 - $LENGTH) / 2))s" ; echo "$1"
+}
+
+#
+# Check listen services IP:Port
+#
+function checkservices {
+	test ! -f ${NETSERVICE_LIST} && gen_netservice_list
+
+	bold "service(s)        (count)" > $COLL_PROC
+
+	NETSTAT=$(netstat -nlp 2>/dev/null)
+
+	if [ -e ${NETSERVICE_LIST} ]; then
+		IFS=$'\n'
+
+		LINE=$(grep -v "^#" ${NETSERVICE_LIST})
+		for SERVICE in $LINE; do
+			PROTO=$(echo $SERVICE | awk '{print $1}')
+			SOCKET=$(echo $SERVICE | awk '{print $2}')
+			PROCES=$(echo $SERVICE | awk '{print $3}')
+
+			RESULT=$(echo "$NETSTAT" | egrep "^${PROTO}.*${SOCKET}")
+			
+			# First checking
+			if [ -z "$RESULT" ]; then
+				# DEBUG
+				# echo $NETSTAT >> /tmp/.motdstat_netstat_$$.tmp
+				sleep 1
+
+				NETSTAT=$(netstat -nlp 2>/dev/null)
+				# Double checking for fake panic 
+				RESULT=$(echo "$NETSTAT" | egrep "^${PROTO}.*${SOCKET}")
+			
+				if [ -z "$RESULT" ]; then
+					red "${PROTO}/${SOCKET}" >> $COLL_PROC
+		    			NOT_RUNNING=1
+					report "CRITICAL: Service \"$PROCES\" not running at socket ${PROTO}/${SOCKET}"
+				else
+					green "${PROTO}/${SOCKET}" >> $COLL_PROC
+				fi
+			else
+				green "${PROTO}/${SOCKET}" >> $COLL_PROC
+			fi
+		done
+
+		unset IFS
+	fi
+	
+}
+
+function load {
+	NUM_OF_CPU=$(grep -i processor /proc/cpuinfo | wc -l)
+	LOAD_5MIN=$(awk '{printf $2}' < /proc/loadavg)
+	LOAD_PERCENT=$(echo $LOAD_5MIN $NUM_OF_CPU |awk '{printf "%2.f", $1*100/$2}')
+
+	LOAD_REPORT="5min load is $LOAD_5MIN on $NUM_OF_CPU cpu(s)"
+
+	if [ $LOAD_PERCENT -gt $CPU_WARNING ] && [ $LOAD_PERCENT -lt $CPU_CRITICAL ]; then
+		report "WARNING: System load ${LOAD_5MIN} on $NUM_OF_CPU cpu(s)"
+
+		# Execute custom command
+		if [ -n "${LOAD_TRESHOLD_EXEC}" ]; then
+			report "WARNING: executing command: \"$LOAD_TRESHOLD_EXEC\""
+			report "--->%---"
+			report "$(eval ${LOAD_TRESHOLD_EXEC} 2>&1)"
+			report "--->%---"
+		fi
+		return
+	fi
+	if [ $LOAD_PERCENT -gt $CPU_CRITICAL ]; then
+		report "CRITICAL: system load ${LOAD_5MIN} on $NUM_OF_CPU cpu(s)"
+
+		# Execute custom command
+		if [ -n "${LOAD_TRESHOLD_EXEC}" ]; then
+			report "CRITICAL: executing command: \"$LOAD_TRESHOLD_EXEC\""
+			report "--->%---"
+			report "$(eval ${LOAD_TRESHOLD_EXEC} 2>&1)"
+			report "--->%---"
+		fi
+	fi
+}
+
+#
+# Notify when too much e-mails in mailq
+# if MAILQ_WARNING=0 skip this test
+#
+function check_mailq {
+
+	test $MAILQ_WARNING -eq 0 && return
+	
+	# Check if mail command is present in $PATH
+	if [ $(which mailq 2>/dev/null >/dev/null && echo OK || echo NOK) != "OK" ]; then
+		echo "WARNING: unable to find mailq command in \$PATH"
+		return
+	fi
+
+	MAILQ=$(mailq | tail -n 1 | grep -i requests | awk '{print $5}')
+
+	if [ -n "$MAILQ" ]; then
+		if [ $MAILQ -gt $MAILQ_WARNING ]; then
+#			REPORT=$REPORT"WARNING: mail queue size warning $MAILQ > $MAILQ_WARNING\n"
+			report "WARNING: mail queue size warning $MAILQ > $MAILQ_WARNING"
+		fi
+	fi
+}
+
+# Check NTP status
+function check_ntp() {
+	test $CHECK_NTP != "YES" && NTPSTATUS=" " && return
+
+	if [ $(which ntpq 2>/dev/null >/dev/null && echo OK || echo NOK) != "OK" ]; then
+		echo "WARNING: unable to find ntpq command in \$PATH"
+		return
+	fi
+
+	NTP=$(ntpq -p 2>/dev/null | egrep -v '===|remote|^ ' | sed -e 's/^\(.\).*/\1/' | tr -d '\n')
+	if [ $(echo "$NTP" | grep -c '\*') -eq 0 ]; then
+		test -z "$NTP" && NTPSTATUS=$(red "x") || NTPSTATUS=$(red "$NTP")
+		report "WARNING: NTP synchronization lost"
+		if [ -n "${NTP_PROBLEM_EXEC}" ]; then
+			report "WARNING: executing command: \"$NTP_PROBLEM_EXEC\""
+			report "--->%---"
+			report "$($NTP_PROBLEM_EXEC 2>&1)"
+			report "--->%---"
+		fi
+	else
+		NTPSTATUS=$(green "$NTP")
+	fi
+}
+
+#
+# Generate mount point table usage limits from /etc/fstab file
+# If Warning or Critical mimits are not set user GLOBAL settings
+#
+function gen_mount_point_table() {
+
+	if [ ! -e ${PARTITION_TABLE} ]; then
+
+		# Exclude list : '#' comments and blacklisted filesystems
+		FSTAB=$(egrep -v '^#|^ .*#|[[:space:]]proc[[:space:]]|[[:space:]]debugfs[[:space:]]|[[:space:]]swap[[:space:]]|[[:space:]]devpts[[:space:]]|[[:space:]]sysfs[[:space:]]|[[:space:]]tmpfs[[:space:]]' < /etc/fstab | awk '{print($2)}')
+		# Generate header
+		echo "# Mount point   usage limit Warn [%] Critical [%]" > ${PARTITION_TABLE}
+	
+		for PARTITION in $FSTAB; do
+			printf "%-28s   %s       %s\n" ${PARTITION} ${DISK_USAGE_WARNING} ${DISK_USAGE_CRITICAL} >> ${PARTITION_TABLE}
+		done
+	fi
+}
+
+# display usage
+function usage {
+	echo "Usage: motdstat OPTIONS"
+
+	echo "    -g, --generate    Check system status and generate it to $MOTD file"
+	echo "    -s, --status      Show limited content of MOTD file"
+	echo "    -v, --version     Display information about motdstat version and author"
+	exit 0
+}
+
+#
+# Main program
+# 
+
+
+# Read the configuration file
+if [ -e $CONFIGFILE ]; then 
+	set_default_values
+	. $CONFIGFILE
+else
+	echo "Error: configuration file $CONFIGFILE not found"
+	exit 1
+fi
+
+case $1 in
+	-g|--generate)
+	;;
+
+	-s|--status)
+		test -e $MOTD && cat $MOTD
+		exit 0
+	;;
+
+	-v|--version)
+		echo "motdstat version $VERSION"
+		echo "Author: Krigler Pavol, e-mail: motdstat@gelogic.net"
+		exit 0
+	;;
+	*)
+		usage
+	;; 
+esac
+
+# Generate mount point table usage limits from /etc/fstab file
+gen_mount_point_table
+
+# Create e-mail REPORT header
+REPORT="System report\n=============\nHost: ${HOSTNAME}\nDate: $(date)\n"
+
+# Get disk statistics
+disk
+
+# Get memorty statistics
+memory
+
+# Check local network service
+checkservices
+
+# Check local running processes
+checkprocess
+
+# Join all output to multiple columns
+join
+
+# Check the mailq
+check_mailq
+
+# Check NTP status
+check_ntp
+
+# Create MOTD system status header
+load
+echo_center "${HOSTNAME}${NTPSTATUS} > status at $(date +"%R") > ${LOAD_REPORT}" bold > $MOTD
+
+echo >> $MOTD
+
+paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC | head -n $MAX_ROWS_LIMIT | cat /etc/motds32/Stats32.txt   >> $MOTD
+
+# Full report
+paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC  | cat /etc/motds32/Stats32.txt > $MOTD.full
+
+echo >> $MOTD
+
+# Append original MOTD from /etc/motd.orig file if exists
+if [ -s ${MOTD}.orig ]; then
+	echo_center "--- Message Of The Day --- (from /etc/motd.orig file) ---" >> $MOTD
+	echo >> $MOTD
+	cat ${MOTD}.orig >> $MOTD
+fi
+
+# Create statistics directory 
+test ! -e $STATS_DIR && mkdir -p $STATS_DIR
+
+# Check if server has rebooted (current uptime < stored uptime
+if [ -s $STATS_DIR/uptime ]; then
+	if [ $(cut -d '.' -f 1 < /proc/uptime) -lt $(cat $STATS_DIR/uptime) ]; then
+		report "CRITICAL: System has rebooted."
+	fi
+fi
+
+# Update uptime statistics
+test -e /proc/uptime && cut -d '.' -f 1 < /proc/uptime > $STATS_DIR/uptime
+
+
+# Removing temporary files
+rm -f ${COLL_PROC} ${COLL_PROC}.tmp
+rm -f ${COLL_MEM} ${COLL_MEM}.tmp
+rm -f ${COLL_DISK} ${COLL_DISK}.tmp
+rm -f ${COLL_EMPTY}
+
+if [ ! -z "$EMAIL" ]; then
+
+	# Check if mail command is present in $PATH
+	if [ $(which mail 2>/dev/null >/dev/null && echo OK || echo NOK) != "OK" ]; then
+		echo "WARNING: unable to find mail command in \$PATH"
+	else
+		if [ ! -z "$(echo -e "$REPORT" | egrep -i "warning:|critical:")" ]; then
+			echo -e "$REPORT" | mail "$EMAIL" -s "MOTDstat alert"
+		fi
+	fi
+fi

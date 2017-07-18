@@ -1,0 +1,43 @@
+2017-07-17
+        motdstat 0.0.4 become MOTDs32 0.0.5
+        - NEW features: add info  
+	- IP
+	- Hostname with figlet (auto install)
+	- Show who is connected with SSH 
+	- ADD show numbers of process
+ 
+2014-07-17
+        motdstat 0.0.4
+	- FEATURE: autodiscovery of "netservice" and "process" configuration files 
+                   from running network services and processes. (thanks to 
+                   Bongermino Björ)
+        - FEATURE: checking if the "mail" command is installed
+        - FIXED: hostname detection. Instead of using 'hostname -f' the $HOSTNAME variable is used
+	- FIXED: '\n' in syslog messages
+
+2013-02-13
+	motdstat 0.0.3
+	- FIXED: gaps/spaces in ntp status
+	- FIXED: swapped yellow/red colors in "Disk Status" column header
+	- FEATURE: e-mail notification on system reboot
+	- FEATURE: custom executable commands for Load, Memory, NTP and SWAP tresholds
+	- FEATURE: custom configurable partition usage (auto-create from /etc/fstab)
+	- FEATURE: customizable sending messages to local syslog
+
+2012-10-20
+	motdstat 0.0.2
+	- fixed: checking if /etc/motd file exists
+	- fixed: displaying correct swap usage value in instead of swap total value in kb
+	- fixed: a couple of typo fixes
+	- fixed: deleting temporary files .motdstat_mail_$$ in temporary directory /tmp
+	- fixed: handling stderr message(s) when checking ntp status using ntpq command
+	- fixed: e-mail notification sending when ntp synchronization was lost
+	- fixed: installation makefile overwrite already installed config files
+	- changed "swap:" instead of "swaptotal:" in memory column
+	- changed "memory:" instead of "memtotal:" in memory column
+ 	- displaying real memory usage instead of total memory
+	- updated readme documentation file
+
+2012-08-14 
+	motdstat 0.0.1
+	- initial release

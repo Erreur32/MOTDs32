@@ -1,0 +1,33 @@
+figlet $(hostname)
+echo "$SHELL ==> $USER"
+echo -e '\e[1;30m'; w
+echo -e "\033[0m"
+
+[ -r /etc/lsb-release ] && . /etc/lsb-release
+
+if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
+        # Fall back to using the very slow lsb_release utility
+        DISTRIB_DESCRIPTION=$(lsb_release -s -d)
+fi
+
+printf  "\033[5m%s (%s).\n" "$DISTRIB_DESCRIPTION" "$(uname -r)"
+echo -e "\033[5mKernel Info:   " `uname -smr`;
+### bash version + user
+#echo -e "\033[5m  $SHELL ${BASH_VERSION%.*} $BASH_VERSION \n `ps -p $$`  "    "\e[0m"
+echo -e  "\e[0m"
+### stats
+load=`cat /proc/loadavg | awk '{print $1}'`
+root_usage=`df -h / | awk '/\// {print $(NF-1)}'`
+memory_usage=`free -m | awk '/Mem:/ { total=$2 } /buffers\/cache/ { used=$3 } END { printf("%3.1f%%", used/total*100)}'`
+swap_usage=`free -m | awk '/Swap/ { printf("%3.1f%%", "exit !$2;$3/$2*100") }'`
+users=`users | wc -w`
+time=`uptime | grep -ohe 'up .*' | sed 's/,/\ hours/g' | awk '{ printf $2" "$3 }'`
+processes=`ps aux | wc -l`
+ip=`ifconfig $(route | grep default | awk '{ print $8 }') | awk /'inet adr/ {print $2}' | awk -F: '{print $2}'`
+printf "%s-----------\t---\t------------\t----------\n"
+printf "System load :\t%s\tIP Address:\t%s\n" $load $ip
+printf "Memory usage:\t%s\tSystem uptime:\t%s\n" $memory_usage "$time"
+printf "Usage on /  :\t%s\tSwap usage:\t%s\n" $root_usage $swap_usage
+printf "Local Users :\t%s\tProcesses:\t%s\n" $users $processes
+printf "%s-----------\t---\t------------\t----------\n"
+echo -ne "\n \e[93m "; date ; echo -e "\e[0m"

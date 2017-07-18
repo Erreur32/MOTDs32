@@ -1,0 +1,67 @@
+MOTDs32 installation instructions
+==================================
+
+Original project:
+http://www.gelogic.net/
+
+(2017) New Custom project MOTDs32
+https://motds32.echosystem.fr
+
+
+,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
+|   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
+|  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' <  .-' .'
+|  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
+`--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
+
+	   |  +	Ｓｔａｔｓ３２   |
+
+
+
+System requirements
+===================
+     o Unix/Linux operating system with bash
+
+
+Installation instructions
+=========================
+
+      As root execute THIS all-in-one command:
+
+           ./Install.sh
+
+
+###  OLD way 
+     
+     1. try this  
+        
+         # make install
+
+     2. Add following lines to /etc/crontab as root (5 minut refresh interval)
+         
+	# Message Of The Day - System Status
+	*/5 * * * *   root    /usr/bin/motds32 --generate
+
+     3. (Optional) Update the configuration files in /etc/motdstat directory
+
+
+Upgrade instructions
+====================
+
+     1. As root execute command:
+
+          # make install
+
+     2. (Optional) Update the configuration files in /etc/motds32 directory
+
+
+Uninstall instructions
+======================
+
+     1. As root execute command:
+         # make uninstall
+
+     2. As root remove the following lines from /etc/crontab
+
+	# Message Of The Day - System Status
+	*/5 * * * *   root    /usr/bin/motds32 --generate
