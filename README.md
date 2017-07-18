@@ -18,7 +18,7 @@ MOTDs32 installation instructions
 
 
 MOTDstat Documentation
-================================================================================
+===========================
 
 Original project:
 http://www.gelogic.net/ 
@@ -27,32 +27,7 @@ MOTDstat will dynamicaly generate the /etc/motd file with current
 information about system resources and usage. Using crontab the script will 
 periodically display status of system resources and services. The original 
 message of the day is now stored in /etc/motd.orig file.
-     By configuring e-mail address you'll receive the notifications about 
-following issues:
 
-    o high CPU load (configurable warning/critical limits)
-	o exceeding disk space (configurable warning/critical limits on 
-          partitions)
-	o intensive usage of SWAP space (configurable warning/critical limits)
-	o specific process is not runnig
-	o specific local network service is not running 
-	o NTP is not synchronized with network peer(s) (ntpq is required)
-	o too many e-mails in mail queue (mailq is required)
-        o system reboot
-
-
-     The system status report is organized into three columns:
-
-	o 1st column contains information about partition(s) free space and 
-          usage in percentage.
-        o 2nd column will display information about used memory and SWAP space
-        o 3rd column will monitor running processes and local network services
-
-     You are able to modify the disk space warning and critical limits per 
-mounted filesystem. First time you run the MOTDstat, the fstab_limits file will 
-be generated with default warning and critical limit. You can setup the limits
-by your needs. If some partition is not mounted, the notification e-mail will 
-be send.
 
 
 INSTALLATION: 
