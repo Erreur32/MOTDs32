@@ -18,7 +18,7 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo "Yes let's go" ;    apt-get install -y  ntp figlet 
+    echo "Yes let's go" ;  apt-get install -y  ntp figlet; make install 
 else
     echo "No continue without";  make install 
 
