@@ -1,10 +1,12 @@
 2017-07-17
         motdstat 0.0.4 become MOTDs32 0.0.5
-        - NEW features: add info  
-	- IP
+        - NEW features: add more info  
+	- IP ...
 	- Hostname with figlet (auto install)
 	- Show who is connected with SSH 
 	- ADD show numbers of process
+	- ...
+	- need to finish the changelog :P
  
 2014-07-17
         motdstat 0.0.4
