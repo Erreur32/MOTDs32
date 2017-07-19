@@ -1,7 +1,8 @@
+
 [![coverage report](https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg)](https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master)
 
-MOTDs32 installation instructions
-==================================
+### MOTDs32 installation instructions
+ 
 
  (2017) New project MOTDs32 by Erreur32
 
@@ -17,36 +18,47 @@ MOTDs32 installation instructions
 
 
 
-MOTDstat Documentation
-===========================
+## MOTDs32 Documentation:
+ 
 
 Original project:
 http://www.gelogic.net/ 
 
-MOTDstat will dynamicaly generate the /etc/motd file with current 
-information about system resources and usage. Using crontab the script will 
-periodically display status of system resources and services. The original 
-message of the day is now stored in /etc/motd.orig file.
+   MOTDs32 is a fork of the excelent MOTDstat !
+  
+  Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage
+  
+ Using crontab the script will periodically display status of system resources and services. 
+ 
+ The original message of the day is now stored in /etc/motd.orig file.
 
+ Everytime you connect throught the SSH you will see some informations (customisable).
+ 
+ See the example
+ 
+---
 
+[toc] 
 
-INSTALLATION: 
-============
+ 
+## INSTALLATION: 
+ 
  (git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git)
  
- type in the directory: 
+ type inside the directory: 
        
        ./Install.sh
  
- UPDATE:
+ ## UPDATE:
  ======
 
     cd /PATH/MOTDs32
     git pull
 
 
-Customisation:
-=============
+
+## Customisation:
+ 
 When you want MOTD to be displayed while logging via SSH client you will
 have to change setting on the SSH daemon as following: /etc/ssh/sshd_config
 
@@ -57,8 +69,9 @@ have to change setting on the SSH daemon as following: /etc/ssh/sshd_config
 To apply the changes, restart the SSH server daemon.
 
 
-Sample MOTDstat report
-======================
+
+## Sample  MOTD32 report
+
 
 ```
 00:03:47 19/07 root@echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
@@ -107,10 +120,10 @@ Local Users :   3       Processes:      286
 -----------     ---     ------------    ----------
 
   mercredi 19 juillet 2017, 00:05:44 (UTC+0200)
+```
 
 
-
-
+```
 Explanation of the report
 -------------------------
 
@@ -122,5 +135,56 @@ Explanation of the report
 hosting.gelogic.net*+ > status at 19:15 > 5min load is 1.06 on 4 cpu(s)
 ```
 
+ 
+## working progress diagram
 
+```mermaid
+gantt
+    dateFormat  YYYY-MM-DD
+    title  GANTT diagram  
+
+    section A section
+    Completed task            :done,    des1, 2014-01-06,2014-01-08
+    Active task               :active,  des2, 2014-01-09, 3d
+    Future task               :         des3, after des2, 5d
+    Future task2               :         des4, after des3, 5d
+
+    section Critical tasks
+    Completed task in the critical line :crit, done, 2014-01-06,24h
+    Implement parser and jison          :crit, done, after des1, 2d
+    Create tests for parser             :crit, active, 3d
+    Future task in critical line        :crit, 5d
+    Create tests for renderer           :2d
+    Add to mermaid                      :1d
+
+    section Documentation
+    Describe gantt syntax               :active, a1, after des1, 3d
+    Add gantt diagram to demo page      :after a1  , 20h
+    Add another diagram to demo page    :doc1, after a1  , 48h
+
+    section Last section
+    Describe gantt syntax               :after doc1, 3d
+    Add gantt diagram to demo page      : 20h
+    Add another diagram to demo page    : 48h
 ```
+
+ 
+
+## Author
+
+::: success
+ by 🅴🆁🆁🅴🆄🆁32
+:::
+
+ 
+
+::: warning
+  Hosted on
+:::
+
+
+
+::: info
+🅴🅲🅷🔵🆂🆈🆂🆃🅴🅼
+:::
+ 
