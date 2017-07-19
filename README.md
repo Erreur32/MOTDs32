@@ -40,7 +40,7 @@
 <p data-source-line="30">Using crontab the script will periodically display status of system resources and services.</p>
 <p data-source-line="32">The original message of the day is now stored in /etc/motd.orig file.</p>
 <p data-source-line="34">Everytime you connect throught the SSH you will see some informations (customisable).</p>
-<p data-source-line="37"><a href="https://tools.echosystem.fr/Markdown-Tools/markdown-plus/#sample-motd32-report">See  example</a></p>
+<p data-source-line="37"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/README.md#sample-motd32-report">See  example</a></p>
 <hr>
 <h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>INSTALLATION:</h2>
 <p data-source-line="46">(git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a>)</p>
