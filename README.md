@@ -47,7 +47,9 @@
 <p data-source-line="48">type inside the directory:</p>
 <pre data-source-line="50"><code class="hljs">./Install.sh</code></pre><h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
 <pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
-git pull</code></pre><h2 id="customisation" data-source-line="60"><a class="anchor" href="#customisation"><span class="octicon octicon-link"></span></a>Customisation:</h2>
+git pull</code></pre>
+
+
  
 <hr>
 <h2 id="sample-motd32-report" data-source-line="74"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link"></span></a>Sample  MOTD32 report</h2>
