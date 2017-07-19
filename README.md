@@ -48,11 +48,7 @@
 <pre data-source-line="50"><code class="hljs">./Install.sh</code></pre><h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
 <pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
 git pull</code></pre><h2 id="customisation" data-source-line="60"><a class="anchor" href="#customisation"><span class="octicon octicon-link"></span></a>Customisation:</h2>
-<p data-source-line="62">When you want MOTD to be displayed while logging via SSH client you will
-have to change setting on the SSH daemon as following: /etc/ssh/sshd_config</p>
-<pre data-source-line="65"><code class="hljs">~snip~
-PrintMotd yes
-~snip~</code></pre><p data-source-line="69">To apply the changes, restart the SSH server daemon.</p>
+ 
 <hr>
 <h2 id="sample-motd32-report" data-source-line="74"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link"></span></a>Sample  MOTD32 report</h2>
 <pre data-source-line="77"><code class="hljs">00:03:47 19/07 root@echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
