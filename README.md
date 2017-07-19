@@ -48,14 +48,14 @@
  
 After the installation completed you can check all command with: /usr/bin/motds32
 <pre data-source-line="50"><code class="hljs">
-```  
+  
 /usr/bin/motds32
 Usage: motds32 OPTIONS
     -g, --generate    Check system status and generate it to /etc/motd file
     -s, --status      Show limited content of MOTD file
     -v, --version     Display information about motds32 version and author
     -c, --check  Check stats motd file
-```   
+ 
 
  </code></pre>
 <h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
