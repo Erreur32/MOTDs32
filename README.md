@@ -1,4 +1,4 @@
-<article class="markdown-body" id="preview" style="padding-bottom: 1172px;"><p data-source-line="2"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master"><img src="https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg" alt="coverage report"></a></p>
+<article><p data-source-line="2"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master"><img src="https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg" alt="coverage report"></a></p>
 <p data-source-line="6">(2017) New project MOTDs32 by Erreur32</p>
 <p data-source-line="8"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32">https://gitlab.echosystem.fr/Erreur32/MOTDs32</a></p>
 <pre data-source-line="10"><code class="hljs">,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
@@ -44,12 +44,14 @@
 <p data-source-line="48">type inside the directory:</p>
 <pre data-source-line="50"><code class="hljs">./Install.sh</code></pre>
 <pre data-source-line="50"><code class="hljs">FINISH !!!</code></pre>
+<code> 
+If you want to check MANUALY,
 
-If you want to check MANUALY, try this command: **/usr/bin/motds32**
+try this command: /usr/bin/motds32
  
 
 Full automated script.
-
+</code>
 <pre data-source-line="50"><code class="hljs">  
 /usr/bin/motds32
 Usage: motds32 OPTIONS
