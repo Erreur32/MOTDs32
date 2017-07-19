@@ -19,8 +19,6 @@
     <a href="#update">UPDATE:</a>
   </li>
   <li>
-  
-  <li>
     <a href="#sample-motd32-report">Sample  MOTD32 report</a>
   </li>
   <li>
