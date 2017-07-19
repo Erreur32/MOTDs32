@@ -1,82 +1,64 @@
-[![coverage report](https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg)](https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master)
+<article class="markdown-body" id="preview" style="padding-bottom: 1172px;"><p data-source-line="2"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master"><img src="https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg" alt="coverage report"></a></p>
+<p data-source-line="6">(2017) New project MOTDs32 by Erreur32</p>
+<p data-source-line="8"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32">https://gitlab.echosystem.fr/Erreur32/MOTDs32</a></p>
+<pre data-source-line="10"><code class="hljs">,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
+|   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
+|  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' &lt;  .-' .'
+|  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
+`--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 
-
-
- (2017) New project MOTDs32 by Erreur32
-
-   https://gitlab.echosystem.fr/Erreur32/MOTDs32
-
-    ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
-    |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
-    |  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' <  .-' .'
-    |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
-    `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
-
-	          |  +	Ｓｔａｔｓ３２   |
-
-[toc] 
-
-## MOTDs32 Documentation:
- 
-
-Original project:
-http://www.gelogic.net/ 
-
-   MOTDs32 is a fork of the excelent MOTDstat !
-  
-  Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage
-  
- Using crontab the script will periodically display status of system resources and services. 
- 
- The original message of the day is now stored in /etc/motd.orig file.
-
- Everytime you connect throught the SSH you will see some informations (customisable).
- 
- 
- [See  example](https://tools.echosystem.fr/Markdown-Tools/markdown-plus/#sample-motd32-report)
- 
----
-
-
-
- 
-## INSTALLATION: 
- 
- (git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git)
- 
- type inside the directory: 
-       
-       ./Install.sh
- 
- ## UPDATE:
- ======
-
-    cd /PATH/MOTDs32
-    git pull
-
-
-
-## Customisation:
- 
-When you want MOTD to be displayed while logging via SSH client you will
-have to change setting on the SSH daemon as following: /etc/ssh/sshd_config
-
-	~snip~
-	PrintMotd yes
-	~snip~
-
-To apply the changes, restart the SSH server daemon.
-
-
-
-## Sample  MOTD32 report
-
-
-```
-00:03:47 19/07 root@echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
+          |  +	Ｓｔａｔｓ３２   |</code></pre><p data-source-line="18">
+</p><ul class="toc">
+  <li>
+    <a href="#motds32-documentation">MOTDs32 Documentation:</a>
+  </li>
+  <li>
+    <a href="#installation">INSTALLATION:</a>
+  </li>
+  <li>
+    <a href="#update">UPDATE:</a>
+  </li>
+  <li>
+    <a href="#customisation">Customisation:</a>
+  </li>
+  <li>
+    <a href="#sample-motd32-report">Sample  MOTD32 report</a>
+  </li>
+  <li>
+    <a href="#explanation-of-the-report">Explanation of the report</a>
+  </li>
+  <li>
+    <a href="#author">Author</a>
+  </li>
+</ul>
+<p></p>
+<h2 id="motds32-documentation" data-source-line="20"><a class="anchor" href="#motds32-documentation"><span class="octicon octicon-link"></span></a>MOTDs32 Documentation:</h2>
+<p data-source-line="23">Original project:
+<a href="http://www.gelogic.net/">http://www.gelogic.net/</a></p>
+<p data-source-line="26">MOTDs32 is a fork of the excelent MOTDstat !</p>
+<p data-source-line="28">Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage</p>
+<p data-source-line="30">Using crontab the script will periodically display status of system resources and services.</p>
+<p data-source-line="32">The original message of the day is now stored in /etc/motd.orig file.</p>
+<p data-source-line="34">Everytime you connect throught the SSH you will see some informations (customisable).</p>
+<p data-source-line="37"><a href="https://tools.echosystem.fr/Markdown-Tools/markdown-plus/#sample-motd32-report">See  example</a></p>
+<hr>
+<h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>INSTALLATION:</h2>
+<p data-source-line="46">(git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a>)</p>
+<p data-source-line="48">type inside the directory:</p>
+<pre data-source-line="50"><code class="hljs">./Install.sh</code></pre><h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
+<p data-source-line="53">======</p>
+<pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
+git pull</code></pre><h2 id="customisation" data-source-line="60"><a class="anchor" href="#customisation"><span class="octicon octicon-link"></span></a>Customisation:</h2>
+<p data-source-line="62">When you want MOTD to be displayed while logging via SSH client you will
+have to change setting on the SSH daemon as following: /etc/ssh/sshd_config</p>
+<pre data-source-line="65"><code class="hljs">~snip~
+PrintMotd yes
+~snip~</code></pre><p data-source-line="69">To apply the changes, restart the SSH server daemon.</p>
+<h2 id="sample-motd32-report" data-source-line="73"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link"></span></a>Sample  MOTD32 report</h2>
+<pre data-source-line="76"><code class="hljs">00:03:47 19/07 root@echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
 
 motds32 check motd file
-        echosystem.fr  > status at 00:03 > 5min load is 0.75 on 8 cpu(s)
+        echosystem.fr  &gt; status at 00:03 &gt; 5min load is 0.75 on 8 cpu(s)
 
       Disk status        |      Memory status       |     Service status
 partition      free  usg | Memory      used kB  [%] | service(s)        (count)
@@ -100,7 +82,7 @@ partition      free  usg | Memory      used kB  [%] | service(s)        (count)
 |  __/ (__| | | | (_) \__ \ |_| \__ \ ||  __/ | | | | |_|  _| |
  \___|\___|_| |_|\___/|___/\__, |___/\__\___|_| |_| |_(_)_| |_|
                            |___/
-/bin/bash ==> root
+/bin/bash ==&gt; root
 
  00:05:44 up 64 days,  5:35,  3 users,  load average: 1,18, 0,84, 0,70
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
@@ -118,14 +100,8 @@ Usage on /  :   68%     Swap usage:     0.0%
 Local Users :   3       Processes:      286
 -----------     ---     ------------    ----------
 
-  mercredi 19 juillet 2017, 00:05:44 (UTC+0200)
-```
-
-
-## Explanation of the report
-
-```
-Explanation of the report
+  mercredi 19 juillet 2017, 00:05:44 (UTC+0200)</code></pre><h2 id="explanation-of-the-report" data-source-line="126"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link"></span></a>Explanation of the report</h2>
+<pre data-source-line="128"><code class="hljs">Explanation of the report
 -------------------------
 
    system hostname              report time        system load
@@ -133,27 +109,14 @@ Explanation of the report
          |      NTP status          |                   |  Number of CPU(s)
          |         |                |                   |      |
          V         V                V                   V      V                  
-hosting.gelogic.net*+ > status at 19:15 > 5min load is 1.06 on 4 cpu(s)
-```
-
- 
-
-
-## Author
-
-::: success
- by 🅴🆁🆁🅴🆄🆁32
-:::
-
- 
-
-::: warning
-  Hosted on
-:::
-
-
-
-::: info
-🅴🅲🅷🔵🆂🆈🆂🆃🅴🅼
-:::
- 
+hosting.gelogic.net*+ &gt; status at 19:15 &gt; 5min load is 1.06 on 4 cpu(s)</code></pre><h2 id="author" data-source-line="143"><a class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+<div class="success" data-source-line="145">
+<p>by 🅴🆁🆁🅴🆄🆁32</p>
+</div>
+<div class="warning" data-source-line="151">
+<p>Hosted on</p>
+</div>
+<div class="info" data-source-line="157">
+<p>🅴🅲🅷🔵🆂🆈🆂🆃🅴🅼</p>
+</div>
+</article>
