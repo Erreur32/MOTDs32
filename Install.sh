@@ -11,6 +11,7 @@
 # original project: Pavol Krigler <pavol.krigler@gelogic.net>
 #
 
+clear;
 
 echo -n "Do you wish to install the missing package before (y/n)?  --> apt-get install ntp figlet"
 old_stty_cfg=$(stty -g)
