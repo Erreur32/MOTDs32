@@ -19,8 +19,7 @@
     <a href="#update">UPDATE:</a>
   </li>
   <li>
-    <a href="#customisation">Customisation:</a>
-  </li>
+  
   <li>
     <a href="#sample-motd32-report">Sample  MOTD32 report</a>
   </li>
@@ -45,7 +44,18 @@
 <h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>INSTALLATION:</h2>
 <p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
 <p data-source-line="48">type inside the directory:</p>
-<pre data-source-line="50"><code class="hljs">./Install.sh</code></pre><h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
+<pre data-source-line="50"><code class="hljs">./Install.sh</code></pre>
+After the installation completed you can check all command with:
+```     /usr/bin/motds32
+Usage: motds32 OPTIONS
+    -g, --generate    Check system status and generate it to /etc/motd file
+    -s, --status      Show limited content of MOTD file
+    -v, --version     Display information about motds32 version and author
+    -c, --check  Check stats motd file
+```   
+
+<pre data-source-line="50"><code class="hljs">./Install.sh</code></pre>
+<h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
 <pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
 git pull</code></pre>
 
