@@ -48,7 +48,6 @@
 If you want to check MANUALY,
 
 try this command: /usr/bin/motds32
- 
 
 Full automated script.
 </code>
@@ -61,7 +60,12 @@ Usage: motds32 OPTIONS
     -c, --check  Check stats motd file
 </code></pre>
 
-You can see the result with : cat /etc/motd or usr/bin/motds32 -c
+You can see the result with :
+
+<code>cat /etc/motd</code> 
+<br>or
+<br>
+<code>usr/bin/motds32 -c</code>
 
 <h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
 <pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
