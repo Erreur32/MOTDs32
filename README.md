@@ -45,12 +45,12 @@
 <p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
 <p data-source-line="48">type inside the directory:</p>
 <pre data-source-line="50"><code class="hljs">./Install.sh</code></pre>
- 
-After the installation completed you can check MANUALLY all commands with: **/usr/bin/motds32**
- 
-You don't need to do anythink !!
+<pre data-source-line="50"><code class="hljs">FINISH !!!</code></pre>
 
-Full automation script.
+If you want to check MANUALY, try this command: **/usr/bin/motds32**
+ 
+
+Full automated script.
 
 <pre data-source-line="50"><code class="hljs">  
 /usr/bin/motds32
