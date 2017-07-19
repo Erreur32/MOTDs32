@@ -46,18 +46,23 @@
 <p data-source-line="48">type inside the directory:</p>
 <pre data-source-line="50"><code class="hljs">./Install.sh</code></pre>
  
-After the installation completed you can check all command with: /usr/bin/motds32
-<pre data-source-line="50"><code class="hljs">
-  
+After the installation completed you can check MANUALLY all commands with: **/usr/bin/motds32**
+ 
+You don't need to do anythink !!
+
+Full automation script.
+
+<pre data-source-line="50"><code class="hljs">  
 /usr/bin/motds32
 Usage: motds32 OPTIONS
     -g, --generate    Check system status and generate it to /etc/motd file
     -s, --status      Show limited content of MOTD file
     -v, --version     Display information about motds32 version and author
     -c, --check  Check stats motd file
- 
+</code></pre>
 
- </code></pre>
+You can see the result with : cat /etc/motd or usr/bin/motds32 -c
+
 <h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
 <pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
 git pull</code></pre>
@@ -66,7 +71,9 @@ git pull</code></pre>
  
 <hr>
 <h2 id="sample-motd32-report" data-source-line="74"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link"></span></a>Sample  MOTD32 report</h2>
-<pre data-source-line="77"><code class="hljs">00:03:47 19/07 root@echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
+<pre data-source-line="77"><code class="hljs">00:03:47 19/07  @echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
+ 
+--------------------------------------------------
 
 motds32 check motd file
         echosystem.fr  &gt; status at 00:03 &gt; 5min load is 0.75 on 8 cpu(s)
