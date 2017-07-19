@@ -46,7 +46,6 @@
 <p data-source-line="46">(git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a>)</p>
 <p data-source-line="48">type inside the directory:</p>
 <pre data-source-line="50"><code class="hljs">./Install.sh</code></pre><h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
-<p data-source-line="53">======</p>
 <pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
 git pull</code></pre><h2 id="customisation" data-source-line="60"><a class="anchor" href="#customisation"><span class="octicon octicon-link"></span></a>Customisation:</h2>
 <p data-source-line="62">When you want MOTD to be displayed while logging via SSH client you will
@@ -54,8 +53,9 @@ have to change setting on the SSH daemon as following: /etc/ssh/sshd_config</p>
 <pre data-source-line="65"><code class="hljs">~snip~
 PrintMotd yes
 ~snip~</code></pre><p data-source-line="69">To apply the changes, restart the SSH server daemon.</p>
-<h2 id="sample-motd32-report" data-source-line="73"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link"></span></a>Sample  MOTD32 report</h2>
-<pre data-source-line="76"><code class="hljs">00:03:47 19/07 root@echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
+<hr>
+<h2 id="sample-motd32-report" data-source-line="74"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link"></span></a>Sample  MOTD32 report</h2>
+<pre data-source-line="77"><code class="hljs">00:03:47 19/07 root@echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
 
 motds32 check motd file
         echosystem.fr  &gt; status at 00:03 &gt; 5min load is 0.75 on 8 cpu(s)
@@ -100,8 +100,8 @@ Usage on /  :   68%     Swap usage:     0.0%
 Local Users :   3       Processes:      286
 -----------     ---     ------------    ----------
 
-  mercredi 19 juillet 2017, 00:05:44 (UTC+0200)</code></pre><h2 id="explanation-of-the-report" data-source-line="126"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link"></span></a>Explanation of the report</h2>
-<pre data-source-line="128"><code class="hljs">Explanation of the report
+  mercredi 19 juillet 2017, 00:05:44 (UTC+0200)</code></pre><h2 id="explanation-of-the-report" data-source-line="127"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link"></span></a>Explanation of the report</h2>
+<pre data-source-line="129"><code class="hljs">Explanation of the report
 -------------------------
 
    system hostname              report time        system load
@@ -109,14 +109,14 @@ Local Users :   3       Processes:      286
          |      NTP status          |                   |  Number of CPU(s)
          |         |                |                   |      |
          V         V                V                   V      V                  
-hosting.gelogic.net*+ &gt; status at 19:15 &gt; 5min load is 1.06 on 4 cpu(s)</code></pre><h2 id="author" data-source-line="143"><a class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
-<div class="success" data-source-line="145">
+hosting.gelogic.net*+ &gt; status at 19:15 &gt; 5min load is 1.06 on 4 cpu(s)</code></pre><h2 id="author" data-source-line="144"><a class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
+<div class="success" data-source-line="146">
 <p>by 🅴🆁🆁🅴🆄🆁32</p>
 </div>
-<div class="warning" data-source-line="151">
+<div class="warning" data-source-line="152">
 <p>Hosted on</p>
 </div>
-<div class="info" data-source-line="157">
+<div class="info" data-source-line="158">
 <p>🅴🅲🅷🔵🆂🆈🆂🆃🅴🅼</p>
 </div>
 </article>
