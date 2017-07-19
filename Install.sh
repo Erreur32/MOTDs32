@@ -24,6 +24,10 @@ else
 
 fi
 
+##INstall command in bashrc
+
+echo "cat /etc/motd" >> /root/.bashrc 
+
 
 ### Insdtall modules
 #mkdir /etc/motds32
