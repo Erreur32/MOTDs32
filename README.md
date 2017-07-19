@@ -43,7 +43,7 @@
 <p data-source-line="37"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/README.md#sample-motd32-report">See  example</a></p>
 <hr>
 <h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>INSTALLATION:</h2>
-<p data-source-line="46">(git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a>)</p>
+<p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
 <p data-source-line="48">type inside the directory:</p>
 <pre data-source-line="50"><code class="hljs">./Install.sh</code></pre><h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
 <pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
