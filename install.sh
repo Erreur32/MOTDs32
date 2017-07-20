@@ -103,7 +103,7 @@ stty raw -echo
 answer2=$( while ! head -c 2 | grep -i '[ny]' ;do true ;done )
 stty $old2_stty_cfg
   if echo "$answer2" | grep -iq "^y" ;then
-  echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  #make install
+  echo -e "\n1.\e[92m No apt-get required\e[0m Installation continue... \n";  #make install
  else
  exit 1
  fi
@@ -133,7 +133,7 @@ fi
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -e "\n\e[0m3.\e[92mMOTDs32 Installation completed!\e[0m  \n\n  Use: /usr/bin/motds32 for help\n"
+echo -e "\n\e[0m3. \e[92mMOTDs32 Installation completed!\e[0m  \n\n  Use: /usr/bin/motds32 for help\n"
 
 exit 0
 #EOF
