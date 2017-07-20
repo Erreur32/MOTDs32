@@ -36,7 +36,7 @@
  
 ## clean terminal 
 clear;
-echo "\n"
+echo -e "\n Checking..."
 
 ## Install command in bashrc
 echo "cat /etc/motd" >> /root/.bashrc 
