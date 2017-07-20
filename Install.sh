@@ -36,7 +36,7 @@
  
 ## clean terminal 
 clear;
-echo -e "\n Installation of MOTDs32 ion progress... "
+echo -e "\n Installation of MOTDs32 in progress... "
 
 ## Install command in bashrc
 echo "cat /etc/motd" >> /root/.bashrc 
