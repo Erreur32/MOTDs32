@@ -36,6 +36,25 @@
  
 ## clean terminal 
 clear;
+
+cat <<"EOF"
+
+        Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２  |  +  Ｓｔａｔｓ３２   |
+
+        ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
+        |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
+        |  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' ;  .-' .'
+        |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
+        `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
+
+   By  Ｅｒｒｅｕｒ３２
+
+# MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
+# about system status and usage.   
+
+EOF
+
+
 echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 
 ## Install command in bashrc
