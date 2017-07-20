@@ -45,7 +45,7 @@ echo "cat /etc/motd" >> /root/.bashrc
  
 if [ -f  "/etc/motds32/Stats32" ]
  then
-   echo -e "Stats32 already installed"
+   echo -e "  --> Stats32 already installed"
  else
    mkdir /etc/motds32;
    cp  Stats32 /etc/motds32/Stats32 -Rf
@@ -53,7 +53,7 @@ fi
 
 if [ -f  /usr/bin/motd ]
  then
-    echo -e "motd already installed"
+    echo -e "  --> motd already installed"
  else
    ln -s /usr/bin/motds32 /usr/bin/motd
    
