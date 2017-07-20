@@ -1,9 +1,11 @@
+(2017) New project 
+
+ 
+MOTDs32 Custom MOTD by Erreur32
+ 
 <article><p data-source-line="2"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master"><img src="https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg" alt="coverage report"></a></p>
  
- (2017) New project 
- 
- MOTDs32 by Erreur32
- 
+  
 <p data-source-line="8"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32">https://gitlab.echosystem.fr/Erreur32/MOTDs32</a></p>
 
 <pre data-source-line="10"><code class="hljs">
