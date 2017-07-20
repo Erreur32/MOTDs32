@@ -136,8 +136,8 @@ fi
 
 ## Generate first stats
 /usr/bin/motds32 -g
- 
-echo -e "\n\e[34m3. \e[92m echo -e "\n Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n  Use: /usr/bin/motds32 for help\n"
+
+echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n  Use: /usr/bin/motds32 for help\n"
 
 exit 0
 #EOF
