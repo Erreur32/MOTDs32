@@ -93,18 +93,15 @@ if echo "$answer" | grep -iq "^y" ;then
     echo -e "\n\e[92m apt-get installation \e[0m Succesfull  \n"
 else
 echo -e "\n Continue the script (y/n)? "
+stty raw -echo
 answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
  if echo "$answer2" | grep -iq "^y" ;then
     echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  make install
  else
   exit 1
  fi
- echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  make install
+
 fi
-
-
-
-echo -e "Make command inprogress"
 
 ## Install Crontab
 
@@ -116,11 +113,11 @@ $(crontab -l)
 ###
 FIN
 
-echo -e "2.\e[92m ROOT crontab\e[0m ADD (generation each 5 minutes)\n"
+echo -e "2.\e[92m crontab -e ROOT\e[0m ADD (generate each 5 minutes)\n"
 
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -e "\n3.\e[92mMOTDs32 Installation completed!\e[0m  \n  Use: /usr/bin/motds32 for any help\n"
+echo -e "\n3.\e[92mMOTDs32 Installation completed!\e[0m  \n  Use: /usr/bin/motds32 for help\n"
 
 #EOF 
