@@ -64,7 +64,9 @@ echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 
 ## Install command in bashrc
 
-
+echo -ne '\e[0m # (5%)\r'
+sleep 1
+echo -e "\n\n"
 
 if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
 then
@@ -76,9 +78,7 @@ else
 #sed -i '/cat \/etc\/motd/d' /root/.bashrc
 #echo -e "\e[92m Code .bashrc remove.\e[0m"
 fi
-echo -ne '\e[0m ##   (10%)\r'
-sleep 1
-echo -e "\n\n"
+
 ## Insdtall modules
 
 if [ -f  "/etc/motds32/Stats32" ]
