@@ -29,6 +29,9 @@ MOTDs32 Custom MOTD by Erreur32
   <li>
     <a href="#sample-motd32-report">Sample  MOTD32 report</a>
   </li>
+   <li>
+    <a href="https://echosystem.fr/termrec/MOTDs32.html">View   terminal screen result (slow and buggy .p)</a>
+  </li>
   <li>
     <a href="#explanation-of-the-report">Explanation of the report</a>
   </li>
@@ -142,8 +145,8 @@ Local Users :   3       Processes:      286
     echosystem.fr+-+  > status at 00:03 > 5min load is 0.75 on 8 cpu(s)</code></pre>
     
 
-View on termional screen the resultat:    
-<a class="anchor" href="#sample-motd32-report">https://echosystem.fr/termrec/MOTDs32.html</a>
+View on terminal screen the resultat:    
+<a class="anchor" href="https://echosystem.fr/termrec/MOTDs32.html">https://echosystem.fr/termrec/MOTDs32.html</a>
 
 <h2 id="author" data-source-line="144"><a class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
 <div class="success" data-source-line="146">
