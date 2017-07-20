@@ -1,28 +1,15 @@
 #!/bin/bash
 #
-# Author: Krigler Pavol
-# Version 0.0.4
+# MOTDs32 powered by Erreur32
+# Original Author: Krigler Pavol
+# Version 0.0.5
 #
 # MOTDs32 is dynamicaly refreshing the /etc/motd file with current informations
 # about system status and usage. 
 #
 # Copyright 2013 Pavol Krigler <pavol.krigler@gelogic.net>
 #
-# This file is part of MOTDs32.
-#
-#    MOTDs32 is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    MOTDs32 is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with MOTDs32.  If not, see <http://www.gnu.org/licenses/>.
-#mkdir /etc/motds32/
+
 
 /etc/motds32/Stats32  > /etc/motds32/Stats32.txt
 # Path to the configuration file
@@ -532,16 +519,7 @@ function gen_mount_point_table() {
 	fi
 }
 
-# display usage
-function usage {
-	echo "Usage: motds32 OPTIONS"
 
-	echo "    -g, --generate    Check system status and generate it to $MOTD file"
-	echo "    -s, --status      Show limited content of MOTD file"
-	echo "    -v, --version     Display information about motds32 version and author"
-	echo "    -m, --MOTDs32     See MOTD file now!"
-	exit 0
-}
 
 #
 # Main program
@@ -556,6 +534,17 @@ else
 	echo "Error: configuration file $CONFIGFILE not found"
 	exit 1
 fi
+
+# display usage
+function usage {
+	echo "Usage: motds32 OPTIONS"
+
+	echo "    -g, --generate    Check system status and generate it to $MOTD file"
+	echo "    -s, --status      Show limited content of MOTD file"
+	echo "    -v, --version     Display information about motds32 version and author"
+	echo "    -m, --MOTDs32     See MOTD file now!"
+	exit 0
+}
 
 case $1 in
 	-g|--generate)
@@ -573,7 +562,7 @@ case $1 in
 		exit 0
 	;;
 	 -m|--MOTDs32)
-                echo "motds32 check motd file"
+                echo "Read motds32 file"
                 cat /etc/motd
                 exit 0
         ;;
@@ -628,14 +617,13 @@ echo >> $MOTD
 
 # Append original MOTD from /etc/motd.orig file if exists
 if [ -s ${MOTD}.orig ]; then
-        echo_center "--- Message Of The Day --- (from /etc/motd.orig file) ---" >> $MOTD
-	echo >> $MOTD
+#   echo_center "--- Message Of The Day --- (from /etc/motd.orig file) ---" >> $MOTD
+#	echo >> $MOTD
 	cat ${MOTD}.orig >> $MOTD
 fi
 
 # Create statistics directory 
 test ! -e $STATS_DIR && mkdir -p $STATS_DIR
-#/etc/motds32/Stats32  > /etc/motds32/Stats32.txt
 
 # Check if server has rebooted (current uptime < stored uptime
 if [ -s $STATS_DIR/uptime ]; then
