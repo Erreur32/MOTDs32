@@ -1,6 +1,9 @@
 #!/bin/sh
 #
+# Stats32 script to generate some system infos.
+#
 
+## need figlet 
 figlet $(hostname)
 echo "$SHELL ==> $USER"
 echo -e '\e[1;30m'; w
