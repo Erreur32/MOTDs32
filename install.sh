@@ -91,11 +91,11 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m" ;  apt-get install -y  ntp figlet;
-    echo -e "\n\e[92m apt-get installation \e[0m Succesfull"
-    echo -e "\n start Makefile\n"
+    echo -e "\n1.\e[92m apt-get install \e[0m  ntp figlet \e[94m start\e[0m" ;  apt-get install -y  ntp figlet;
+    echo -e "\n\e[92mapt-get installation\e[0m Succesfull"
+    echo -e "\n Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２\n"
     make install
-    echo -e "\n Makefile \e[92m OK"
+    echo -e "\n Installation done, next.\e[92m OK"
 else
 echo -e "\nDo you want to continue this installation? (y/n)\n "
 old2_stty_cfg=$(stty -g)
@@ -112,9 +112,10 @@ fi
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
-echo -e "2.\e[92m Cron localized\n"
+echo -e "2.\e[92m Cron already added."
 else
-echo "*/5 * * * *   root  /usr/bin/motds32 -g 2>1" | crontab - 
+echo -e "2.\e[92m Cron added."
+(crontab -l ; echo "*/5 * * * *   root  /usr/bin/motds32 -g 2>1")| crontab -
 fi
 
 #crontab -l | grep -q '/usr/bin/motds32'  && echo 'entry exists' || echo -e "2.\e[92m Cron add ==> \e[0m */5 * * * *     /usr/bin/motds32 -g 2>1 \e[92m (generate each 5 minutes)\n" && */5 * * * *   root  /usr/bin/motds32 -g 2>1
@@ -132,7 +133,7 @@ fi
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -e "\n3.\e[92mMOTDs32 Installation completed!\e[0m  \n  Use: /usr/bin/motds32 for help\n"
+echo -e "\n\e[0m3.\e[92mMOTDs32 Installation completed!\e[0m  \n\n  Use: /usr/bin/motds32 for help\n"
 
 exit 0
 #EOF
