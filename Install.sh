@@ -95,9 +95,11 @@ if echo "$answer" | grep -iq "^y" ;then
     make install
     echo -e "\nMakefile \e[92m OK"
 else
+old2_stty_cfg=$(stty -g)
 stty raw -echo
 answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
- if echo "$answer2" | grep -iq "^y" ;then
+stty $old2_stty_cfg
+  if echo "$answer2" | grep -iq "^y" ;then
     echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  make install
  else
   exit 1
