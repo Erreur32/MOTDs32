@@ -140,6 +140,10 @@ Local Users :   3       Processes:      286
          |         |                |                   |      |
          V         V                V                   V      V                  
     echosystem.fr+-+  > status at 00:03 > 5min load is 0.75 on 8 cpu(s)</code></pre>
+    
+
+View on termional screen the resultat:    
+<a class="anchor" href="#sample-motd32-report">https://echosystem.fr/termrec/MOTDs32.html</a>
 
 <h2 id="author" data-source-line="144"><a class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
 <div class="success" data-source-line="146">
