@@ -89,8 +89,11 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m \n" ;  apt-get install -y  ntp figlet; make install
-    echo -e "\n\e[92m apt-get installation \e[0m Succesfull  \n"
+    echo -e "\n1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m \n" ;  apt-get install -y  ntp figlet;
+    echo -e "\n\e[92m apt-get installation \e[0m Succesfull \n"
+    echo -e "\n start Makefile\n\n"
+    make install
+    echo -e "\nMakefile \e[92m OK"
 else
 echo -e "\n Continue the script (y/n)? "
 stty raw -echo
