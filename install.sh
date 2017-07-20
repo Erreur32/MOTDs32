@@ -70,11 +70,12 @@ echo -e "\n\n"
 
 if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
 then
-    echo "code bash missing\n"
+    echo -e "code bash missing\n"
 echo "cat /etc/motd" >> /root/.bashrc
 echo -e "\e[92m Code bash added.\e[0m"
 else
-    echo "Code bash found" ; grep  '/etc/motd' /root/.bashrc
+    echo -e "Code bash found" 
+    grep  '/etc/motd' /root/.bashrc
 #sed -i '/cat \/etc\/motd/d' /root/.bashrc
 #echo -e "\e[92m Code .bashrc remove.\e[0m"
 fi
