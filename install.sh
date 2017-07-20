@@ -84,18 +84,23 @@ if [ -f  /usr/bin/motd ]
 
 fi
 
-echo -e "\n  -->\e[34m Copy files  OK\n"
+echo -e "  -->\e[34m Copy files  OK\n"
 echo -e "\nDo you wish to install the required package?\n  \e[0m  --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n1.\e[92m apt-get install \e[0m  ntp figlet \e[94m start\e[0m" ;  apt-get install -y  ntp figlet;
+    echo -e "\n\e[34m1.\e[92m apt-get install \e[0m  ntp figlet \e[94m start\e[0m" ;  apt-get install -y  ntp figlet;
     echo -e "\n\e[92mapt-get installation\e[0m Succesfull"
     echo -e "\n Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２\n"
-    make install
-    echo -e "\n Installation done, next.\e[92m OK"
+    if [ -f /usr/bin/motds32 ]
+      then
+      echo -e "\nMake file done.\n"
+     else 
+      make install
+     fi
+    echo -e "\nMake file done.\n"
 else
 echo -e "\nDo you want to continue this installation? (y/n)\n "
 old2_stty_cfg=$(stty -g)
@@ -103,7 +108,7 @@ stty raw -echo
 answer2=$( while ! head -c 2 | grep -i '[ny]' ;do true ;done )
 stty $old2_stty_cfg
   if echo "$answer2" | grep -iq "^y" ;then
-  echo -e "\n1.\e[92m No apt-get required\e[0m Installation continue... \n";  #make install
+  echo -e "\n\e[34m1.\e[92m No apt-get required\e[0m Installation continue... \n";  make install
  else
  exit 1
  fi
@@ -112,9 +117,9 @@ fi
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
-echo -e "2.\e[92m Cron already added."
+echo -e "\e[34m2.\e[92m Cron already added."
 else
-echo -e "2.\e[92m Cron added."
+echo -e "\e[34m2.\e[92m Cron added."
 (crontab -l ; echo "*/5 * * * *   root  /usr/bin/motds32 -g 2>1")| crontab -
 fi
 
@@ -133,7 +138,7 @@ fi
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -e "\n\e[0m3. \e[92mMOTDs32 Installation completed!\e[0m  \n\n  Use: /usr/bin/motds32 for help\n"
+echo -e "\n\e[34m3. \e[92mMOTDs32 Installation completed!\e[0m  \n\n  Use: /usr/bin/motds32 for help\n"
 
 exit 0
 #EOF
