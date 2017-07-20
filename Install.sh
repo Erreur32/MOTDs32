@@ -37,12 +37,12 @@
 ## clean terminal 
 clear;
 
+
 ## Install command in bashrc
 echo "cat /etc/motd" >> /root/.bashrc 
 
 ## Insdtall modules
-#mkdir /etc/motds32
-
+ 
 if [ -e  /etc/motds32/Stats32]
  then
    echo -e "Stats32 already installed"
@@ -84,5 +84,7 @@ FIN
 
 ## Generate first stats
 /usr/bin/motds32 -g
+
+
 
 #EOF 
