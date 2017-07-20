@@ -36,7 +36,7 @@
  
 ## clean terminal 
 clear;
-echo -e "\n Installation of MOTDs32 in progress... "
+echo -e "\n \e[34m Installation of MOTDs32 in progress... \e[0m"
 
 ## Install command in bashrc
 echo "cat /etc/motd" >> /root/.bashrc 
@@ -45,7 +45,7 @@ echo "cat /etc/motd" >> /root/.bashrc
  
 if [ -f  "/etc/motds32/Stats32" ]
  then
-   echo -e "  --> Stats32 already installed"
+   echo -e "  -->\e[34m  Stats32 already installed\e[0m"
  else
    mkdir /etc/motds32;
    cp  Stats32 /etc/motds32/Stats32 -Rf
@@ -53,7 +53,7 @@ fi
 
 if [ -f  /usr/bin/motd ]
  then
-    echo -e "  --> motd already installed"
+    echo -e "  -->\e[34m  motd already installed\e[0m"
  else
    ln -s /usr/bin/motds32 /usr/bin/motd
    
@@ -65,14 +65,14 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "/n  OK installation start: ntp figlet" ;  apt-get install -y  ntp figlet; make install 
+    echo -e "/n  \e[92mOK installation of\e[0m  ntp figlet \e[92m start\e[0m " ;  apt-get install -y  ntp figlet; make install 
 else
-    echo -e "/n   No continue without";  make install 
+    echo -e "/n  \e[91m No \e[0m continue installation";  make install 
 fi
 
 
 ## Install Crontab
-echo -e "\n  Add ENTRY in ROOT crontab  (generation each 5 minutes)\n"
+echo -e "\n  Add ENTRY in \e[92mROOT crontab\e[0m  (generation each 5 minutes)\n"
 
 crontab << FIN
 $(crontab -l)
@@ -85,6 +85,6 @@ FIN
 ## Generate first stats
 /usr/bin/motds32 -g
 
-
+echo -e "\n \e[92mInstallation successfull !!\e[0m  use /usr/bin/motds32 for help"
 
 #EOF 
