@@ -25,17 +25,16 @@ else
 
 fi
 
-##INstall command in bashrc
-
+## Install command in bashrc
 echo "cat /etc/motd" >> /root/.bashrc 
 
 
-### Insdtall modules
+## Insdtall modules
 #mkdir /etc/motds32
 cp  Stats32 /etc/motds32/Stats32
+ln -s /usr/bin/motds32  /usr/bin/motd
 
 ## Install Crontab
-
 echo "add ENTRY in crontab  (generation each 5 minutes)"
 
 crontab << FIN
@@ -46,5 +45,6 @@ $(crontab -l)
 ###
 FIN
 
+## Generate first stats
 /usr/bin/motds32 -g
 
