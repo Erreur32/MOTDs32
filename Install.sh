@@ -107,6 +107,8 @@ answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 fi
 
 ## Install Crontab
+echo -e "check if entry exist in CRON"
+if crontab -l | grep -q 'search string'  && echo 'entry exists'  ; then
 
 crontab << FIN
 $(crontab -l)
@@ -115,6 +117,11 @@ $(crontab -l)
 */5 * * * *     /usr/bin/motds32 -g 2>1
 ###
 FIN
+
+else
+echo 'entry does not exist, it will add'
+
+fi
 
 echo -e "2.\e[92m crontab -e ROOT\e[0m ADD (generate each 5 minutes)\n"
 
