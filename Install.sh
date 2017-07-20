@@ -83,7 +83,7 @@ if [ -f  /usr/bin/motd ]
    
 fi
 
-echo -e "Do you wish to install the missing package before \n   --> apt-get install ntp figlet ? (y/n)? "
+echo -e "\nDo you wish to install the required package?\n   --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
@@ -93,14 +93,13 @@ if echo "$answer" | grep -iq "^y" ;then
     echo -e "\n\e[92m apt-get installation \e[0m Succesfull  \n"
 else
 echo -e "\n Continue the script (y/n)? "
-old_stty_cfg=$(stty -g)
-stty raw -echo
 answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
  if echo "$answer2" | grep -iq "^y" ;then
     echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  make install
  else
   exit 1
  fi
+ echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  make install
 fi
 
 
