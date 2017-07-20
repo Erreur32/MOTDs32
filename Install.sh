@@ -65,9 +65,9 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "/n  \e[92mOK installation of\e[0m  ntp figlet \e[92m start\e[0m " ;  apt-get install -y  ntp figlet; make install 
+    echo -e "\n  \e[92mOK installation of\e[0m  ntp figlet \e[92m start\e[0m " ;  apt-get install -y  ntp figlet; make install 
 else
-    echo -e "/n  \e[91m No \e[0m continue installation";  make install 
+    echo -e "\n  \e[91m No \e[0m continue installation";  make install 
 fi
 
 
@@ -85,6 +85,6 @@ FIN
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -e "\n \e[92mInstallation successfull !!\e[0m  use /usr/bin/motds32 for help"
+echo -e "\n \e[92mInstallation successfull !!\e[0m  \nuse /usr/bin/motds32 for any help"
 
 #EOF 
