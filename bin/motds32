@@ -539,7 +539,7 @@ function usage {
 	echo "    -g, --generate    Check system status and generate it to $MOTD file"
 	echo "    -s, --status      Show limited content of MOTD file"
 	echo "    -v, --version     Display information about motds32 version and author"
-	echo "    -m, --MotD32      See the MOTD file"
+	echo "    -m, --MOTDs32      See the MOTD file"
 	exit 0
 }
 
@@ -572,7 +572,7 @@ case $1 in
 		echo "Custom: Erreur32"
 		exit 0
 	;;
-	 -c|--check)
+	 -m|--MOTDs32)
                 echo "motds32 check motd file"
                 cat /etc/motd
                 exit 0
