@@ -85,3 +85,4 @@ FIN
 ## Generate first stats
 /usr/bin/motds32 -g
 
+#EOF 
