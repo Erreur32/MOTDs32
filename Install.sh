@@ -54,6 +54,11 @@ cat <<"EOF"
 
 EOF
 
+# Make sure only root can run our script
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root" 1>&2
+   exit 1
+fi
 
 echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 
@@ -84,11 +89,21 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n 1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m \n" ;  apt-get install -y  ntp figlet; make install 
+    echo -e "\n1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m \n" ;  apt-get install -y  ntp figlet; make install
     echo -e "\n\e[92m apt-get installation \e[0m Succesfull  \n"
 else
-    echo -e "\n 1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  make install 
+echo -e "\n Continue the script (y/n)? "
+old_stty_cfg=$(stty -g)
+stty raw -echo
+answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+ if echo "$answer2" | grep -iq "^y" ;then
+    echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  make install
+ else
+  exit 1
+ fi
 fi
+
+
 
 echo -e "Make command inprogress"
 
@@ -102,11 +117,11 @@ $(crontab -l)
 ###
 FIN
 
-echo -e " 2.\e[92m ROOT crontab\e[0m ADD (generation each 5 minutes)\n"
+echo -e "2.\e[92m ROOT crontab\e[0m ADD (generation each 5 minutes)\n"
 
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -e "\n 3.\e[92mMOTDs32 Installation completed!\e[0m  \n  Use: /usr/bin/motds32 for any help\n"
+echo -e "\n3.\e[92mMOTDs32 Installation completed!\e[0m  \n  Use: /usr/bin/motds32 for any help\n"
 
 #EOF 
