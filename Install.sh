@@ -36,14 +36,14 @@
  
 ## clean terminal 
 clear;
-
+echo "\n"
 
 ## Install command in bashrc
 echo "cat /etc/motd" >> /root/.bashrc 
 
 ## Insdtall modules
  
-if [ -f  /etc/motds32/Stats32]
+if [ -f  "/etc/motds32/Stats32" ]
  then
    echo -e "Stats32 already installed"
  else
@@ -51,7 +51,7 @@ if [ -f  /etc/motds32/Stats32]
    cp  Stats32 /etc/motds32/Stats32 -Rf
 fi
 
-if [ -f  /usr/bin/motd]
+if [ -f  /usr/bin/motd ]
  then
     echo -e "motd already installed"
  else
