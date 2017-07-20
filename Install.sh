@@ -111,23 +111,13 @@ fi
 
 ## Install Crontab
  
-set -f
-if crontab -l | grep -q '^/usr/bin/motds32$'  && echo 'entry exists'; then
-  echo -e '\nCrontab entry already exist'
-else
-  echo -e '\nCrontab entry does not exist ...'
-crontab << FIN
+crontab -l | grep -q '/usr/bin/motds32'  && echo 'entry exists' || echo -e "2.\e[92m Cron add ==> \e[0m */5 * * * *     /usr/bin/motds32 -g 2>1 \e[92m (generate each 5 minutes)\n" && crontab << FIN
 $(crontab -l)
 
 ###  MOTDs32 generation (5 min)
 */5 * * * *     /usr/bin/motds32 -g 2>1
 ###
 FIN
-
-echo -e "2.\e[92m crontab -e ROOT\e[0m ADD (generate each 5 minutes)\n"
-fi
-set +f
-
 
 
 
