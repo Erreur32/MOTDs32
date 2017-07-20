@@ -113,9 +113,9 @@ fi
  
 set -f
 if crontab -l | grep -q '^/usr/bin/motds32$'  && echo 'entry exists'; then
-  echo '\nCrontab entry already exist'
+  echo -e '\nCrontab entry already exist'
 else
-  echo '\nCrontab entry does not exist ...'
+  echo -e '\nCrontab entry does not exist ...'
 crontab << FIN
 $(crontab -l)
 
