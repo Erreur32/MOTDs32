@@ -34,10 +34,18 @@ fi
 echo -e "\n\e[34m Dsinstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 
 
-## remove all stuff
-
+## remove file and directory
 make uninstall
 rm /etc/motds32/ -Rf
 rm /usr/bin/motd -f
 
-echo -e "\n\e[92m ＭＯＴＤｓ３２ removed \e[0m"
+## remove cron
+if crontab -l | grep -q '/usr/bin/motds32';  then
+echo -e "2.\e[92m Cron localized\n"
+crontab -l | grep -v '/usr/bin/motds32 -g 2>1' | crontab -u root -
+echo -e "2.\e[92m Cron removed\n"
+else
+echo -e "2.\e[93m Cron not find\n"
+fi
+
+echo -e "\n\e[92m Script ＭＯＴＤｓ３２ has been removed \e[0m"
