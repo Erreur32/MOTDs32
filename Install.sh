@@ -94,7 +94,7 @@ if echo "$answer" | grep -iq "^y" ;then
     echo -e "\n start Makefile\n\n"
     make install
     echo -e "\nMakefile \e[92m OK"
-elif
+else
 stty raw -echo
 answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
  if echo "$answer2" | grep -iq "^y" ;then
@@ -102,7 +102,6 @@ answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
  else
   exit 1
  fi
-
 fi
 
 ## Install Crontab
