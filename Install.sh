@@ -108,7 +108,7 @@ fi
 
 ## Install Crontab
 echo -e "check if entry exist in CRON"
-if crontab -l | grep -q 'search string'  && echo 'entry exists'  ; then
+if crontab -l | grep -q '^/usr/bin/motds32$'  && echo 'entry exists'  ; then
 
 crontab << FIN
 $(crontab -l)
