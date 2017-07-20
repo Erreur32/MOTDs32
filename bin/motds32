@@ -539,7 +539,7 @@ function usage {
 	echo "    -g, --generate    Check system status and generate it to $MOTD file"
 	echo "    -s, --status      Show limited content of MOTD file"
 	echo "    -v, --version     Display information about motds32 version and author"
-	echo "    -m, --MOTDs32      See the MOTD file"
+	echo "    -m, --MOTDs32     See MOTD file now!"
 	exit 0
 }
 
