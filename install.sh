@@ -63,7 +63,7 @@ fi
 echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 
 ## Install command in bashrc
-echo -ne '#####                     (33%)\r'
+
 sleep 1
 
 if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
@@ -77,7 +77,7 @@ grep -n  '/etc/motd' /root/.bashrc
 #sed -i '/cat \/etc\/motd/d' /root/.bashrc
 #echo -e "\e[92m Code .bashrc remove.\e[0m"
 fi
-echo -ne '#########             (50%)\r'
+
 sleep 1
 
 ## Insdtall modules
@@ -90,7 +90,7 @@ if [ -f  "/etc/motds32/Stats32" ]
    cp  Stats32 /etc/motds32/Stats32 -Rf
 
 fi
-
+echo -ne '#####                     (33%)\r'
 if [ -f  /usr/bin/motd ]
  then
     echo -e "  -->\e[34m  motd already installed\e[0m"
@@ -98,8 +98,10 @@ if [ -f  /usr/bin/motd ]
    ln -s /usr/bin/motds32 /usr/bin/motd
 
 fi
-echo -ne '############         (65%)\r'
+ 
 echo -e "  -->\e[34m  Copy files  OK\n"
+echo -ne '#########             (50%)\r\n'
+
 echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
