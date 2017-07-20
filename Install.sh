@@ -22,7 +22,7 @@
 # Copyright 2017 Erreur32 
 # original project: Pavol Krigler <pavol.krigler@gelogic.net>
 #
-#
+#   make sur this file is executable +x
 ################################################################################
 #
 # Installation 
