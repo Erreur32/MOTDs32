@@ -84,8 +84,8 @@ if [ -f  /usr/bin/motd ]
 
 fi
 
-echo -e "  -->\e[34m Copy files  OK\n"
-echo -e "\nDo you wish to install the required package?\n  \e[0m  --> apt-get install ntp figlet ? (y/n) "
+echo -e "  -->\e[34m  Copy files  OK\n"
+echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
