@@ -83,11 +83,11 @@ $(crontab -l)
 ###
 FIN
 
-echo -e "\n 2.\e[92mROOT crontab\e[0m ADD (generation each 5 minutes)\n"
+echo -e " 2.\e[92m ROOT crontab\e[0m ADD (generation each 5 minutes)\n"
 
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -e "\n 3.\e[92mInstallation successfull !!\e[0m  \n  Use: /usr/bin/motds32 for any help"
+echo -e "\n 3.\e[92mInstallation successfull !!\e[0m  \n  Use: /usr/bin/motds32 for any help\n"
 
 #EOF 
