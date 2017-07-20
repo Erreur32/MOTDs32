@@ -15,26 +15,26 @@
 # |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
 # `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 #
-#	   |  +	Ｓｔａｔｓ３２   |
+#          |  + Ｓｔａｔｓ３２   |
 # MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
 # about system status and usage.
 #
-# Copyright 2017 Erreur32 
+# Copyright 2017 Erreur32
 # original project: Pavol Krigler <pavol.krigler@gelogic.net>
 #
 #   make sur this file is executable +x
 ################################################################################
 #
-# Installation 
+# Installation
 # ============
 #
 #      As root execute this command (the easy way!):
 #
 #           ./Install.sh
-# 
-################################################################################ 
- 
-## clean terminal 
+#
+################################################################################
+
+## clean terminal
 clear;
 
 cat <<"EOF"
@@ -50,7 +50,7 @@ cat <<"EOF"
    By  Ｅｒｒｅｕｒ３２
 
 # MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
-# about system status and usage.   
+# about system status and usage.
 
 EOF
 
@@ -63,16 +63,17 @@ fi
 echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 
 ## Install command in bashrc
-echo "cat /etc/motd" >> /root/.bashrc 
+echo "cat /etc/motd" >> /root/.bashrc
 
 ## Insdtall modules
- 
+
 if [ -f  "/etc/motds32/Stats32" ]
  then
    echo -e "  -->\e[34m  Stats32 already installed\e[0m"
  else
    mkdir /etc/motds32;
    cp  Stats32 /etc/motds32/Stats32 -Rf
+
 fi
 
 if [ -f  /usr/bin/motd ]
@@ -80,41 +81,42 @@ if [ -f  /usr/bin/motd ]
     echo -e "  -->\e[34m  motd already installed\e[0m"
  else
    ln -s /usr/bin/motds32 /usr/bin/motd
-   
+
 fi
 
+ echo "\Copy files  OK\n"
 echo -e "\nDo you wish to install the required package?\n   --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m \n" ;  apt-get install -y  ntp figlet;
-    echo -e "\n\e[92m apt-get installation \e[0m Succesfull \n"
-    echo -e "\n start Makefile\n\n"
-    make install
-    echo -e "\nMakefile \e[92m OK"
+    echo -e "\n1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m" ;  #apt-get install -y  ntp figlet;
+    echo -e "\n\e[92m apt-get installation \e[0m Succesfull"
+    echo -e "\n start Makefile\n"
+#    make install
+    echo -e "\n Makefile \e[92m OK"
 else
+echo -e "\nDo you want to continue this installation? (y/n)\n "
 old2_stty_cfg=$(stty -g)
 stty raw -echo
-answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
+answer2=$( while ! head -c 2 | grep -i '[ny]' ;do true ;done )
 stty $old2_stty_cfg
   if echo "$answer2" | grep -iq "^y" ;then
-    echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  make install
+  echo -e "\n1.\e[92m ok no apt-get required \e[0m Installation continue... \n";  #make install
  else
-  exit 1
+ exit 1
  fi
 fi
 
 ## Install Crontab
-echo -e "check if entry exist in YOUR CRONTAB"
-
-if crontab -l | grep -q '^/usr/bin/motds32$'  && echo 'entry exists'  
-then
-  echo 'entry already exist'
-else 
-  echo 'entry does not exist, it will add'
-crontab << FIN fi
+ 
+set -f
+if crontab -l | grep -q '^/usr/bin/motds32$'  && echo 'entry exists'; then
+  echo 'Crontab entry already exist'
+else
+  echo 'Crontab entry does not exist ...'
+crontab << FIN
 $(crontab -l)
 
 ###  MOTDs32 generation (5 min)
@@ -122,8 +124,12 @@ $(crontab -l)
 ###
 FIN
 
- 
 echo -e "2.\e[92m crontab -e ROOT\e[0m ADD (generate each 5 minutes)\n"
+fi
+set +f
+
+
+
 
 ## Generate first stats
 /usr/bin/motds32 -g
@@ -131,4 +137,4 @@ echo -e "2.\e[92m crontab -e ROOT\e[0m ADD (generate each 5 minutes)\n"
 echo -e "\n3.\e[92mMOTDs32 Installation completed!\e[0m  \n  Use: /usr/bin/motds32 for help\n"
 
 exit 0
-#EOF 
+#EOF
