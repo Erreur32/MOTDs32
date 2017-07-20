@@ -23,44 +23,27 @@ System requirements
 Installation 
 ============
 
-      As root execute this command (the easy way!):
+       1.  type in terminal as ROOT (in the MOTDs32 directory): 
+ 
 
            ./Install.sh
 
 
-
-
-########  install only motd (long way)  
-     
-     1. try this  
-        
-         # make install
-
-     2. Add following lines to /etc/crontab as root (5 minut refresh interval)
-         
-	# Message Of The Day - System Status
-	*/5 * * * *   root    /usr/bin/motds32 --generate
-
-     3. (Optional) Update the configuration files in /etc/motdstat directory
-
-
+ 
 Upgrade instructions
 ====================
 
-     1. As root execute command:
-
-          # make install
-
-     2. (Optional) Update the configuration files in /etc/motds32 directory
+     in TODO list 
 
 
 Uninstall instructions
 ======================
 
-     1. As root execute command:
-         # make uninstall
+     1.  type in terminal (in the MOTDs32 directory): 
+     ./Unisntall.sh
 
-     2. As root remove the following lines from /etc/crontab
+     2. As root remove the following lines from crontab -e
 
-	# Message Of The Day - System Status
-	*/5 * * * *   root    /usr/bin/motds32 --generate
+	###  MOTDs32 generation (5 min)
+    */5 * * * *  root   /usr/bin/motds32 -g 2>1
+    ###
