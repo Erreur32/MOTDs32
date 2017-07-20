@@ -43,7 +43,7 @@ echo "cat /etc/motd" >> /root/.bashrc
 
 ## Insdtall modules
  
-if [ -e  /etc/motds32/Stats32]
+if [ -f  /etc/motds32/Stats32]
  then
    echo -e "Stats32 already installed"
  else
@@ -51,7 +51,7 @@ if [ -e  /etc/motds32/Stats32]
    cp  Stats32 /etc/motds32/Stats32 -Rf
 fi
 
-if [ -e  /usr/bin/motd]
+if [ -f  /usr/bin/motd]
  then
     echo -e "motd already installed"
  else
@@ -59,7 +59,7 @@ if [ -e  /usr/bin/motd]
    
 fi
 
-echo -e "Do you wish to install the missing package before (y/n)? \n   --> apt-get install ntp figlet ?"
+echo -e "Do you wish to install the missing package before \n   --> apt-get install ntp figlet ? (y/n)? "
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
@@ -72,7 +72,7 @@ fi
 
 
 ## Install Crontab
-echo -e "\n \n Add ENTRY in ROOT crontab  (generation each 5 minutes)"
+echo -e "\n  Add ENTRY in ROOT crontab  (generation each 5 minutes)\n"
 
 crontab << FIN
 $(crontab -l)
