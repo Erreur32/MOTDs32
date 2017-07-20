@@ -63,7 +63,22 @@ fi
 echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 
 ## Install command in bashrc
+echo -ne '#####                     (33%)\r'
+sleep 1
+
+if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
+then
+    echo "code bash missing\n"
 echo "cat /etc/motd" >> /root/.bashrc
+echo -e "\e[92m Code .bashrc added.\e[0m"
+else
+    echo "ligne trouvee"
+grep -n  '/etc/motd' /root/.bashrc
+#sed -i '/cat \/etc\/motd/d' /root/.bashrc
+#echo -e "\e[92m Code .bashrc remove.\e[0m"
+fi
+echo -ne '#########             (50%)\r'
+sleep 1
 
 ## Insdtall modules
 
@@ -83,7 +98,7 @@ if [ -f  /usr/bin/motd ]
    ln -s /usr/bin/motds32 /usr/bin/motd
 
 fi
-
+echo -ne '############         (65%)\r'
 echo -e "  -->\e[34m  Copy files  OK\n"
 echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
@@ -112,7 +127,7 @@ stty $old2_stty_cfg
    exit 1
   fi
 fi
-
+echo -ne '################    (80%)\r'
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
@@ -121,7 +136,7 @@ else
 echo -e "\e[34m2.\e[92m Cron added."
 (crontab -l ; echo "*/5 * * * *   root  /usr/bin/motds32 -g 2>1")| crontab -
 fi
-
+ 
 #crontab -l | grep -q '/usr/bin/motds32'  && echo 'entry exists' || echo -e "2.\e[92m Cron add ==> \e[0m */5 * * * *     /usr/bin/motds32 -g 2>1 \e[92m (generate each 5 minutes)\n" && */5 * * * *   root  /usr/bin/motds32 -g 2>1
 #crontab << FIN
 #$(crontab -l)
@@ -136,8 +151,8 @@ fi
 
 ## Generate first stats
 /usr/bin/motds32 -g
-
+echo -ne '#######################   (100%)\r'
 echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\nUse: /usr/bin/motds32 for help\n"
-
+ 
 exit 0
 #EOF
