@@ -112,7 +112,6 @@ then
   echo 'entry already exist'
 else 
   echo 'entry does not exist, it will add'
- 
 crontab << FIN fi
 $(crontab -l)
 
@@ -129,4 +128,5 @@ echo -e "2.\e[92m crontab -e ROOT\e[0m ADD (generate each 5 minutes)\n"
 
 echo -e "\n3.\e[92mMOTDs32 Installation completed!\e[0m  \n  Use: /usr/bin/motds32 for help\n"
 
+exit 0
 #EOF 
