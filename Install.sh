@@ -13,17 +13,18 @@
 
 clear;
 
-echo -n "Do you wish to install the missing package before (y/n)?  --> apt-get install ntp figlet"
+echo -n "Do you wish to install the missing package before (y/n)?  --> apt-get install ntp figlet ?"
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo "Yes let's go" ;  apt-get install -y  ntp figlet; make install 
+    echo "/n ; Yes" ;  apt-get install -y  ntp figlet; make install 
 else
-    echo "No continue without";  make install 
-
+    echo "/n ; No continue without";  make install 
 fi
+
+
 
 ## Install command in bashrc
 echo "cat /etc/motd" >> /root/.bashrc 
