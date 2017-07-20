@@ -111,7 +111,7 @@ answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
     echo -e "\n\e[92m apt-get install \e[0m  ntp figlet \e[94m start\e[0m\n" ;  apt-get install -y  ntp figlet;
-    echo -e "\n\e[92mapt-get installation\e[0m Succesfull"
+    echo -e "\n\e[92m apt-get installation\e[0m Succesfull\n"
     if [ -f /usr/bin/motds32 ]
       then
       echo -e "\n\e[92m Make file done.\n"
@@ -160,7 +160,7 @@ fi
 /usr/bin/motds32 -g
 
 echo -ne '\n\e[0m #######################(100%)\r\n\n'
-echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\nUse: /usr/bin/motds32 for help\n"
+echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nUse: /usr/bin/motds32 for help\n"
  
 exit 0
 #EOF
