@@ -100,8 +100,8 @@ if [ -f  /usr/bin/motd ]
 fi
  
 echo -e "  -->\e[34m  Copy files  OK\n"
-echo -ne '#########             (50%)\r\n'
-
+echo -ne '#########     (50%)\r'
+echo -e "\n"
 echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
@@ -129,7 +129,9 @@ stty $old2_stty_cfg
    exit 1
   fi
 fi
-echo -ne '################    (80%)\r'
+
+echo -ne '##################(90%)\r'
+echo -e "\n"
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
@@ -153,7 +155,8 @@ fi
 
 ## Generate first stats
 /usr/bin/motds32 -g
-echo -ne '#######################   (100%)\r'
+
+echo -ne '#######################   (100%)\r\n\n'
 echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\nUse: /usr/bin/motds32 for help\n"
  
 exit 0
