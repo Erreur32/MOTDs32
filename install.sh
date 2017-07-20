@@ -30,7 +30,7 @@
 #
 #      As root execute this command (the easy way!):
 #
-#           ./Install.sh
+#           ./install.sh
 #
 ################################################################################
 
