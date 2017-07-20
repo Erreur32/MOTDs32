@@ -84,7 +84,7 @@ if [ -f  /usr/bin/motd ]
 
 fi
 
- echo "\Copy files  OK\n"
+echo -e "\n  -->\e[34m Copy files  OK\n"
 echo -e "\nDo you wish to install the required package?\n   --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
@@ -113,9 +113,9 @@ fi
  
 set -f
 if crontab -l | grep -q '^/usr/bin/motds32$'  && echo 'entry exists'; then
-  echo 'Crontab entry already exist'
+  echo '\nCrontab entry already exist'
 else
-  echo 'Crontab entry does not exist ...'
+  echo '\nCrontab entry does not exist ...'
 crontab << FIN
 $(crontab -l)
 
