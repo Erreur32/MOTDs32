@@ -94,8 +94,7 @@ if echo "$answer" | grep -iq "^y" ;then
     echo -e "\n start Makefile\n\n"
     make install
     echo -e "\nMakefile \e[92m OK"
-else
-echo -e "\n Continue the script (y/n)? "
+elif
 stty raw -echo
 answer2=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
  if echo "$answer2" | grep -iq "^y" ;then
