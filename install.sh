@@ -70,16 +70,16 @@ if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
 then
     echo "code bash missing\n"
 echo "cat /etc/motd" >> /root/.bashrc
-echo -e "\e[92m Code .bashrc added.\e[0m"
+echo -e "\e[92m Code bash added.\e[0m"
 else
-    echo "ligne trouvee"
-grep -n  '/etc/motd' /root/.bashrc
+    echo "Code bash found"
+grep  '/etc/motd' /root/.bashrc
 #sed -i '/cat \/etc\/motd/d' /root/.bashrc
 #echo -e "\e[92m Code .bashrc remove.\e[0m"
 fi
-echo -ne '##        (10%)\r'
+echo -ne '\e[0m##        (10%)\r'
 sleep 1
-echo -ne "\n"
+echo -e "\n\n"
 ## Insdtall modules
 
 if [ -f  "/etc/motds32/Stats32" ]
@@ -101,7 +101,7 @@ if [ -f  /usr/bin/motd ]
 fi
  
 echo -e "  -->\e[34m  Copy files  OK\n"
-echo -ne '#########     (50%)\r'
+echo -ne '\e[0m#########     (50%)\r'
 sleep 1
 echo -ne "\n"
 echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet ? (y/n) "
@@ -126,21 +126,21 @@ stty raw -echo
 answer2=$( while ! head -c 2 | grep -i '[ny]' ;do true ;done )
 stty $old2_stty_cfg
   if echo "$answer2" | grep -iq "^y" ;then
-  echo -e "\n\e[34m1.\e[92m No apt-get required\e[0m Installation continue... \n";  make install
+  echo -e "\n\e[92m No apt-get required\e[0m Installation continue... \n";  make install
   else
    exit 1
   fi
 fi
 
-echo -ne '##################(90%)\r'
+echo -ne '\e[0m##################(90%)\r'
 sleep 1
 echo -e "\n"
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
-echo -e "\e[34m2.\e[92m Cron already added."
+echo -e "\e[92m Cron already added."
 else
-echo -e "\e[34m2.\e[92m Cron added."
+echo -e "\e[92m Cron added."
 (crontab -l ; echo "*/5 * * * *   root  /usr/bin/motds32 -g 2>1")| crontab -
 fi
  
@@ -159,7 +159,7 @@ fi
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -ne '#######################   (100%)\r\n\n'
+echo -ne '\n\e[0m#######################   (100%)\r\n\n'
 echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\nUse: /usr/bin/motds32 for help\n"
  
 exit 0
