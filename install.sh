@@ -76,7 +76,7 @@ else
 #sed -i '/cat \/etc\/motd/d' /root/.bashrc
 #echo -e "\e[92m Code .bashrc remove.\e[0m"
 fi
-echo -ne '\e[0m##   (10%)\r'
+echo -ne '\e[0m ##   (10%)\r'
 sleep 1
 echo -e "\n\n"
 ## Insdtall modules
@@ -100,7 +100,7 @@ if [ -f  /usr/bin/motd ]
 fi
  
 echo -e "  -->\e[34m  Copy files  OK\n"
-echo -ne '\e[0m#########(50%)\r'
+echo -ne '\e[0m #########(50%)\r'
 sleep 1
 echo -ne "\n"
 echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet ? (y/n) "
@@ -131,7 +131,7 @@ stty $old2_stty_cfg
   fi
 fi
 
-echo -ne '\e[0m##################(90%)\r'
+echo -ne '\e[0m ##################(90%)\r'
 sleep 1
 echo -e "\n"
 ## Install Crontab
@@ -158,7 +158,7 @@ fi
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -ne '\n\e[0m#######################(100%)\r\n\n'
+echo -ne '\n\e[0m #######################(100%)\r\n\n'
 echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\nUse: /usr/bin/motds32 for help\n"
  
 exit 0
