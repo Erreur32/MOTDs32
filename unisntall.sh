@@ -48,4 +48,18 @@ else
 echo -e "2.\e[93m Cron not find\n"
 fi
 
+
+if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
+then
+echo "Code bash not founded"
+echo "cat /etc/motd" >> /root/.bashrc
+echo -e "\e[92m Code .bashrc added.\e[0m"
+else
+    echo "code bash founded"
+sed -i '/cat \/etc\/motd/d' /root/.bashrc
+echo -e "\e[92m Code .bashrc remove.\e[0m"
+grep -n  '/etc/motd' /root/.bashrc
+fi
+
+
 echo -e "\n\e[92m Script ＭＯＴＤｓ３２ has been removed \e[0m"
