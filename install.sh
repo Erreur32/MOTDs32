@@ -98,8 +98,8 @@ if echo "$answer" | grep -iq "^y" ;then
       echo -e "\nMake file done.\n"
      else 
       make install
+      echo -e "\nMake file done.\n"
      fi
-    echo -e "\nMake file done.\n"
 else
 echo -e "\nDo you want to continue this installation? (y/n)\n "
 old2_stty_cfg=$(stty -g)
@@ -108,9 +108,9 @@ answer2=$( while ! head -c 2 | grep -i '[ny]' ;do true ;done )
 stty $old2_stty_cfg
   if echo "$answer2" | grep -iq "^y" ;then
   echo -e "\n\e[34m1.\e[92m No apt-get required\e[0m Installation continue... \n";  make install
- else
- exit 1
- fi
+  else
+   exit 1
+  fi
 fi
 
 ## Install Crontab
