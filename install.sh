@@ -85,16 +85,16 @@ if [ -f  /usr/bin/motd ]
 fi
 
 echo -e "\n  -->\e[34m Copy files  OK\n"
-echo -e "\nDo you wish to install the required package?\n   --> apt-get install ntp figlet ? (y/n) "
+echo -e "\nDo you wish to install the required package?\n  \e[0m  --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m" ;  #apt-get install -y  ntp figlet;
+    echo -e "\n1.\e[92m installation \e[0m  ntp figlet \e[92m start\e[0m" ;  apt-get install -y  ntp figlet;
     echo -e "\n\e[92m apt-get installation \e[0m Succesfull"
     echo -e "\n start Makefile\n"
-#    make install
+    make install
     echo -e "\n Makefile \e[92m OK"
 else
 echo -e "\nDo you want to continue this installation? (y/n)\n "
