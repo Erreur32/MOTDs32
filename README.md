@@ -58,7 +58,7 @@ Usage: motds32 OPTIONS
     -g, --generate    Check system status and generate it to /etc/motd file
     -s, --status      Show limited content of MOTD file
     -v, --version     Display information about motds32 version and author
-    -c, --check  Check stats motd file
+    -m, --MotD32      See the MOTD file
 </code></pre>
 
 You can see the result with :
