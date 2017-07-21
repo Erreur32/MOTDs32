@@ -32,12 +32,12 @@ PARTITION_TABLE="/etc/motds32/fstab_limits"
 AUTO_PROCESS_DISCOVERY="sshd apache dhcpd named ntpd nscd postfix slapd smbd atd crond smartd dovecot master mysqld"
 
 # List of network ports which could be autodiscovered during installation
-AUTO_NETSERVICE_DISCOVERY="21 22 25 80 443 123"
+AUTO_NETSERVICE_DISCOVERY="21 22 25 80 443 123 8080"
 
 #
 # Do not modify lines below
 #
-VERSION="0.0.5"
+VERSION="0.1"
 LINES=0
 
 TMPDIR="/tmp"
@@ -45,6 +45,7 @@ STATS_DIR="/var/cache/motds32"
 COLL_MEM="$TMPDIR/.motds32_mem_$$"
 COLL_DISK="$TMPDIR/.motds32_disk_$$"
 COLL_PROC="$TMPDIR/.motds32_proc_$$"
+COLL_WALL="$TMPDIR/.motdstat_wall_$$"
 COLL_EMPTY="$TMPDIR/.motds32_empty_$$"
 
 # Set default VARIABLES 
@@ -76,12 +77,15 @@ fi
 #
 # Generate stats data
 #
+## not use yet
 function stats_data() {
 #make stats file in the good directory
 $MOTD32  > $PRG32/Stats32.txt
 }
 #$stats_data
 #$MOTD32  > $PRG32/Stats32.txt
+
+
 #
 # Append message to the report (and to syslog if enabled)
 #
@@ -109,11 +113,11 @@ function bold () {
     echo -e "\033[1m$1\033[0m"
 }
 
-# Trim the line to 24 characters
+# Trim the line to 24 , (32 is better) characters
 function normalize() {
         LENGTH=$(echo $PART | wc -c)
 
-        if [ $LENGTH -gt 24 ]; then
+        if [ $LENGTH -gt 32 ]; then
                 CUT=$(echo $PART | sed -e 's/^\(.......\).*\(.............\)/\1...\2/')
                 PART=$CUT
         fi
@@ -181,11 +185,13 @@ function checkprocess {
 			if [ $PROCES -eq 1 ]; then
 				green "$PROC" >> $COLL_PROC
 			else
-				green "$PROC ($PROCES)" | awk '{printf("%-26s %4s\n", $1, $2)}' >> $COLL_PROC
+				#green "$PROC ($PROCES)" | awk '{printf("%-26s %4s\n", $1, $2)}' >> $COLL_PROC
+	    		green "$PROC ($PROCES)" | awk '{printf("%-27s %4s\n", $1, $2)}' >> $COLL_PROC
 	    		fi
         	else	
-			report "CRITICAL: Process \"${PROC}\" is not running"
-			red "$PROC is not running" >> $COLL_PROC
+			    report "CRITICAL: Process \"${PROC}\" is not running"
+			#red "$PROC is not running" >> $COLL_PROC
+                red "$(printf "%-9.9s is not running" $PROC)" >> $COLL_PROC
 			NOT_RUNNING=1
 		fi
     		done
@@ -360,6 +366,7 @@ function join () {
     for I in $(seq $MEM_NUM $LINES); do echo "                        " >> $COLL_MEM; done   
 
     for I in $(seq $LINES); do echo ' | ' >> $COLL_EMPTY; done
+    for I in $(seq $LINES); do echo '|' >> $COLL_WALL; done
 }
 
 # Center text
@@ -367,6 +374,13 @@ function echo_center {
 	LENGTH=${#1}
 	printf "%$(((80 - $LENGTH) / 2))s" ; echo "$1"
 }
+
+function echo_center2 {
+    LENGTH=${#1}
+    INDENT=`seq 1 $(((78 - $LENGTH) / 2)) | sed 's/.*/ /' | tr -d '\n'`
+    printf "|%-78s|\n" "${INDENT}${1}" 
+}
+
 function cat_center {
         LENGTH=${#1}
         printf "%$(((80 - $LENGTH) / 2))s" ; cat $1
@@ -404,14 +418,17 @@ function checkservices {
 				RESULT=$(echo "$NETSTAT" | egrep "^${PROTO}.*${SOCKET}")
 			
 				if [ -z "$RESULT" ]; then
-					red "${PROTO}/${SOCKET}" >> $COLL_PROC
+				#	red "${PROTO}/${SOCKET}" >> $COLL_PROC
+		    	 red "$(printf "%-24.24s" ${PROTO}/${SOCKET})" >> $COLL_PROC
 		    			NOT_RUNNING=1
 					report "CRITICAL: Service \"$PROCES\" not running at socket ${PROTO}/${SOCKET}"
 				else
-					green "${PROTO}/${SOCKET}" >> $COLL_PROC
+					 green "$(printf "%-24.24s" ${PROTO}/${SOCKET})" >> $COLL_PROC
+					#green "${PROTO}/${SOCKET}" >> $COLL_PROC
 				fi
 			else
-				green "${PROTO}/${SOCKET}" >> $COLL_PROC
+				#green "${PROTO}/${SOCKET}" >> $COLL_PROC
+				green "$(printf "%-24.24s" ${PROTO}/${SOCKET})" >> $COLL_PROC
 			fi
 		done
 
@@ -606,12 +623,12 @@ echo_center "${HOSTNAME}${NTPSTATUS} > status at $(date +"%R") > ${LOAD_REPORT}"
 echo >> $MOTD
 
 # cat /etc/motds32/Stats32.txt >>  $MOTD
-
 paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC | head -n $MAX_ROWS_LIMIT   >> $MOTD
+#paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC >> $MOTD
 cat /etc/motds32/Stats32.txt >>  $MOTD
 
 # Full report
-paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC  > $MOTD.full
+#paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC  > $MOTD.full
 
 echo >> $MOTD
 
@@ -641,6 +658,7 @@ rm -f ${COLL_PROC} ${COLL_PROC}.tmp
 rm -f ${COLL_MEM} ${COLL_MEM}.tmp
 rm -f ${COLL_DISK} ${COLL_DISK}.tmp
 rm -f ${COLL_EMPTY}
+rm -f ${COLL_WALL}
 
 if [ ! -z "$EMAIL" ]; then
 
