@@ -42,13 +42,13 @@ Customized by     Ｅｒｒｅｕｒ３２
 <h2 id="motds32-documentation" data-source-line="20"><a class="anchor" href="#motds32-documentation"><span class="octicon octicon-link">MOTDs32 Documentation:</span></a></h2>
 <p data-source-line="23">Original project:
 <a href="http://www.gelogic.net/">http://www.gelogic.net/</a></p>
-<pre>
+ 
 <p data-source-line="26">MOTDs32 is a fork of the excelent MOTDstat !</p>
 <p data-source-line="28">Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage</p>
 <p data-source-line="30">Using crontab the script will periodically display status of system resources and services.</p>
 <p data-source-line="32">The original message of the day is now stored in /etc/motd.orig file.</p>
 <p data-source-line="34">Everytime you connect throught the SSH you will see some informations (customisable).</p>
-</pre>
+ 
 <p data-source-line="37"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/README.md#sample-motd32-report">See  example</a></p>
 <hr>
 <h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link">INSTALLATION:</span></a></h2>
@@ -78,7 +78,7 @@ You can see the result with :
 <br>or
 <code>motd -m</code><br><br>
 
-You can set differents features in  /etc/motds32/motds32.conf
+<h2>You can set differents features in  /etc/motds32/motds32.conf</h2>
 
 <br><br>
 <h2 id="update" data-source-line="52"><a class="anchor" href="#update">UPDATE:</a></h2>
@@ -158,9 +158,9 @@ View on terminal screen the resultat:
 <a class="anchor" href="https://echosystem.fr/termrec/MOTDs32.html">https://echosystem.fr/termrec/MOTDs32.html</a>
 
 <h2 id="author" data-source-line="144"><a class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
-original project: https://bitbucket.org/hetii/motdstat.git
+original project: https://bitbucket.org/hetii/motdstat.git <br><br>
 <div class="success" data-source-line="146">
-<p>by 🅴🆁🆁🅴🆄🆁32</p>
+<p>  🅴🆁🆁🅴🆄🆁32</p>
 </div>
 <div class="warning" data-source-line="152">
 <p>Hosted on</p>
