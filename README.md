@@ -40,7 +40,7 @@ MOTDs32 Custom MOTD by Erreur32
   </li>
 </ul>
 <p></p>
-<h2 id="motds32-documentation" data-source-line="20"><a class="anchor" href="#motds32-documentation"><span class="octicon octicon-link"></span></a>MOTDs32 Documentation:</h2>
+<h2 id="motds32-documentation" data-source-line="20"><a class="anchor" href="#motds32-documentation"><span class="octicon octicon-link">MOTDs32 Documentation:</span></a></h2>
 <p data-source-line="23">Original project:
 <a href="http://www.gelogic.net/">http://www.gelogic.net/</a></p>
 <p data-source-line="26">MOTDs32 is a fork of the excelent MOTDstat !</p>
@@ -50,15 +50,17 @@ MOTDs32 Custom MOTD by Erreur32
 <p data-source-line="34">Everytime you connect throught the SSH you will see some informations (customisable).</p>
 <p data-source-line="37"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/README.md#sample-motd32-report">See  example</a></p>
 <hr>
-<h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>INSTALLATION:</h2>
+<h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link">INSTALLATION:</span></a></h2>
 <p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
 <p data-source-line="48">type inside the directory:</p>
-<pre data-source-line="50"><code class="hljs">./Install.sh</code></pre>
-<pre data-source-line="50">Answer: y (install the package needed)
+<pre data-source-line="50"><code class="hljs">./Install.sh
+Answer: y (install the package needed)</code>
 <code> 
 If you want to check MANUALY,
-try this command: /usr/bin/motds32 or motd
-</code>
+try this command: /usr/bin/motds32</code>
+or
+<code>motd
+</code></pre>
 <pre data-source-line="50"><code class="hljs">motd
 Usage: motds32 OPTIONS
     -g, --generate    Check system status and generate it to /etc/motd file
@@ -76,9 +78,9 @@ You can see the result with :
 <code>motd -m</code>
 
 <br><br>
-<h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
-<pre data-source-line="55"><code class="hljs">
-cd /PATH/MOTDs32
+<h2 id="update" data-source-line="52"><a class="anchor" href="#update">UPDATE:</a></h2>
+git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
+<pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
 ./uninstall.sh
 git pull
 ./install.sh
@@ -87,7 +89,7 @@ git pull
 
  
 <hr>
-<h2 id="sample-motd32-report" data-source-line="74"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link"></span></a>Sample  MOTD32 report</h2>
+<h2 id="sample-motd32-report" data-source-line="74"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link">Sample  MOTD32 report</span></a></h2>
 <pre data-source-line="77"><code class="hljs">00:03:47 19/07  @echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
  
 --------------------------------------------------
@@ -136,7 +138,7 @@ Local Users :   2       Processes:      282
   vendredi 21 juillet 2017, 10:05:39 (UTC+0200)
 
 
-  mercredi 19 juillet 2017, 00:05:44 (UTC+0200)</code></pre><h2 id="explanation-of-the-report" data-source-line="127"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link"></span></a>Explanation of the report</h2>
+  mercredi 19 juillet 2017, 00:05:44 (UTC+0200)</code></pre><h2 id="explanation-of-the-report" data-source-line="127"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link">Explanation of the report</span></a></h2>
 <pre data-source-line="129"><code class="hljs">Explanation of the report
 -------------------------
 
