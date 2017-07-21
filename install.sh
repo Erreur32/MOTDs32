@@ -116,10 +116,10 @@ if echo "$answer" | grep -iq "^y" ;then
     echo -e "\n\e[92m apt-get installation\e[0m Succesfull\n"
     if [ -f /usr/bin/motds32 ]
       then
-      echo -e "\n\e[92m Make file done.\n"
+      echo -e "\n\e[92m Make file\e[0m done.\n"
      else 
       make install
-      echo -e "\n\e[92m Make file done.\n"
+      echo -e "\n\e[92m Make file\e[0m done.\n"
      fi
 else
 echo -e "\n\e[34mDo you want to continue this installation? (y/n)\n "
@@ -140,9 +140,9 @@ fi
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
-echo -e "\e[92m Cron already added."
+echo -e "\e[92m Cron already \e[0madded."
 else
-echo -e "\e[92m Cron added."
+echo -e "\e[92m Cron \e[0m added."
 (crontab -l ; echo "*/5 * * * *      /usr/bin/motds32 -g 2>1")| crontab -
 fi
  
@@ -152,7 +152,7 @@ fi
 /usr/bin/motds32 -g
 
 #echo -ne '\n\e[0m #######################(100%)\r\n\n'
-echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nUse: /usr/bin/motds32 for help\n"
+echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nUse: /usr/bin/motds32 for help\n"
  
 exit 0
 #EOF
