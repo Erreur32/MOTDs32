@@ -4,7 +4,7 @@
 
 ## MOTDs32 = MOTD + Stats32
 
-Stats : https://echosystem.fr/MOTDs32
+Stats Repo: https://echosystem.fr/MOTDs32
 
 
 <article><p data-source-line="2"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master"><img src="https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg" alt="coverage report"></a></p>
