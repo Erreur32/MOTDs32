@@ -1,20 +1,20 @@
 2017-07-17
-        motdstat 0.0.4 become MOTDs32 0.0.5
-        - NEW features: add more info  
+    -->  motdstat 0.0.4 become MOTDs32 0.0.5
+    - NEW features: add more info  
 	- IP ...
 	- Hostname with figlet (auto install)
 	- Show who is connected with SSH 
 	- ADD show numbers of process
+	- ADD a ./install and ./uninstall script.
 	- ...
 	- need to finish the changelog :P
  
 2014-07-17
         motdstat 0.0.4
 	- FEATURE: autodiscovery of "netservice" and "process" configuration files 
-                   from running network services and processes. (thanks to 
-                   Bongermino Björ)
-        - FEATURE: checking if the "mail" command is installed
-        - FIXED: hostname detection. Instead of using 'hostname -f' the $HOSTNAME variable is used
+        from running network services and processes. (thanks to Bongermino Björ)
+    - FEATURE: checking if the "mail" command is installed
+    - FIXED: hostname detection. Instead of using 'hostname -f' the $HOSTNAME variable is used
 	- FIXED: '\n' in syslog messages
 
 2013-02-13
