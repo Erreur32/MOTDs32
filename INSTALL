@@ -1,9 +1,9 @@
 MOTDs32 installation instructions
 ==================================
 
-(2017) New project MOTDs32 by Erreur32
+(2017) New project MOTDs32 by  🅴🆁🆁🅴🆄🆁32
 
-https://motds32.echosystem.fr
+ 
 https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
 ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
@@ -23,7 +23,7 @@ System requirements
 Installation 
 ============
 
-       1.  type in terminal as ROOT (in the MOTDs32 directory): 
+       type in terminal as ROOT (in the MOTDs32 directory): 
  
 
            ./Install.sh
@@ -39,11 +39,8 @@ Upgrade instructions
 Uninstall instructions
 ======================
 
-     1.  type in terminal (in the MOTDs32 directory): 
-     ./Unisntall.sh
+     type in terminal (in the MOTDs32 directory): 
+     
+         ./Unisntall.sh
 
-     2. As root remove the following lines from crontab -e
-
-	###  MOTDs32 generation (5 min)
-    */5 * * * *  root   /usr/bin/motds32 -g 2>1
-    ###
+  
