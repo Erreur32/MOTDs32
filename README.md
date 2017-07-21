@@ -1,7 +1,9 @@
-(2017) New project 
+(2017) New project fork MOTDstat https://bitbucket.org/hetii/motdstat
 
  
-MOTDs32 Custom MOTD by Erreur32
+## MOTDs32 Custom MOTD by  🅴🆁🆁🅴🆄🆁32
+
+
  
 <article><p data-source-line="2"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master"><img src="https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg" alt="coverage report"></a></p>
  
@@ -37,6 +39,8 @@ MOTDs32 Custom MOTD by Erreur32
   </li>
   <li>
     <a href="#author">Author</a>
+    original fork https://bitbucket.org/hetii/motdstat
+    
   </li>
 </ul>
 <p></p>
