@@ -79,8 +79,9 @@ You can see the result with :
 
 <br><br>
 <h2 id="update" data-source-line="52"><a class="anchor" href="#update">UPDATE:</a></h2>
-git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
-<pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
+need to redownload the last version form gitlab, do the following:
+<pre data-source-line="55"><code class="hljs">git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
+cd MOTDs32
 ./uninstall.sh
 git pull
 ./install.sh
