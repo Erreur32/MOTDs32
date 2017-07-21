@@ -75,12 +75,18 @@ You can see the result with :
 
 <code>cat /etc/motd</code> 
 <br>or
-<br>
 <code>usr/bin/motds32 -c</code>
+<br>or
+<code>motd -m</code>
 
+<br><br>
 <h2 id="update" data-source-line="52"><a class="anchor" href="#update"><span class="octicon octicon-link"></span></a>UPDATE:</h2>
-<pre data-source-line="55"><code class="hljs">cd /PATH/MOTDs32
-git pull</code></pre>
+<pre data-source-line="55"><code class="hljs">
+cd /PATH/MOTDs32
+./uninstall.sh
+git pull
+./install.sh
+</code></pre>
 
 
  
