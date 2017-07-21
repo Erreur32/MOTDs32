@@ -54,16 +54,12 @@ MOTDs32 Custom MOTD by Erreur32
 <p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
 <p data-source-line="48">type inside the directory:</p>
 <pre data-source-line="50"><code class="hljs">./Install.sh</code></pre>
-<pre data-source-line="50"><code class="hljs">FINISH !!!</code></pre>
+<pre data-source-line="50">Answer: y (install the package needed)
 <code> 
 If you want to check MANUALY,
-
-try this command: /usr/bin/motds32
-
-Full automated script.
+try this command: /usr/bin/motds32 or motd
 </code>
-<pre data-source-line="50"><code class="hljs">  
-/usr/bin/motds32
+<pre data-source-line="50"><code class="hljs">motd
 Usage: motds32 OPTIONS
     -g, --generate    Check system status and generate it to /etc/motd file
     -s, --status      Show limited content of MOTD file
