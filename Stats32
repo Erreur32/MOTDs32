@@ -4,8 +4,10 @@
 #
 
 ## need figlet 
-figlet $(hostname)
-echo "$SHELL ==> $USER"
+#figlet -f wideterm
+figlet -f chunky $(hostname)
+echo "$SHELL : $USER"
+
 echo -e '\e[1;30m'; w
 echo -e "\033[0m"
 
