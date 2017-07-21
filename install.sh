@@ -39,18 +39,18 @@ clear;
 
 cat <<"EOF"
 
-        Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２  |  +  Ｓｔａｔｓ３２   |
+\033[1;32m        Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２  |  +  Ｓｔａｔｓ３２   |
 
-        ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
-        |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
-        |  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' ;  .-' .'
-        |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
-        `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
+\033[1;37m        ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
+\033[1;37m        |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
+\033[1;37m        |  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' ;  .-' .'
+\033[1;37m        |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
+\033[1;37m        `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 
    By  Ｅｒｒｅｕｒ３２
 
-# MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
-# about system status and usage.
+\033[1;30m# MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
+\033[1;30m# about system status and usage.
 
 EOF
 
@@ -60,13 +60,13 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
+echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m\n\n"
 
 ## Install command in bashrc
 
-echo -ne '\e[0m # (5%)\r'
-sleep 1
-echo -e "\n\n"
+#echo -ne '\e[0m # (5%)\r'
+#sleep 1
+#echo -e "\n\n"
 
 if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
 then
@@ -101,9 +101,9 @@ if [ -f  /usr/bin/motd ]
 fi
  
 echo -e "  -->\e[34m  Copy files  OK\n"
-echo -ne '\e[0m #########(50%)\r'
-sleep 1
-echo -ne "\n"
+#echo -ne '\e[0m #########(50%)\r'
+#sleep 1
+#echo -ne "\n"
 echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
@@ -132,9 +132,9 @@ stty $old2_stty_cfg
   fi
 fi
 
-echo -ne '\e[0m ##################(90%)\r'
-sleep 1
-echo -e "\n"
+#echo -ne '\e[0m ##################(90%)\r'
+#sleep 1
+#echo -e "\n"
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
@@ -144,22 +144,12 @@ echo -e "\e[92m Cron added."
 (crontab -l ; echo "*/5 * * * *      /usr/bin/motds32 -g 2>1")| crontab -
 fi
  
-#crontab -l | grep -q '/usr/bin/motds32'  && echo 'entry exists' || echo -e "2.\e[92m Cron add ==> \e[0m */5 * * * *     /usr/bin/motds32 -g 2>1 \e[92m (generate each 5 minutes)\n" && */5 * * * *   root  /usr/bin/motds32 -g 2>1
-#crontab << FIN
-#$(crontab -l)
-#
-#*/5 * * * *     /usr/bin/motds32 -g 2>1
-#FIN
-## todo
-###  MOTDs32 generation (5 min)
-#/5 * * * *     /usr/bin/motds32 -g 2>1
-###
-
+ 
 
 ## Generate first stats
 /usr/bin/motds32 -g
 
-echo -ne '\n\e[0m #######################(100%)\r\n\n'
+#echo -ne '\n\e[0m #######################(100%)\r\n\n'
 echo -e "\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nUse: /usr/bin/motds32 for help\n"
  
 exit 0
