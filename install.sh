@@ -39,20 +39,22 @@ clear;
 
 cat <<"EOF"
 
-\033[1;32m        Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２  |  +  Ｓｔａｔｓ３２   |
+        Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２  |  +  Ｓｔａｔｓ３２   |
 
-\033[1;37m        ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
-\033[1;37m        |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
-\033[1;37m        |  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' ;  .-' .'
-\033[1;37m        |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
-\033[1;37m        `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
+        ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
+        |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
+        |  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' ;  .-' .'
+        |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
+        `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 
    By  Ｅｒｒｅｕｒ３２
 
-\033[1;30m# MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
-\033[1;30m# about system status and usage.
-
 EOF
+
+echo -e "\033[1;30m# MOTDstat is dynamicaly refreshing the /etc/motd file with current informations"
+echo -e "\033[1;30m# about system status and usage."
+
+
 
 # Make sure only root can run our script
 if [[ $EUID -ne 0 ]]; then
