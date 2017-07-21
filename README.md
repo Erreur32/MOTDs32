@@ -90,15 +90,16 @@ git pull</code></pre>
  
 --------------------------------------------------
 
-motds32 check motd file
-        echosystem.fr  &gt; status at 00:03 &gt; 5min load is 0.75 on 8 cpu(s)
+ motd -m
+Read motds32 file
+        echosystem.fr  > status at 10:05 > 5min load is 0.82 on 8 cpu(s)
 
       Disk status        |      Memory status       |     Service status
 partition      free  usg | Memory      used kB  [%] | service(s)        (count)
-/              5,9G  68% | Memory:    61431116  92% | tcp/0.0.0.0:2222
-/home          1,5T  12% | Swap:          3500   0% | tcp6/:::2222
-                         | Buffers:    1266580      | tcp/0.0.0.0:25
-                         | Cached:    50682196      | tcp6/:::25
+/              4,9G  74% | Memory:    59711808  90% | tcp/0.0.0.0:2222
+/home          1,5T  12% | Swap:          3560   0% | tcp6/:::2222
+                         | Buffers:    1271192      | tcp/0.0.0.0:25
+                         | Cached:    51624824      | tcp6/:::25
                          |                          | tcp/127.0.0.1:8080
                          |                          | tcp6/:::80
                          |                          | tcp6/:::443
@@ -108,30 +109,30 @@ partition      free  usg | Memory      used kB  [%] | service(s)        (count)
                          |                          | udp6/fe80::ec4:7aff:fe0f:123
                          |                          | udp6/2001:41d0:d:2e5:::123
                          |                          | udp6/::1:123
+             __                             __                      ___
+.-----.----.|  |--.-----.-----.--.--.-----.|  |_.-----.--------.  .'  _|.----.
+|  -__|  __||     |  _  |__ --|  |  |__ --||   _|  -__|        |__|   _||   _|
+|_____|____||__|__|_____|_____|___  |_____||____|_____|__|__|__|__|__|  |__|
+                              |_____|
+/bin/bash : root
 
-          _                         _                    __
-  ___  ___| |__   ___  ___ _   _ ___| |_ ___ _ __ ___    / _|_ __
- / _ \/ __| '_ \ / _ \/ __| | | / __| __/ _ \ '_ ` _ \  | |_| '__|
-|  __/ (__| | | | (_) \__ \ |_| \__ \ ||  __/ | | | | |_|  _| |
- \___|\___|_| |_|\___/|___/\__, |___/\__\___|_| |_| |_(_)_| |_|
-                           |___/
-/bin/bash ==&gt; root
-
- 00:05:44 up 64 days,  5:35,  3 users,  load average: 1,18, 0,84, 0,70
+ 10:05:39 up 66 days, 15:35,  2 users,  load average: 1,40, 0,79, 0,67
 USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
-erreur32 pts/0    213.173.170.22   15:43    6:51m  1.62s  0.03s sshd: erreur32 [priv]
-erreur32 pts/1    2a01:e35:8aa3:87 18:35    1:06m  2.55s  0.02s sshd: erreur32 [priv]
-erreur32 pts/2    2a01:e35:8aa3:87 18:44    2.00s  3.29s  0.02s sshd: erreur32 [priv]
+erreur32 pts/0    213.173.170.22   mar.15    2days  1.62s  0.26s sshd: erreur32 [priv]
+erreur32 pts/1    2a01:e35:8aa3:87 08:57    4.00s  1.10s  0.01s sshd: erreur32 [priv]
 
 Debian GNU/Linux 8.8 (jessie) (3.16.0-4-amd64).
 Kernel Info:    Linux 3.16.0-4-amd64 x86_64
 
 -----------     ---     ------------    ----------
-System load :   1.18    IP Address:     37.187.162.229
-Memory usage:   14.4%   System uptime:  64 days
-Usage on /  :   68%     Swap usage:     0.0%
-Local Users :   3       Processes:      286
+System load :   1.40    IP Address:     37.187.162.229
+Memory usage:   10.3%   System uptime:  66 days
+Usage on /  :   74%     Swap usage:     0.0%
+Local Users :   2       Processes:      282
 -----------     ---     ------------    ----------
+
+  vendredi 21 juillet 2017, 10:05:39 (UTC+0200)
+
 
   mercredi 19 juillet 2017, 00:05:44 (UTC+0200)</code></pre><h2 id="explanation-of-the-report" data-source-line="127"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link"></span></a>Explanation of the report</h2>
 <pre data-source-line="129"><code class="hljs">Explanation of the report
