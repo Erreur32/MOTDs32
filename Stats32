@@ -1,10 +1,18 @@
 #!/bin/sh
 #
-# Stats32 script to generate some system infos.
+# Stats32 script generate some system infos and add  in the motd file.
+#
+#  _______ __          __          ______ ______
+# |     __|  |_.---.-.|  |_.-----.|__    |__    |
+# |__     |   _|  _  ||   _|__ --||__    |    __|
+# |_______|____|___._||____|_____||______|______|
+#
+#     by    Ｅｒｒｅｕｒ３２
 #
 
-## need figlet 
-#figlet -f wideterm
+## need figlet (auto installiong with the ./install.sh)
+# figlet -f wideterm
+
 figlet -f chunky $(hostname)
 echo "$SHELL : $USER"
 
