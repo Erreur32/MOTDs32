@@ -72,12 +72,12 @@ echo -e "\n\e[34mInstallation of ＭＯＴＤｓ３２ in progress... \e[0m\n\n"
 
 if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
 then
-    echo -e "code bash missing\n"
+    echo -e " code bash missing"
 echo "cat /etc/motd" >> /root/.bashrc
-echo -e "\e[92m Code bash added.\e[0m"
+echo -e "\e[92m Code bash \e[0madded.\n"
 else
-    echo -e "Code bash found" 
-    grep  '/etc/motd' /root/.bashrc
+grepmot=`grep  '/etc/motd' /root/.bashrc`
+    echo -e "Code bash found $grepmot \n" 
 #sed -i '/cat \/etc\/motd/d' /root/.bashrc
 #echo -e "\e[92m Code .bashrc remove.\e[0m"
 fi
@@ -152,7 +152,7 @@ fi
 /usr/bin/motds32 -g
 
 #echo -ne '\n\e[0m #######################(100%)\r\n\n'
-echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nUse: /usr/bin/motds32 for help\n"
+echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nHelp? Use: \n \033[1;30m/usr/bin/motds32\e[0m \nor \033[1;30m\nmotd\e[0m\n"
  
 exit 0
 #EOF
