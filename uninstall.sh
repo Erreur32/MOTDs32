@@ -39,6 +39,7 @@ echo -e "\n\e[34m Dsinstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 make uninstall
 rm /etc/motds32/ -Rf
 rm /usr/bin/motd -f
+rm /var/cache/motds32/ -Rf
 
 ## remove cron
 if crontab -l | grep -q '/usr/bin/motds32';  then
