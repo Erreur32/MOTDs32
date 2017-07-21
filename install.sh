@@ -141,7 +141,7 @@ if crontab -l | grep -q '/usr/bin/motds32';  then
 echo -e "\e[92m Cron already added."
 else
 echo -e "\e[92m Cron added."
-(crontab -l ; echo "*/5 * * * *   root  /usr/bin/motds32 -g 2>1")| crontab -
+(crontab -l ; echo "*/5 * * * *      /usr/bin/motds32 -g 2>1")| crontab -
 fi
  
 #crontab -l | grep -q '/usr/bin/motds32'  && echo 'entry exists' || echo -e "2.\e[92m Cron add ==> \e[0m */5 * * * *     /usr/bin/motds32 -g 2>1 \e[92m (generate each 5 minutes)\n" && */5 * * * *   root  /usr/bin/motds32 -g 2>1
