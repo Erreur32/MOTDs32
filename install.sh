@@ -152,7 +152,7 @@ fi
 /usr/bin/motds32 -g
 
 #echo -ne '\n\e[0m #######################(100%)\r\n\n'
-echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nHelp? Use: \n \033[1;30m/usr/bin/motds32\e[0m \nor \033[1;30m\nmotd\e[0m\n"
+echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nHelp? Use: \n \033[1;30m/usr/bin/motds32\e[0m \nor \033[1;30m\n motd\e[0m\n"
  
 exit 0
 #EOF
