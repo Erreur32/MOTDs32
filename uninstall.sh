@@ -1,5 +1,6 @@
 #!/bin/sh
 #
+# uninstall.sh
 # Removal script of MOTDs32
 #
 # make sur this file is executable +x
