@@ -2,13 +2,12 @@
 
 # MOTDs32 Custom MOTD by  🅴🆁🆁🅴🆄🆁32
 
-## MOTDs32 = MOTD + Stats32
-
-Stats Repo: https://echosystem.fr/MOTDs32
+MOTDs32 = MOTD + Stats32
 
 
-<article><p data-source-line="2"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/commits/master"><img src="https://gitlab.echosystem.fr/Erreur32/MOTDs32/badges/master/coverage.svg" alt="coverage report"></a></p>
-<p data-source-line="8">Project  <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32">https://gitlab.echosystem.fr/Erreur32/MOTDs32</a></p>
+# Project
+
+ - Project  https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
 <pre data-source-line="10"><code class="hljs">
 ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
@@ -95,7 +94,12 @@ git pull
 ./install.sh
 </code></pre>
 
+## Stats Repo: 
 
+ - https://echosystem.fr/MOTDs32
+ - https://echosystem.fr/MOTDs32/32.html
+ - https://echosystem.fr/MOTDs32/Stats/index.html
+ 
  
 <hr>
 <h2 id="sample-motd32-report" data-source-line="74"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link">Sample  MOTD32 report</span></a></h2>
