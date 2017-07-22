@@ -618,7 +618,10 @@ check_ntp
 # Create MOTD system status header
 load
 
-echo_center "${HOSTNAME}${NTPSTATUS} > status at $(date +"%R") > ${LOAD_REPORT}" bold > $MOTD
+# clean terminal when load MOTDs32
+echo -en "\ec" > $MOTD
+
+echo_center "${HOSTNAME}${NTPSTATUS} > status at $(date +"%R") > ${LOAD_REPORT}" bold >> $MOTD
 
 echo >> $MOTD
 
