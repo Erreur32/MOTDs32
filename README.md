@@ -58,11 +58,11 @@ Customized by     Ｅｒｒｅｕｒ３２
 <h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link">INSTALLATION:</span></a></h2>
 <p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
 <p data-source-line="48">type inside the directory:</p>
-<pre data-source-line="50"><code class="hljs">./Install.sh
-Answer: y (install the package needed)</code>
-<code> 
-If you want to check MANUALY,
-try this command: /usr/bin/motds32</code>
+<code class="hljs">./Install.sh</code> 
+<p>Answer: y (install the package needed) </p>
+ 
+If you want some help,
+try this command: /usr/bin/motds32 
 or
 <code>motd
 </code></pre>
