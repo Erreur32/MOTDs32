@@ -150,8 +150,7 @@ Local Users :   2       Processes:      282
 
   vendredi 21 juillet 2017, 10:05:39 (UTC+0200)
 
-
-  mercredi 19 juillet 2017, 00:05:44 (UTC+0200)</code></pre><h2 id="explanation-of-the-report" data-source-line="127"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link">Explanation of the report</span></a></h2>
+</code></pre><h2 id="explanation-of-the-report" data-source-line="127"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link">Explanation of the report</span></a></h2>
 <pre data-source-line="129"><code class="hljs">Explanation of the report
 -------------------------
 
