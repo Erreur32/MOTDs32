@@ -119,8 +119,8 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n\e[92m - apt-get install \e[0m  ntp figlet build-essential  \e[94m start\e[0m\n" ;  apt-get install -y build-essential ntp figlet;
-    echo -e "\n\e[92m - apt-get installation\e[0m Succesfull\n"
+    echo -e "\n\e[34m - apt-get install \e[0m  ntp figlet build-essential  \e[92m start\e[0m\n" ;  apt-get install -y build-essential ntp figlet;
+    echo -e "\n\e[34m - apt-get installation\e[0m Succesfull\n"
      if [ -f "/usr/bin/motds32" ]
       then
       echo -e "\n\e[92m - Make file already\e[0m done.\n"
@@ -136,14 +136,14 @@ stty raw -echo
 answer2=$( while ! head -c 2 | grep -i '[ny]' ;do true ;done )
 stty $old2_stty_cfg
   if echo "$answer2" | grep -iq "^y" ;then
-  echo -e "\n\e[92m - NO apt-get required\e[0m Installation continue... \n";  
+  echo -e "\n\e[34m - NO apt-get required\e[0m Installation continue... \n";  
     if [ -f "/usr/bin/motds32" ]
       then
-      echo -e "\n\e[92m - Make file already\e[0m done.\n"
+      echo -e "\n\e[34m - Make file already\e[92m done.\e[0m\n"
      else 
-      echo -e "\n\e[92m -Building binary \e[0m\n"
+      echo -e "\n\e[94m -Building binary \e[0m\n"
       make install
-      echo -e "\n\e[92m - Make file\e[0m done.\n"
+      echo -e "\n\e[34m - Make file\e[92m done.\e[0m\n"
      fi
   else
    exit 1
@@ -156,9 +156,9 @@ fi
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
-echo -e "\e[92m - Cron already \e[0madded."
+echo -e "\e[92m - Cron already \e[92madded.\e[0m"
 else
-echo -e "\e[92m - Cron \e[0m added."
+echo -e "\e[92m - Cron \e[92m added.\e[0m"
 (crontab -l ; echo "*/5 * * * *      /usr/bin/motds32 -g 2>1")| crontab -
 fi
  
