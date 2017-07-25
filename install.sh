@@ -86,7 +86,7 @@ fi
 if [ -f  "/usr/share/figlet/" ]
  then
    echo -e "  -->\e[34m  Copy font figlet\e[0m"
- cp 
+ cp fonts/chunky.flf /usr/share/figlet/ 
 fi
 
 
