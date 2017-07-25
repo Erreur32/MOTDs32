@@ -77,7 +77,7 @@ echo "cat /etc/motd" >> /root/.bashrc
 echo -e "\e[92m - Code bash \e[0madded.\n"
 else
 grepmot=`grep  '/etc/motd' /root/.bashrc`
-    echo -e "  \e[1;30m Code bash found:\e[1;31m>> $grepmot <<\e[0m\n"
+    echo -e "  \e[1;30m Code bash found:\e[0m>>\e[1;31m $grepmot \e[0m<<\n"
     echo -e "  -->\e[34m  Code bash: \e[92mOK\e[0m"
 #sed -i '/cat \/etc\/motd/d' /root/.bashrc
 #echo -e "\e[92m Code .bashrc remove.\e[0m"
