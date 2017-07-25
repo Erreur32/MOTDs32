@@ -163,7 +163,7 @@ Local Users :   2       Processes:      282
     
 
 View on terminal screen the resultat:    
-<a class="anchor" href="https://echosystem.fr/termrec/MOTDs32.html">https://echosystem.fr/termrec/MOTDs32.html</a>
+<a class="anchor" href="">...</a>
 
 <h2 id="author" data-source-line="144"><a class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
 original project: https://bitbucket.org/hetii/motdstat.git <br><br>
