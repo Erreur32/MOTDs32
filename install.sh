@@ -83,6 +83,12 @@ grepmot=`grep  '/etc/motd' /root/.bashrc`
 fi
 
 ## Insdtall modules
+if [ -f  "/usr/share/figlet/" ]
+ then
+   echo -e "  -->\e[34m  Copy font figlet\e[0m"
+ cp 
+fi
+
 
 if [ -f  "/etc/motds32/Stats32" ]
  then
@@ -90,7 +96,7 @@ if [ -f  "/etc/motds32/Stats32" ]
  else
    mkdir /etc/motds32;
    cp  Stats32 /etc/motds32/Stats32 -Rf
-
+  
 fi
 
 
@@ -106,13 +112,13 @@ echo -e "  -->\e[34m  Copy files  OK\n"
 #echo -ne '\e[0m #########(50%)\r'
 #sleep 1
 #echo -ne "\n"
-echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet ? (y/n) "
+echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet build-essential ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n\e[92m apt-get install \e[0m  ntp figlet \e[94m start\e[0m\n" ;  apt-get install -y build-essential ntp figlet;
+    echo -e "\n\e[92m apt-get install \e[0m  ntp figletbuild-essential  \e[94m start\e[0m\n" ;  apt-get install -y build-essential ntp figlet;
     echo -e "\n\e[92m apt-get installation\e[0m Succesfull\n"
     if [ -f /usr/bin/motds32 ]
       then
