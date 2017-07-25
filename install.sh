@@ -100,7 +100,7 @@ if [ -f  "/etc/motds32/Stats32" ]
 fi
 
 
-if [ -f  /usr/bin/motd ]
+if [ -f  "/usr/bin/motd" ]
  then
     echo -e "  -->\e[34m  motd already \e[92minstalled\e[0m"
  else
