@@ -137,7 +137,15 @@ stty raw -echo
 answer2=$( while ! head -c 2 | grep -i '[ny]' ;do true ;done )
 stty $old2_stty_cfg
   if echo "$answer2" | grep -iq "^y" ;then
-  echo -e "\n\e[92m No apt-get required\e[0m Installation continue... \n";  make install
+  echo -e "\n\e[92m No apt-get required\e[0m Installation continue... \n";  
+  if [ -f /usr/bin/motds32 ]
+      then
+      echo -e "\n\e[92m - Make file already\e[0m done.\n"
+     else 
+      echo -e "\n\e[92m -Building binary \e[0m\n"
+      make install
+      echo -e "\n\e[92m - Make file\e[0m done.\n"
+     fi
   else
    exit 1
   fi
