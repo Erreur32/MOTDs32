@@ -92,7 +92,7 @@ fi
 
 if [ -f  "/etc/motds32/Stats32" ]
  then
-   echo -e "  -->\e[34m  - Stats32 already installed\e[0m"
+   echo -e "  -->\e[34m  Stats32 already \e[92minstalled\e[0m"
  else
    mkdir /etc/motds32;
    cp  Stats32 /etc/motds32/Stats32 -Rf
@@ -102,13 +102,13 @@ fi
 
 if [ -f  /usr/bin/motd ]
  then
-    echo -e "  -->\e[34m  motd already installed\e[0m"
+    echo -e "  -->\e[34m  motd already \e[92minstalled\e[0m"
  else
    ln -s /usr/bin/motds32 /usr/bin/motd
 
 fi
  
-echo -e "  -->\e[34m  Copy files  OK\n"
+echo -e "  -->\e[34m  Check files: \e[92mOK\n"
 #echo -ne '\e[0m #########(50%)\r'
 #sleep 1
 #echo -ne "\n"
@@ -148,9 +148,9 @@ fi
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
-echo -e "\e[92m Cron already \e[0madded."
+echo -e "\e[92m - Cron already \e[0madded."
 else
-echo -e "\e[92m Cron \e[0m added."
+echo -e "\e[92m - Cron \e[0m added."
 (crontab -l ; echo "*/5 * * * *      /usr/bin/motds32 -g 2>1")| crontab -
 fi
  
@@ -160,7 +160,7 @@ fi
 /usr/bin/motds32 -g
 
 #echo -ne '\n\e[0m #######################(100%)\r\n\n'
-echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\nHelp? Use: \n \033[1;30m/usr/bin/motds32\e[0m \nor \033[1;30m\n motd\e[0m\n"
+echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
  
 exit 0
 #EOF
