@@ -118,12 +118,14 @@ stty raw -echo
 answer=$( while ! head -c 1 | grep -i '[ny]' ;do true ;done )
 stty $old_stty_cfg
 if echo "$answer" | grep -iq "^y" ;then
-    echo -e "\n\e[92m apt-get install \e[0m  ntp figletbuild-essential  \e[94m start\e[0m\n" ;  apt-get install -y build-essential ntp figlet;
+    echo -e "\n\e[92m apt-get install \e[0m  ntp figlet build-essential  \e[94m start\e[0m\n" ;  apt-get install -y build-essential ntp figlet;
     echo -e "\n\e[92m apt-get installation\e[0m Succesfull\n"
+    echo -e "\n\e[92m  Building binary \e[0m\n"
     if [ -f /usr/bin/motds32 ]
       then
       echo -e "\n\e[92m Make file\e[0m done.\n"
      else 
+      echo -e "\n\e[92m  Building binary \e[0m\n"
       make install
       echo -e "\n\e[92m Make file\e[0m done.\n"
      fi
