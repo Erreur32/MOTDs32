@@ -26,7 +26,7 @@ Installation
        type in terminal as ROOT (in the MOTDs32 directory): 
  
 
-           ./Install.sh
+           ./install.sh
 
 
  
@@ -41,6 +41,6 @@ Uninstall instructions
 
      type in terminal (in the MOTDs32 directory): 
      
-         ./Unisntall.sh
+         ./unisntall.sh
 
   
