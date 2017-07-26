@@ -58,8 +58,8 @@ Customized by     Ｅｒｒｅｕｒ３２
 
   
 <h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link">INSTALLATION:</span></a></h2>
-<br>
-See <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL">INSTALL</a> file.<br>
+
+(See <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL">INSTALL</a> file.)<br><br>
 <p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
  
 <p data-source-line="48">type inside the directory:</p>
