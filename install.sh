@@ -3,8 +3,7 @@
 #  MOTDs32 installation instructions
 #  ==================================
 #
-# (2017) New project MOTDs32 by Erreur32
-# Author:  Erreur32
+# (2017) New project MOTDs32 Customized by Erreur32
 # Version 0.0.5
 #
 #         https://gitlab.echosystem.fr/Erreur32/MOTDs32
