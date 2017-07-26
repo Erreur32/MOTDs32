@@ -23,17 +23,21 @@ System requirements
 Installation 
 ============
 
-       type in terminal as ROOT (in the MOTDs32 directory): 
+    Clone the repo where you want and
+    
+        git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
+    
+    Type in terminal as ROOT (in the MOTDs32 directory): 
  
 
-           ./install.sh
+         ./install.sh
 
 
  
 Upgrade instructions
 ====================
 
-     in TODO list 
+     ADD in todo
 
 
 Uninstall instructions
@@ -44,3 +48,5 @@ Uninstall instructions
          ./unisntall.sh
 
   
+  
+ By 🅴🆁🆁🅴🆄🆁32
