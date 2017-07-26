@@ -19,7 +19,7 @@
 # MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
 # about system status and usage.
 #
-# Copyright 2017 Erreur32
+# Copyright 2017 🅴🆁🆁🅴🆄🆁32
 # original project: Pavol Krigler <pavol.krigler@gelogic.net>
 #
 #   make sur this file is executable +x
