@@ -16,6 +16,7 @@
 # `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 #
 #          |  + Ｓｔａｔｓ３２   |
+#
 # MOTDstat is dynamicaly refreshing the /etc/motd file with current informations
 # about system status and usage.
 #
@@ -87,11 +88,9 @@ fi
 if [ -f  "/usr/share/figlet" ]
  then
    echo -e "  -->\e[31m  figlet not installed\e[0m"
-   echo -e "  -->\e[34m  Copy font figlet\e[0m"
- cp -f fonts/chunky.flf /usr/share/figlet/ 
  else
-    echo -e "  -->\e[34m  Copy font figlet\e[0m"
- cp  fonts/chunky.flf /usr/share/figlet/ 
+   echo -e "  -->\e[34m  Copy font figlet\e[92mOK\e[0m"
+ cp -Rf fonts/chunky.flf /usr/share/figlet/ 
 fi
 
 
