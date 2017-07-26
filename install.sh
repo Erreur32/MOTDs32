@@ -106,9 +106,9 @@ fi
 
 if [ -f  "/usr/bin/motd" ]
  then
-    echo -e "  -->\e[34m  motd already \e[92minstalled\e[0m"
+    ln -s /usr/bin/motds32 /usr/bin/motd
  else
-   ln -s /usr/bin/motds32 /usr/bin/motd
+   echo -e "  -->\e[34m  motd already \e[92minstalled\e[0m"
 
 fi
  
