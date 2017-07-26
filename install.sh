@@ -104,13 +104,6 @@ if [ -f  "/etc/motds32/Stats32" ]
 fi
 
 
-if [ -f  "/usr/bin/motd" ]
- then
-    ln -s /usr/bin/motds32 /usr/bin/motd
- else
-   echo -e "  -->\e[34m  motd check \e[92mOK\e[0m"
-
-fi
  
 echo -e "  -->\e[34m  Check files: \e[92mOK\n"
 #echo -ne '\e[0m #########(50%)\r'
@@ -152,6 +145,17 @@ stty $old2_stty_cfg
    exit 1
   fi
 fi
+
+
+
+if [ -f  "/usr/bin/motd" ]
+ then
+    ln -s /usr/bin/motds32 /usr/bin/motd
+ else
+   echo -e "  -->\e[34m  motd check \e[92mOK\e[0m"
+
+fi
+
 
 #echo -ne '\e[0m ##################(90%)\r'
 #sleep 1
