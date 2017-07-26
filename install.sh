@@ -89,7 +89,7 @@ if [ -f  "/usr/share/figlet" ]
  then
    echo -e "  -->\e[31m  figlet not installed\e[0m"
  else
-   echo -e "  -->\e[34m  Copy font figlet\e[92mOK\e[0m"
+   echo -e "  -->\e[34m  Copy font figlet \e[92mOK\e[0m"
  cp -Rf fonts/chunky.flf /usr/share/figlet/ 
 fi
 
@@ -108,7 +108,7 @@ if [ -f  "/usr/bin/motd" ]
  then
     ln -s /usr/bin/motds32 /usr/bin/motd
  else
-   echo -e "  -->\e[34m  motd already \e[92minstalled\e[0m"
+   echo -e "  -->\e[34m  motd check \e[92mOK\e[0m"
 
 fi
  
