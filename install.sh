@@ -152,8 +152,8 @@ if [ -f  "/usr/bin/motd" ]
  then
    echo -e "  -->\e[34m  motd check \e[92mOK\e[0m\n"
  else
-   ln -s /usr/bin/motds32 /usr/bin/motd
-
+    ln -s /usr/bin/motds32 /usr/bin/motd
+    echo -e "  -->\e[34m  motd bin \e[92mOK\e[0m\n"
 fi
 
 
