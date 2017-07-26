@@ -92,7 +92,7 @@ if [ -f  "/usr/share/figlet" ]
  cp -Rf fonts/chunky.flf /usr/share/figlet/ 
 fi
 
-
+# Check if MOTDs32 is already add
 if [ -f  "/etc/motds32/Stats32" ]
  then
    echo -e "  -->\e[34m  Stats32 \e[92mFOUND\e[0m"
@@ -102,12 +102,12 @@ if [ -f  "/etc/motds32/Stats32" ]
   echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"  
 fi
 
-
- 
+# Check files
 echo -e "  -->\e[34m  Check files: \e[92mOK\n"
 #echo -ne '\e[0m #########(50%)\r'
 #sleep 1
 #echo -ne "\n"
+
 echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet build-essential ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
@@ -146,7 +146,7 @@ stty $old2_stty_cfg
 fi
 
 
-
+# Check motd
 if [ -f  "/usr/bin/motd" ]
  then
    echo -e "  -->\e[34m  motd check \e[92mOK\e[0m\n"
@@ -159,6 +159,8 @@ fi
 #echo -ne '\e[0m ##################(90%)\r'
 #sleep 1
 #echo -e "\n"
+
+
 ## Install Crontab
 
 if crontab -l | grep -q '/usr/bin/motds32';  then
