@@ -87,7 +87,7 @@ fi
 ## Insdtall modules
 if [ -f  "/usr/share/figlet" ]
  then
-   echo -e "  -->\e[31m  figlet not installed\e[0m"
+   echo -e "  -->\e[31m  figlet not FOUND\e[0m"
  else
    echo -e "  -->\e[34m  Copy font figlet \e[92mOK\e[0m"
  cp -Rf fonts/chunky.flf /usr/share/figlet/ 
@@ -96,11 +96,11 @@ fi
 
 if [ -f  "/etc/motds32/Stats32" ]
  then
-   echo -e "  -->\e[34m  Stats32 already \e[92minstalled\e[0m"
+   echo -e "  -->\e[34m  Stats32 \e[92mFOUND\e[0m"
  else
-   mkdir /etc/motds32;
+    mkdir /etc/motds32;
    cp  Stats32 /etc/motds32/Stats32 -Rf
-  
+  echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"  
 fi
 
 
