@@ -84,12 +84,14 @@ grepmot=`grep  '/etc/motd' /root/.bashrc`
 fi
 
 ## Insdtall modules
-if [ -f  "/usr/share/figlet/" ]
+if [ -f  "/usr/share/figlet" ]
  then
+   echo -e "  -->\e[31m  figlet not installed\e[0m"
    echo -e "  -->\e[34m  Copy font figlet\e[0m"
  cp -f fonts/chunky.flf /usr/share/figlet/ 
  else
-   echo -e "  -->\e[33m figlet not installed"
+    echo -e "  -->\e[34m  Copy font figlet\e[0m"
+ cp  fonts/chunky.flf /usr/share/figlet/ 
 fi
 
 
