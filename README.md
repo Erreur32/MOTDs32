@@ -1,37 +1,40 @@
-(2017) New project was fork  MOTDstat https://bitbucket.org/hetii/motdstat
+(2017) New project was fork _MOTDstat_ https://bitbucket.org/hetii/motdstat
 
-# MOTDs32 Custom MOTD by  🅴🆁🆁🅴🆄🆁32
+## MOTDs32 New Custom MOTD by  🅴🆁🆁🅴🆄🆁32
 
-MOTDs32 = MOTD + Stats32
+**MOTDs32** = MOTD + Stats32
  
 
 # Project
 
  - Project  https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
-<pre data-source-line="10"><code class="hljs">
+
+```
 ,--.   ,--. ,-----. ,--------.,------.         ,----.  ,---.
 |   `.'   |'  .-.  ''--.  .--'|  .-.  \  ,---. '.-.  |'.-.  \
 |  |'.'|  ||  | |  |   |  |   |  |  \  :(  .-'   .' &lt;  .-' .'
 |  |   |  |'  '-'  '   |  |   |  '--'  /.-'  `)/'-'  |/   '-.
 `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 
-          |  +	Ｓｔａｔｓ３２   |</code></pre><p data-source-line="18">
+          |  +	Ｓｔａｔｓ３２   |
+          
+```          
+         
+
+
 </p><ul class="toc">
   <li>
-    <a href="#motds32-documentation">MOTDs32 Documentation:</a>
+    <a href="#motds32-documentation">MOTDs32 Documentation</a>
   </li>
   <li>
-    <a href="#installation">INSTALLATION:</a>
+    <a href="#installation">INSTALLATION</a>
   </li>
   <li>
-    <a href="#update">UPDATE:</a>
+    <a href="#update">UPDATE</a>
   </li>
   <li>
-    <a href="#sample-motd32-report">Sample  MOTD32 report</a>
-  </li>
-   <li>
-    <a href="https://echosystem.fr/termrec/MOTDs32.html">View   terminal screen result (slow and buggy .p)</a>
+    <a href="#sample-motd32-report">Sample MOTD32 report</a>
   </li>
   <li>
     <a href="#explanation-of-the-report">Explanation of the report</a>
@@ -39,7 +42,6 @@ MOTDs32 = MOTD + Stats32
   <li>
     <a href="#author">Author</a>
     original fork https://bitbucket.org/hetii/motdstat
-Customized by     Ｅｒｒｅｕｒ３２
   </li>
 </ul>
 <p></p>
