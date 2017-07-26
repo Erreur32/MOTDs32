@@ -3,7 +3,7 @@
 # MOTDs32 Custom MOTD by  🅴🆁🆁🅴🆄🆁32
 
 MOTDs32 = MOTD + Stats32
-
+ 
 
 # Project
 
@@ -55,10 +55,16 @@ Customized by     Ｅｒｒｅｕｒ３２
  
 <p data-source-line="37"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/README.md#sample-motd32-report">See  example</a></p>
 <hr>
+
+  
 <h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link">INSTALLATION:</span></a></h2>
+
+See <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL">INSTALL</a> file.
 <p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
+ 
 <p data-source-line="48">type inside the directory:</p>
-<code class="hljs">./Install.sh</code> 
+
+<code class="hljs">./install.sh</code> 
 <p>Answer: y (install the package needed) </p>
  
 If you want some help,
