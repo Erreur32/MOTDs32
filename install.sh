@@ -52,7 +52,7 @@ cat <<"EOF"
 
 EOF
 
-echo -e "\033[1;30m# MOTDstat is dynamicaly refreshing the /etc/motd file with current informations"
+echo -e "\033[1;30m# MOTDs32 is dynamicaly refreshing the /etc/motd file with current informations"
 echo -e "\033[1;30m# about system status and usage."
 
 
