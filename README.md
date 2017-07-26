@@ -3,7 +3,6 @@
 ## MOTDs32 New Custom MOTD by  🅴🆁🆁🅴🆄🆁32
 
 **MOTDs32** = MOTD + Stats32
- 
 
 # Project
 
