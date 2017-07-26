@@ -88,6 +88,8 @@ if [ -f  "/usr/share/figlet/" ]
  then
    echo -e "  -->\e[34m  Copy font figlet\e[0m"
  cp -f fonts/chunky.flf /usr/share/figlet/ 
+ else
+   echo -e "  -->\e[33m figlet not installed"
 fi
 
 
