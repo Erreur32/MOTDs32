@@ -20,101 +20,108 @@
           
 ```          
          
+- [Features](#features) 
+- [Requirements](#requirements) 
+- [Install](#install) 
+- [Sample  MOTD32 report](#Sample  MOTD32 report) 
+- [Documentation](#documentation)
+- [Stats Repo](#Stats Repo)
+- [License](#license) 
 
-
-</p><ul class="toc">
-  <li>
-    <a href="#motds32-documentation">MOTDs32 Documentation</a>
-  </li>
-  <li>
-    <a href="#installation">INSTALLATION</a>
-  </li>
-  <li>
-    <a href="#update">UPDATE</a>
-  </li>
-  <li>
-    <a href="#sample-motd32-report">Sample MOTD32 report</a>
-  </li>
-  <li>
-    <a href="#explanation-of-the-report">Explanation of the report</a>
-  </li>
-  <li>
-    <a href="#author">Author</a>
-    original fork https://bitbucket.org/hetii/motdstat
-  </li>
-</ul>
-<p></p>
-<h2 id="motds32-documentation" data-source-line="20"><a class="anchor" href="#motds32-documentation"><span class="octicon octicon-link">MOTDs32 Documentation:</span></a></h2>
-<p data-source-line="23">Original project:
-<a href="http://www.gelogic.net/">http://www.gelogic.net/</a></p>
  
-<p data-source-line="26">MOTDs32 is a fork of the excelent MOTDstat !</p>
-<p data-source-line="28">Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage</p>
-<p data-source-line="30">Using crontab the script will periodically display status of system resources and services.</p>
-<p data-source-line="32">The original message of the day is now stored in /etc/motd.orig file.</p>
-<p data-source-line="34">Everytime you connect throught the SSH you will see some informations (customisable).</p>
- 
-<p data-source-line="37"><a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/README.md#sample-motd32-report">See  example</a></p>
-<hr>
+Features
+--------
+ - Add stats in SSH connection or in the shell 
 
+Requirements
+------------
+- SHELL    >= bash: 4.3.30(1)
+ 
+[Original project](http://www.gelogic.net/)
+ 
+
+MOTDs32 is a fork of the excelent MOTDstat !
+
+Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage
+
+Using crontab the script will periodically display status of system resources and services.
+
+The original message of the day is now stored in /etc/motd.orig file.
+
+Everytime you connect throught the SSH you will see some informations (customisable).
+ 
   
-<h2 id="installation" data-source-line="44"><a class="anchor" href="#installation"><span class="octicon octicon-link">INSTALLATION:</span></a></h2>
-
-(See <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL">INSTALL</a> file.)<br><br>
-<p data-source-line="46"><code class="hljs">git clone <a href="https://gitlab.echosystem.fr/Erreur32/MOTDs32.git">https://gitlab.echosystem.fr/Erreur32/MOTDs32.git</a></code></p>
+Install
+--------
+(See [install](https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL)   file.)
  
-<p data-source-line="48">type inside the directory:</p>
+ type inside the directory: 
 
-<code class="hljs">./install.sh</code> 
-<p>Answer: y (install the package needed) </p>
- 
+```bash
+$ ./install.sh
+```
+Answer: y (install the package if needed)
+
 If you want some help,
 try this command: /usr/bin/motds32 
 or
-<code>motd
-</code></pre>
-<pre data-source-line="50"><code class="hljs">motd
+
+motd
+
+```bash
+$  motd
 Usage: motds32 OPTIONS
     -g, --generate    Check system status and generate it to /etc/motd file
     -s, --status      Show limited content of MOTD file
     -v, --version     Display information about motds32 version and author
     -m, --MotD32      See the MOTD file
-</code></pre>
+```
 
 You can see the result with :
+```bash
+$  cat /etc/motd
+```
 
-<code>cat /etc/motd</code> 
-<br>or
-<code>usr/bin/motds32 -c</code>
-<br>or
-<code>motd -m</code><br><br>
+or
+```bash
+$  usr/bin/motds32 -c
+```
+or
+```
+$  motd -m
+```
 
-<h2>You can set differents features in  /etc/motds32/motds32.conf</h2>
+#You can set differents features in  /etc/motds32/motds32.conf
 
-<br><br>
-<h2 id="update" data-source-line="52"><a class="anchor" href="#update">UPDATE:</a></h2>
+UPDATE:
+ ----
 need to redownload the last version form gitlab, do the following:
-<pre data-source-line="55"><code class="hljs">git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
-cd MOTDs32
-./uninstall.sh
-git pull
-./install.sh
-</code></pre>
-
-## Stats Repo: 
+```bash
+$ git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
+$ cd MOTDs32
+$ ./uninstall.sh
+$ git pull
+$ ./install.sh
+```
+ 
+Stats Repo: 
+------
 
  - https://echosystem.fr/MOTDs32
  - https://echosystem.fr/MOTDs32/32.html
  - https://echosystem.fr/MOTDs32/Stats/index.html
  
  
-<hr>
-<h2 id="sample-motd32-report" data-source-line="74"><a class="anchor" href="#sample-motd32-report"><span class="octicon octicon-link">Sample  MOTD32 report</span></a></h2>
-<pre data-source-line="77"><code class="hljs">00:03:47 19/07  @echosystem .../Stats-tools/MOTDs32 (master)# /usr/bin/motds32 -c
+Sample  MOTD32 report
+------
+```bash
+$  /usr/bin/motds32 -c
+```
  
 --------------------------------------------------
 
- motd -m
+```bash
+$ motd -m
 Read motds32 file
         echosystem.fr  > status at 10:05 > 5min load is 0.82 on 8 cpu(s)
 
@@ -156,11 +163,12 @@ Local Users :   2       Processes:      282
 -----------     ---     ------------    ----------
 
   vendredi 21 juillet 2017, 10:05:39 (UTC+0200)
+```
 
-</code></pre><h2 id="explanation-of-the-report" data-source-line="127"><a class="anchor" href="#explanation-of-the-report"><span class="octicon octicon-link">Explanation of the report</span></a></h2>
-<pre data-source-line="129"><code class="hljs">Explanation of the report
--------------------------
+Explanation of the report
+-----
 
+```bash
    system hostname              report time        system load
          |                          |                   |
          |      NTP status          |                   |  Number of CPU(s)
@@ -168,19 +176,10 @@ Local Users :   2       Processes:      282
          V         V                V                   V      V                  
     echosystem.fr+-+  > status at 00:03 > 5min load is 0.75 on 8 cpu(s)</code></pre>
     
-
-View on terminal screen the resultat:    
-<a class="anchor" href="">...</a>
-
-<h2 id="author" data-source-line="144"><a class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
-original project: https://bitbucket.org/hetii/motdstat.git <br><br>
-<div class="success" data-source-line="146">
-<p>  🅴🆁🆁🅴🆄🆁32</p>
-</div>
-<div class="warning" data-source-line="152">
-<p>Hosted on</p>
-</div>
-<div class="info" data-source-line="158">
+```
+ 
+Powered by 🅴🆁🆁🅴🆄🆁32
+ 
 <p>🅴🅲🅷🔵🆂🆈🆂🆃🅴🅼</p>
-</div>
-</article>
+ 
+ 
