@@ -84,14 +84,7 @@ grepmot=`grep  '/etc/motd' /root/.bashrc`
 fi
 
 ## Insdtall modules
-command -v figlet >/dev/null 2>&1 || { echo >&2 "Figlet is not installed."; echo "need to install figlet /y"; }
-if [ -f  "/usr/share/figlet" ]
- then
-   echo -e "  -->\e[31m  figlet not FOUND\e[0m"
- else
-   echo -e "  -->\e[34m  Copy font figlet \e[92mOK\e[0m"
- cp -Rf fonts/chunky.flf /usr/share/figlet/ 
-fi
+
 
 # Check if MOTDs32 is already add
 if [ -f  "/etc/motds32/Stats32" ]
@@ -149,6 +142,14 @@ stty $old2_stty_cfg
   fi
 fi
 
+#command -v figlet >/dev/null 2>&1 || { echo >&2 "Figlet is not installed."; echo "need to install figlet /y"; }
+if [ -f  "/usr/share/figlet" ]
+ then
+   echo -e "  -->\e[31m  figlet not FOUND\e[0m"
+ else
+   cp -Rf fonts/chunky.flf /usr/share/figlet/ 
+   echo -e "  -->\e[34m  Font figlet \e[92mOK\e[0m"
+fi
 
 # Check motd
 if [ -f  "/usr/bin/motd" ]
