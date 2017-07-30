@@ -85,13 +85,13 @@ echo -e "    \e[34m-  build-essential \e[32minstalled.\e[0m"
     else
 echo -e "    \e[34m-  build-essential  \e[1;31mis not installed.\e[0m"
     fi
-echo -e "\n        YOU CAN SKIP auto install if you want"
+echo -e "\n        YOU CAN SKIP (auto) install if you want"
 echo -e "\n\e[92m  Please Select:"
-echo -e "        1. \e[0m(auto)Install Missing Package\e[92m"
+echo -e "        1. \e[0m(auto) Install Missing Package\e[92m"
 echo -e "        2. \e[0mContinue installation script\e[92m"
 echo -e "        3. \e[0mUninstall completly the script\e[92m"
-echo -e "        0. \e[0mQuit\n \e[0m"
-read -p "     Enter selection [0-2] > " selection
+echo -e "        0. (or any KEY)\e[0mQuit\n \e[0m"
+read -p "     Enter selection [0-3] > " selection
 
 # Clear area beneath menu
 tput cup 10 0
