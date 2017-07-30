@@ -230,6 +230,40 @@ exit 1
 # Restore screen
 tput rmcup
             ;;
+        3)  
+echo -e "\n\e[34m Dsinstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
+
+
+## remove file and directory
+make uninstall
+rm /etc/motds32/ -Rf
+rm /usr/bin/motd -f
+rm /var/cache/motds32/ -Rf
+
+## remove cron
+if crontab -l | grep -q '/usr/bin/motds32';  then
+echo -e "2.\e[92m Cron localized\n"
+crontab -l | grep -v '/usr/bin/motds32 -g 2>1' | crontab -u root -
+echo -e "2.\e[92m Cron removed\n"
+else
+echo -e "2.\e[93m Cron not find\n"
+fi
+
+
+if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
+then
+echo "Code bash not founded"
+#echo "cat /etc/motd" >> /root/.bashrc
+#echo -e "\e[92m Code .bashrc added.\e[0m"
+else
+    echo "code bash founded"
+sed -i '/cat \/etc\/motd/d' /root/.bashrc
+echo -e "\e[92m Code .bashrc remove.\e[0m"
+grep -n  '/etc/motd' /root/.bashrc
+fi
+
+echo -e "\n\e[92m Script ＭＯＴＤｓ３２ has been completly removed \e[0m
+            ;;
         0)  break
             ;;
         *)  break
