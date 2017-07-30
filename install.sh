@@ -90,7 +90,7 @@ echo -e "\n\e[92m  Please Select:"
 echo -e "        1. \e[0m(auto) Install Missing Package\e[92m"
 echo -e "        2. \e[0mContinue installation script\e[92m"
 echo -e "        3. \e[0mUninstall completly the script\e[92m"
-echo -e "        0. (or any KEY)\e[0mQuit\n \e[0m"
+echo -e "        0. \e[0m(or Enter) to Quit\n \e[0m"
 read -p "     Enter selection [0-3] > " selection
 
 # Clear area beneath menu
