@@ -104,11 +104,14 @@ if [ -f  "/etc/motds32/Stats32" ]
 fi
 
 # Check files
-echo -e "  -->\e[34m  Check files: \e[92mOK\n"
+echo -e "  -->\e[34m  Check files:\n"
 #echo -ne '\e[0m #########(50%)\r'
 #sleep 1
 #echo -ne "\n"
-
+command -v figlet >/dev/null 2>&1 || { echo >&2 "Figlet is not installed."; }
+command -v ntpd >/dev/null 2>&1 || { echo >&2 "ntp is not installed."; }
+command -v make >/dev/null 2>&1 || { echo >&2 "build-essential is not installed."; }
+echo -e "\n\e[92m"
 echo -e "\nDo you wish to install the required package?\n  \e[0m --> apt-get install ntp figlet build-essential ? (y/n) "
 old_stty_cfg=$(stty -g)
 stty raw -echo
