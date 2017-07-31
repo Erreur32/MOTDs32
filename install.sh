@@ -189,6 +189,17 @@ tput rmcup
         fi
 
  # Check if MOTDs32 is already add
+if [ -f "/usr/bin/motds32" ]
+      then
+      echo -e "\n\e[34m - Make file \e[0m>> founded.\e[0m\n"
+      make install
+      echo -e "\n\e[34m - REMake file done.\e[0m\n"
+      else
+      echo -e "\n\e[92m -Building binary \e[0m\n"
+      make install
+      echo -e "\n\e[34m - Make file done.\e[0m\n"
+     fi
+
         if [ -f  "/etc/motds32/Stats32" ]
          then
            echo -e "  -->\e[34m  Stats32 \e[92mFOUND\e[0m"
