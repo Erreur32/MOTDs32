@@ -125,8 +125,6 @@ tput cup 11 0
            grepmot=`grep  '/etc/motd' /root/.bashrc`
            echo -e "  \e[1;30m Code bash found: \e[0m>>\e[0m $grepmot \e[0m<<\n"
            echo -e "  -->\e[34m  Code bash: \e[92mOK\e[0m"
-         #sed -i '/cat \/etc\/motd/d' /root/.bashrc
-         #echo -e "\e[92m Code .bashrc remove.\e[0m"
         fi
 
  # Check if MOTDs32 is already add
@@ -135,6 +133,7 @@ tput cup 11 0
         if [ -f  "/etc/motds32/Stats32" ]
          then
            echo -e "  -->\e[34m  Stats32 \e[92mFOUND\e[0m"
+           cp  Stats32 /etc/motds32/Stats32 -Rf
          else
           cp  Stats32 /etc/motds32/Stats32 -Rf
           echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"
@@ -165,7 +164,7 @@ tput cup 11 0
         (crontab -l ; echo "*/5 * * * *      /usr/bin/motds32 -g 2>1")| crontab -
         fi
 ## Generate first stats
-if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "Genrate first Stat"; fi
+if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "  Genrate first Stat"; fi
 
       echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
       printf "\n   \e[1;33m  (Press any key to Continue.)\e[0m"
@@ -180,8 +179,6 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "Genrate first Stat"
            grepmot=`grep  '/etc/motd' /root/.bashrc`
            echo -e "  \e[1;30m Code bash found: \e[0m>>\e[0m $grepmot \e[0m<<\n"
            echo -e "  -->\e[34m  Code bash: \e[92mOK\e[0m"
-         #sed -i '/cat \/etc\/motd/d' /root/.bashrc
-         #echo -e "\e[92m Code .bashrc remove.\e[0m"
         fi
 
 # Check if MOTDs32 is already add
@@ -190,6 +187,7 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "Genrate first Stat"
         if [ -f  "/etc/motds32/Stats32" ]
          then
            echo -e "  -->\e[34m  Stats32 \e[92mFOUND\e[0m"
+           cp  Stats32 /etc/motds32/Stats32 -Rf
          else
           cp  Stats32 /etc/motds32/Stats32 -Rf
           echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"
