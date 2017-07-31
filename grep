@@ -1,0 +1,4 @@
+#1501526428
+history -a grep tutut
+#1501526432
+history -a grep cron

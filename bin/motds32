@@ -11,11 +11,10 @@
 #
 
  if [[ $EUID -ne 0 ]]; then
-    echo " Need to be ROOT to executing this file"
-#1>&2
+    echo " Need to be ROOT to executing this file" 1>&2
  else
    /bin/bash /etc/motds32/Stats32  > /etc/motds32/Stats32.txt
-    echo -e "\n   Generating Stats file"
+   #  echo -e "\n   Generating Stats file" 1>&2
  fi
 
 # Path to the configuration file
@@ -572,16 +571,14 @@ function usage {
 case $1 in
 	-g|--generate)
 	;;
-
 	-s|--status)
 		test -e $MOTD && cat $MOTD
 		exit 0
 	;;
-
 	-v|--version)
-		echo "motds32 version $VERSION"
-		echo "Author: Krigler Pavol, e-mail: motds32@gelogic.net"
-		echo "Custom: Erreur32"
+		echo "motds32 Version: $VERSION"
+		echo "Original project: Krigler Pavol, modstat"
+		echo "MOTDs32: by Erreur32"
 		exit 0
 	;;
 	 -m|--MOTDs32)
@@ -591,7 +588,7 @@ case $1 in
         ;;
 	*)
 		usage
-	;; 
+	;;
 esac
 
 # Generate mount point table usage limits from /etc/fstab file
@@ -631,7 +628,6 @@ echo_center "${HOSTNAME}${NTPSTATUS} > status at $(date +"%R") > ${LOAD_REPORT}"
 
 echo >> $MOTD
 
-# cat /etc/motds32/Stats32.txt >>  $MOTD
 paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC | head -n $MAX_ROWS_LIMIT   >> $MOTD
 #paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC >> $MOTD
 cat /etc/motds32/Stats32.txt >>  $MOTD
