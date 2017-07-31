@@ -106,8 +106,10 @@ tput cup 11 0
             echo -e "\n\e[34m - apt-get installation build-essential ntp figlet \e[0m>> Succesfull"
      if [ -f "/usr/bin/motds32" ]
       then
-      echo -e "\n\e[34m - Make file \e[0m>> already done.\e[0m\n"
-     else
+      echo -e "\n\e[34m - Make file \e[0m>> founded.\e[0m\n"
+      make install
+      echo -e "\n\e[34m - REMake file done.\e[0m\n"
+      else
       echo -e "\n\e[92m -Building binary \e[0m\n"
       make install
       echo -e "\n\e[34m - Make file done.\e[0m\n"
@@ -275,4 +277,4 @@ done
 
 # Restore screen
 tput rmcup
-echo "Installation MOTDs32 terminated."
+echo -e "\nInstallation MOTDs32 terminated."
