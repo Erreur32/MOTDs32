@@ -6,7 +6,7 @@
 
 # Project
 
- - Project  https://gitlab.echosystem.fr/Erreur32/MOTDs32
+ - new Project  https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
 
 ```
@@ -22,10 +22,10 @@
          
 - [Features](#features) 
 - [Requirements](#requirements) 
-- [Install](#install)
+- [Installation](#install)
 - [Documentation](#documentation)
 - [Sample motd32 Report](#sample-motd32-report) 
-- [Stats git Repo](#Stats-Repo)
+- [Stats git Repo](#stats-repo-)
 - [License](#license) 
 
 
@@ -71,7 +71,7 @@ or
 motd
 ```
 
-documentation
+Documentation
 -------------
 
 
@@ -112,7 +112,7 @@ $ git pull
 $ ./install.sh
 ```
  
-Stats Repo: 
+Stats Repo 
 ----------
 
  - https://echosystem.fr/MOTDs32
@@ -120,8 +120,9 @@ Stats Repo:
  - https://echosystem.fr/MOTDs32/Stats/index.html
  
  
-Sample  MOTD32 report
-------
+Sample MOTD32 Report
+--------------------
+
 ```bash
 $  /usr/bin/motds32 -c
 ```
