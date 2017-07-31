@@ -166,7 +166,7 @@ tput cup 11 0
 ## Generate first stats
 if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
 
-      echo -e "\n\n\e[34m \e[92m1  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
+      echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
       printf "\n   \e[1;33m  (Press any key to Continue.)\e[0m"
             ;;
         2)  echo -e "\n\e[92m"
@@ -232,7 +232,7 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
 ## Generate first stats
       if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
 
-      echo -e "\n\n\e[34m \e[92m2  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
+      echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
       printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
             ;;
         3)  echo -e "\n\e[34m Dsinstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
