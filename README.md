@@ -23,9 +23,9 @@
 - [Features](#features) 
 - [Requirements](#requirements) 
 - [Install](#install) 
-- [Sample  MOTD32 report](#Sample  MOTD32 report) 
+- [Sample-MOTD32-report](#Sample  MOTD32 report) 
 - [Documentation](#documentation)
-- [Stats Repo](#Stats Repo)
+- [Stats-Repo](#Stats Repo)
 - [License](#license) 
 
  
@@ -63,11 +63,17 @@ $ ./install.sh
 ```
 Answer: y (install the package if needed)
 
-If you want some help,
-try this command: /usr/bin/motds32 
-or
+If you want some help, try this command in your shell: 
 
+```
+/usr/bin/motds32 
+or
 motd
+```
+
+documentation
+-------------
+
 
 ```bash
 $  motd
