@@ -3,7 +3,7 @@
 
 *fork of MOTDstat https://bitbucket.org/hetii/motdstat*
 
-## MOTDs32 New Custom MOTD by  🅴🆁🆁🅴🆄🆁32
+## MOTDs32 New project 2017  by  🅴🆁🆁🅴🆄🆁32
 
 **MOTDs32** = MOTD + Stats32
 
