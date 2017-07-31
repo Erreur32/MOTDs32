@@ -22,13 +22,13 @@
          
 - [Features](#features) 
 - [Requirements](#requirements) 
-- [Install](#install) 
-- [Sample-MOTD32-report](#Sample  MOTD32 report) 
+- [Install](#install)
 - [Documentation](#documentation)
-- [Stats-Repo](#Stats Repo)
+- [Sample motd32 Report](#sample-motd32-report) 
+- [Stats git Repo](#Stats-Repo)
 - [License](#license) 
 
- 
+
 Features
 --------
  - Add stats in SSH connection or in the shell 
