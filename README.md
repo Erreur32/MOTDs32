@@ -1,7 +1,7 @@
 [![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)]()
 
 
-**fork of MOTDstat https://bitbucket.org/hetii/motdstat**
+*fork of MOTDstat https://bitbucket.org/hetii/motdstat*
 
 ## MOTDs32 New Custom MOTD by  🅴🆁🆁🅴🆄🆁32
 
