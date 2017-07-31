@@ -10,10 +10,13 @@
 # Copyright 2013 Pavol Krigler <pavol.krigler@gelogic.net>
 #
 
-if [[ $EUID -ne 0 ]]; then
-   echo "Need root" 1>&2
-/etc/motds32/Stats32  > /etc/motds32/Stats32.txt
-fi
+ if [[ $EUID -ne 0 ]]; then
+    echo " Need to be ROOT to executing this file"
+#1>&2
+ else
+   /bin/bash /etc/motds32/Stats32  > /etc/motds32/Stats32.txt
+    echo "  Generating Stats file: ok"
+ fi
 
 # Path to the configuration file
 CONFIGFILE="/etc/motds32/motds32.conf"
