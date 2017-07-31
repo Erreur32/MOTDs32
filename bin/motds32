@@ -15,7 +15,7 @@
 #1>&2
  else
    /bin/bash /etc/motds32/Stats32  > /etc/motds32/Stats32.txt
-    echo "  Generating Stats file: ok"
+    echo -e "\n   Generating Stats file"
  fi
 
 # Path to the configuration file
