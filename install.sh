@@ -281,4 +281,4 @@ done
 
 # Restore screen
 tput rmcup
-echo -e "\n Installation MOTDs32 terminated."
+echo "Installation MOTDs32 terminated."
