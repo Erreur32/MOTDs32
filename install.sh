@@ -171,9 +171,9 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
       printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
       read -n 1
 echo "Installation MOTDs32 terminated."
-exit 1
+#exit 1
 # Restore screen
-tput rmcup
+#tput rmcup
             ;;
         2)  echo -e "\n\e[92m"
         if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
@@ -233,9 +233,6 @@ tput rmcup
       printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
       read -n 1
   echo "Installation MOTDs32 terminated."
-exit 1
-# Restore screen
-tput rmcup
             ;;
         3)  echo -e "\n\e[34m Dsinstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 ## remove file and directory
