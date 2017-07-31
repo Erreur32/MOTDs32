@@ -112,13 +112,7 @@ $ git pull
 $ ./install.sh
 ```
  
-Stats Repo 
-----------
-
- - https://echosystem.fr/MOTDs32
- - https://echosystem.fr/MOTDs32/32.html
- - https://echosystem.fr/MOTDs32/Stats/index.html
- 
+--------------------------------------------------
  
 Sample MOTD32 Report
 --------------------
@@ -186,6 +180,17 @@ Explanation of the report
     echosystem.fr+-+  > status at 00:03 > 5min load is 0.75 on 8 cpu(s)</code></pre>
     
 ```
+
+--------------------------------------------------
+
+Stats Repo 
+----------
+
+ - https://echosystem.fr/MOTDs32
+ - https://echosystem.fr/MOTDs32/32.html
+ - https://echosystem.fr/MOTDs32/Stats/index.html
+ 
+
  
 Powered by 🅴🆁🆁🅴🆄🆁32
  
