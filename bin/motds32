@@ -10,8 +10,11 @@
 # Copyright 2013 Pavol Krigler <pavol.krigler@gelogic.net>
 #
 
-
+if [[ $EUID -ne 0 ]]; then
+   echo "Need root" 1>&2
 /etc/motds32/Stats32  > /etc/motds32/Stats32.txt
+fi
+
 # Path to the configuration file
 CONFIGFILE="/etc/motds32/motds32.conf"
 
