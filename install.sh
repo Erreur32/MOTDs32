@@ -267,13 +267,14 @@ echo "Installation MOTDs32 terminated."
         *)  break
             ;;
       esac
-
-## Generate first stats
-if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
-
-      echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
-      printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
       read -n 1
+## Generate first stats
+if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "genrate first stat"; fi
+
+#      echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
+#      printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
+#      read -n 1
+
 done
 
 # Restore screen
