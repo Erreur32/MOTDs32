@@ -90,8 +90,8 @@ echo -e "\n\e[92m  Please Select:"
 echo -e "        1. \e[0m(auto) Install Missing Package\e[92m"
 echo -e "        2. \e[0mContinue installation script\e[92m"
 echo -e "        3. \e[0mUninstall completly the script\e[92m"
-echo -e "        0. \e[0m(or Enter) to Quit\n \e[0m"
-read -p "     Enter selection [0-3] > " selection
+echo -e "        0. \e[0m(Enter or any key) to Quit\n \e[0m"
+read -p "     Enter selection [0-3] or (Enter) to Quit > " selection
 
 # Clear area beneath menu
 tput cup 10 0
@@ -165,15 +165,10 @@ tput cup 11 0
         (crontab -l ; echo "*/5 * * * *      /usr/bin/motds32 -g 2>1")| crontab -
         fi
 ## Generate first stats
-if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
+if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "Genrate first Stat"; fi
 
       echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
-      printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
-      read -n 1
-echo "Installation MOTDs32 terminated."
-#exit 1
-# Restore screen
-#tput rmcup
+      printf "\n   \e[1;33m  (Press any key to Continue.)\e[0m"
             ;;
         2)  echo -e "\n\e[92m"
         if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
@@ -199,7 +194,6 @@ echo "Installation MOTDs32 terminated."
           cp  Stats32 /etc/motds32/Stats32 -Rf
           echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"
         fi
-
 
  # Copy font figlet
         if [ -f  "/usr/share/figlet" ]
@@ -227,12 +221,10 @@ echo "Installation MOTDs32 terminated."
           (crontab -l ; echo "*/5 * * * *      /usr/bin/motds32 -g 2>1")| crontab -
         fi
 ## Generate first stats
- if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
+      if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "Genrate first stat"; fi
 
       echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
       printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
-      read -n 1
-  echo "Installation MOTDs32 terminated."
             ;;
         3)  echo -e "\n\e[34m Dsinstallation of ＭＯＴＤｓ３２ in progress... \e[0m"
 ## remove file and directory
@@ -243,24 +235,25 @@ echo "Installation MOTDs32 terminated."
 
 ## remove cron
          if crontab -l | grep -q '/usr/bin/motds32';  then
-    echo -e "2.\e[92m Cron localized\n"
+         echo -e "  \e[92m Cron localized\n"
     crontab -l | grep -v '/usr/bin/motds32 -g 2>1' | crontab -u root -
-    echo -e "2.\e[92m Cron removed\n"
+    echo -e "  \e[92m Cron removed\n"
     else
-    echo -e "2.\e[93m Cron not find\n"
+    echo -e "  \e[93m Cron not find\n"
     fi
 
     if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
     then
-     echo "Code bash not founded"
+     echo "  Code bash not founded"
     else
-     echo "code bash founded"
+     echo "  code bash founded"
      sed -i '/cat \/etc\/motd/d' /root/.bashrc
      echo -e "\e[92m Code .bashrc remove.\e[0m"
      grep -n  '/etc/motd' /root/.bashrc
     fi
 
-    echo -e "\n\e[92m Script ＭＯＴＤｓ３２ has been completly removed \e[0m"
+	echo -e "\n\e[92m Script ＭＯＴＤｓ３２ has been completly removed \e[0m"
+	printf "\n   \e[1;33m  (Press any key.)\e[0m"
             ;;
         0)  break
             ;;
@@ -269,12 +262,11 @@ echo "Installation MOTDs32 terminated."
       esac
       read -n 1
 ## Generate first stats
-if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "genrate first stat"; fi
+  if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; echo "genrate first stat"; fi
 
 #      echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
 #      printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
 #      read -n 1
-
 done
 
 # Restore screen
