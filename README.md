@@ -1,12 +1,15 @@
-(2017) New project was fork _MOTDstat_ https://bitbucket.org/hetii/motdstat
+[![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)]()
+
+
+**fork of MOTDstat https://bitbucket.org/hetii/motdstat**
 
 ## MOTDs32 New Custom MOTD by  🅴🆁🆁🅴🆄🆁32
 
 **MOTDs32** = MOTD + Stats32
 
-# Project
+# Project 2017
 
- - new Project  https://gitlab.echosystem.fr/Erreur32/MOTDs32
+ - new Project 2017  https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
 
 ```
