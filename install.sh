@@ -130,11 +130,12 @@ tput cup 11 0
         fi
 
  # Check if MOTDs32 is already add
+	if test ! -d /etc/motds32; then mkdir -p /etc/motds32; fi
+
         if [ -f  "/etc/motds32/Stats32" ]
          then
            echo -e "  -->\e[34m  Stats32 \e[92mFOUND\e[0m"
          else
-          mkdir /etc/motds32;
           cp  Stats32 /etc/motds32/Stats32 -Rf
           echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"
         fi
@@ -188,26 +189,17 @@ tput rmcup
          #echo -e "\e[92m Code .bashrc remove.\e[0m"
         fi
 
- # Check if MOTDs32 is already add
-if [ -f "/usr/bin/motds32" ]
-      then
-      echo -e "\n\e[34m - Make file \e[0m>> founded.\e[0m\n"
-      make install
-      echo -e "\n\e[34m - REMake file done.\e[0m\n"
-      else
-      echo -e "\n\e[92m -Building binary \e[0m\n"
-      make install
-      echo -e "\n\e[34m - Make file done.\e[0m\n"
-     fi
+# Check if MOTDs32 is already add
+        if test ! -d /etc/motds32; then mkdir -p /etc/motds32; fi
 
         if [ -f  "/etc/motds32/Stats32" ]
          then
            echo -e "  -->\e[34m  Stats32 \e[92mFOUND\e[0m"
          else
-          mkdir /etc/motds32;
           cp  Stats32 /etc/motds32/Stats32 -Rf
           echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"
         fi
+
 
  # Copy font figlet
         if [ -f  "/usr/share/figlet" ]
@@ -269,7 +261,7 @@ tput rmcup
      echo -e "\e[92m Code .bashrc remove.\e[0m"
      grep -n  '/etc/motd' /root/.bashrc
     fi
-    
+
     echo -e "\n\e[92m Script ＭＯＴＤｓ３２ has been completly removed \e[0m"
             ;;
         0)  break
@@ -288,4 +280,4 @@ done
 
 # Restore screen
 tput rmcup
-echo -e "\nInstallation MOTDs32 terminated."
+echo -e "\n Installation MOTDs32 terminated."
