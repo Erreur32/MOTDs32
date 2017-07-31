@@ -31,7 +31,7 @@
 
 Features
 --------
- - Add stats in SSH connection or in the shell 
+ - Add a beautifull MOTD for shell bash, each ssh connection and also aith command. 
 
 Requirements
 ------------
