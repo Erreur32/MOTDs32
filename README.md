@@ -23,13 +23,11 @@
           
 ```          
          
-- [Features](#features) 
-- [Requirements](#requirements) 
-- [Installation](#install)
-- [Documentation](#documentation)
-- [Sample motd32 Report](#sample-motd32-report) 
-- [Stats git Repo](#stats-repo-)
-- [License](#license) 
+ 
+ 
+
+[Features](#features) | [Requirements](#requirements) | [Installation](#install) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo-) | [License](#license) 
+---------------|---------------------|-----------------|-----------------|------------------------------------------|----------------------|----------------------
 
 
 Features
