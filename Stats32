@@ -14,7 +14,7 @@
 # figlet -f wideterm
 
 figlet -f chunky $(hostname)
-echo "$SHELL :\e[1;30m $USER\033[0m"
+echo -e "$SHELL :\e[1;30m $USER\e[0m"
 echo -e 'Last User:\e[1;30m'; last -a | grep pts
 echo -e "\033[0m"
 [ -r /etc/lsb-release ] && . /etc/lsb-release
