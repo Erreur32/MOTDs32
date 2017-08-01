@@ -1,16 +1,9 @@
-[![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)]()
+[![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)]() Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*  
 
 
-*fork of MOTDstat https://bitbucket.org/hetii/motdstat* 
+##  **MOTDs32** = MOTD + Stats32
 
-
-## MODstat 2017 
-
-**MOTDs32** = MOTD + Stats32
-
-# Project 2017
-
- - new Project 2017  https://gitlab.echosystem.fr/Erreur32/MOTDs32
+ https://gitlab.echosystem.fr/Erreur32/MOTDs32
 
 
 ```
@@ -25,18 +18,18 @@
           
 ```          
          
- 
+--------------------------------------------------
  
 
  [What it is?](#what-it-is) | [Requirements](#requirements) | [Installation](#install) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo-) | [License](#license) 
 ---------------|---------------------|-----------------|-----------------|-------------------------|----------------------|----------------------
 
- 
+--------------------------------------------------
 
 What it is?
 ----------
 
-MOTDs32 is a fork of the excelent MOTDstat ! [Original project](http://www.gelogic.net/)
+MOTDs32 is a fork of the excelent MOTDstat ! [Original project modstat](http://www.gelogic.net/)
 
 *Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage 
 The original message of the day is now stored in /etc/motd.orig file.
