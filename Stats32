@@ -16,7 +16,7 @@
 figlet -f chunky $(hostname)
 echo "$SHELL : $USER"
 
-echo -e '\e[1;30m'; w
+echo -e '\e[1;30m Last User:'; last -a | grep pts
 echo -e "\033[0m"
 
 [ -r /etc/lsb-release ] && . /etc/lsb-release
@@ -27,7 +27,7 @@ if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
 fi
 
 printf  "\033[5m%s (%s).\n" "$DISTRIB_DESCRIPTION" "$(uname -r)"
-echo -e "\033[5mKernel Info:   " `uname -smr`;
+echo -e "\e[0mKernel Info:   \033[5m   " `uname -smr`;
 ### bash version + user
 #echo -e "\033[5m  $SHELL ${BASH_VERSION%.*} $BASH_VERSION \n `ps -p $$`  "    "\e[0m"
 echo -e  "\e[0m"
@@ -46,4 +46,4 @@ printf "Memory usage:\t%s\tSystem uptime:\t%s\n" $memory_usage "$time"
 printf "Usage on /  :\t%s\tSwap usage:\t%s\n" $root_usage $swap_usage
 printf "Local Users :\t%s\tProcesses:\t%s\n" $users $processes
 printf "%s-----------\t---\t------------\t----------\n"
-echo -ne "\n \e[93m "; date ; echo -e "\e[0m"
+echo -e "\n\e[93m"; date ; echo -e "\e[0m"
