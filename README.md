@@ -1,9 +1,10 @@
 [![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)]()
 
 
-*fork of MOTDstat https://bitbucket.org/hetii/motdstat*
+*fork of MOTDstat https://bitbucket.org/hetii/motdstat* 
 
-## MODstat project 2017  by  🅴🆁🆁🅴🆄🆁32
+
+## MODstat 2017 
 
 **MOTDs32** = MOTD + Stats32
 
@@ -20,40 +21,41 @@
 `--'   `--' `-----'    `--'   `-------' `----' `----' '-----'
 
           |  +	Ｓｔａｔｓ３２   |
+                                             by  🅴🆁🆁🅴🆄🆁32
           
 ```          
          
  
  
 
-[Features](#features) | [Requirements](#requirements) | [Installation](#install) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo-) | [License](#license) 
----------------|---------------------|-----------------|-----------------|------------------------------------------|----------------------|----------------------
+ [What it is?](#what-it-is) | [Requirements](#requirements) | [Installation](#install) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo-) | [License](#license) 
+---------------|---------------------|-----------------|-----------------|-------------------------|----------------------|----------------------
+
+ 
+
+What it is?
+----------
+
+MOTDs32 is a fork of the excelent MOTDstat ! [Original project](http://www.gelogic.net/)
+
+*Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage 
+The original message of the day is now stored in /etc/motd.orig file.
+Everytime you connect throught the SSH you will see some informations (customisable).*
 
 
-Features
---------
+ - It's only for a g33k or adminsys for check some services status in the shell.
+ 
  - Add a beautifull MOTD for shell bash, each ssh connection and also aith command. 
 
 Requirements
 ------------
 - SHELL    >= bash: 4.3.30(1)
- 
-[Original project](http://www.gelogic.net/)
- 
+- figlet (*install auto in install.sh*)
+- build-essential (package for build) (*install auto in install.sh*)
 
-MOTDs32 is a fork of the excelent MOTDstat !
-
-Usage: generate dynamicaly the /etc/motd file with current information about system resources and usage
-
-Using crontab the script will periodically display status of system resources and services.
-
-The original message of the day is now stored in /etc/motd.orig file.
-
-Everytime you connect throught the SSH you will see some informations (customisable).
- 
   
-Install
--------
+Installation
+------------
 
 (See [install](https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL)   file.)
  
@@ -61,20 +63,21 @@ Install
 
 ```bash
 $ ./install.sh
-```
-Answer: y (install the package if needed)
-
-If you want some help, try this command in your shell: 
+   -->   Answer: y and enter (install the package if needed)  
+    -->   see option 3 for uninstall
 
 ```
-/usr/bin/motds32 
-or
-motd
-```
+
+- You can set differents features in  /etc/motds32/motds32.conf
+- 
+
+
+ 
 
 Documentation
 -------------
 
+inn your shell bash type: motd
 
 ```bash
 $  motd
@@ -85,30 +88,27 @@ Usage: motds32 OPTIONS
     -m, --MotD32      See the MOTD file
 ```
 
-You can see the result with :
+Result with **CAT**:
 ```bash
 $  cat /etc/motd
 ```
 
-or
+Result with **motds32**:
 ```bash
-$  usr/bin/motds32 -c
-```
-or
-```
-$  motd -m
+$  /usr/bin/motds32
 ```
 
-#You can set differents features in  /etc/motds32/motds32.conf
+
 
 Update:
 -------
 
 need to redownload the last version form gitlab, do the following:
+
 ```bash
 $ git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
 $ cd MOTDs32
-$ ./uninstall.sh
+$ ./install.sh (option 3)
 $ git pull
 $ ./install.sh
 ```
@@ -118,11 +118,6 @@ $ ./install.sh
 Sample MOTD32 Report
 --------------------
 
-```bash
-$  /usr/bin/motds32 -c
-```
- 
---------------------------------------------------
 
 ```bash
 $ motd -m
