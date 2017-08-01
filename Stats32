@@ -15,10 +15,8 @@
 
 figlet -f chunky $(hostname)
 echo "$SHELL : $USER"
-
 echo -e '\e[1;30m Last User:'; last -a | grep pts
 echo -e "\033[0m"
-
 [ -r /etc/lsb-release ] && . /etc/lsb-release
 
 if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
@@ -28,10 +26,8 @@ fi
 
 printf  "\033[5m%s (%s).\n" "$DISTRIB_DESCRIPTION" "$(uname -r)"
 echo -e "\e[0mKernel Info:   \033[5m   " `uname -smr`;
-### bash version + user
 #echo -e "\033[5m  $SHELL ${BASH_VERSION%.*} $BASH_VERSION \n `ps -p $$`  "    "\e[0m"
 echo -e  "\e[0m"
-### stats
 load=`cat /proc/loadavg | awk '{print $1}'`
 root_usage=`df -h / | awk '/\// {print $(NF-1)}'`
 memory_usage=`free -m | awk '/Mem:/ { total=$2 } /buffers\/cache/ { used=$3 } END { printf("%3.1f%%", used/total*100)}'`
@@ -46,4 +42,4 @@ printf "Memory usage:\t%s\tSystem uptime:\t%s\n" $memory_usage "$time"
 printf "Usage on /  :\t%s\tSwap usage:\t%s\n" $root_usage $swap_usage
 printf "Local Users :\t%s\tProcesses:\t%s\n" $users $processes
 printf "%s-----------\t---\t------------\t----------\n"
-echo -e "\n\e[93m"; date ; echo -e "\e[0m"
+echo -e "\n\e[93m"Ｇｅｎｅｒａｔｅｄ  ｂｙ  ＭＯＴＤｓ３２\e[0m"
