@@ -61,16 +61,12 @@ $ ./install.sh
 
 ```
 
-- You can set differents features in  /etc/motds32/motds32.conf
-- 
-
-
- 
+You can set differents features in   `/etc/motds32/motds32.conf`
 
 Documentation
 -------------
 
-inn your shell bash type: motd
+in your shell bash type: motd
 
 ```bash
 $  motd
