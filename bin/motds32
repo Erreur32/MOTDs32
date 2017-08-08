@@ -595,7 +595,7 @@ esac
 gen_mount_point_table
 
 # Create e-mail REPORT header
-REPORT="System report\n=============\nHost: ${HOSTNAME}\nDate: $(date)\n"
+REPORT="MOTDs32 System report\n=============\nHost: ${HOSTNAME}\nDate: $(date)\n (You can change and set this report alarm in /etc/motds32/motds32.conf)"
 
 # Get disk statistics
 disk
@@ -656,6 +656,7 @@ fi
 
 # Update uptime statistics
 test -e /proc/uptime && cut -d '.' -f 1 < /proc/uptime > $STATS_DIR/uptime
+
 
 
 # Removing temporary files
