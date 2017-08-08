@@ -67,7 +67,9 @@ You can set differents features in   `/etc/motds32/motds32.conf`
 Update:
 -------
 
-need to redownload the last version form gitlab, do the following:
+You Need to redownload (git pull) the lastest version form gitlab.
+
+do the following:
 
 ```bash
 $ git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
@@ -81,7 +83,7 @@ $ ./install.sh
 Uninstall
 -----------
 
-Choose *option 3* with ./install.sh script !
+Choose **option 3** with `./install.sh` script !
 
 
 
