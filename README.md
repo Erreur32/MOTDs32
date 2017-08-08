@@ -38,7 +38,7 @@ Everytime you connect throught the SSH you will see some informations (customisa
 
  - It's only for a g33k or adminsys for check some services status in the shell.
  
- - Add a beautifull MOTD for shell bash, each ssh connection and also aith command. 
+ - Add a beautifull MOTD for shell bash, each ssh connection and also with bash command. 
 
 Requirements
 ------------
@@ -61,16 +61,12 @@ $ ./install.sh
 
 ```
 
-- You can set differents features in  /etc/motds32/motds32.conf
-- 
-
-
- 
+You can set differents features in   `/etc/motds32/motds32.conf`
 
 Documentation
 -------------
 
-inn your shell bash type: motd
+in your shell bash type: motd
 
 ```bash
 $  motd
