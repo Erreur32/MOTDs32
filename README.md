@@ -21,8 +21,8 @@
 --------------------------------------------------
  
 
- [What it is?](#what-it-is) | [Requirements](#requirements) | [Installation](#install) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo-) | [License](#license) 
----------------|---------------------|-----------------|-----------------|-------------------------|----------------------|----------------------
+ [What it is?](#what-it-is) | [Requirements](#requirements) | [Installation](#install) | [Uninstall](#uninstall) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo-) | [License](#license) 
+---------------|---------------------|------------------|-----------------|-----------------|-------------------------|----------------------|----------------------
 
 --------------------------------------------------
 
@@ -63,6 +63,28 @@ $ ./install.sh
 
 You can set differents features in   `/etc/motds32/motds32.conf`
 
+
+Update:
+-------
+
+need to redownload the last version form gitlab, do the following:
+
+```bash
+$ git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
+$ cd MOTDs32
+$ ./install.sh (option 3)
+$ git pull
+$ ./install.sh
+```
+ 
+
+Uninstall
+-----------
+
+Choose *option 3* with ./install.sh script !
+
+
+
 Documentation
 -------------
 
@@ -89,19 +111,7 @@ $  /usr/bin/motds32
 
 
 
-Update:
--------
 
-need to redownload the last version form gitlab, do the following:
-
-```bash
-$ git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
-$ cd MOTDs32
-$ ./install.sh (option 3)
-$ git pull
-$ ./install.sh
-```
- 
 --------------------------------------------------
  
 Sample MOTD32 Report
