@@ -1,7 +1,8 @@
 #!/bin/sh
 #
-# Stats32 script generate some system infos and add  in the motd file.
-#
+# Stats32 script generate some system infos for the motd file.
+# Date: 08/2017
+# 
 #  _______ __          __          ______ ______
 # |     __|  |_.---.-.|  |_.-----.|__    |__    |
 # |__     |   _|  _  ||   _|__ --||__    |    __|
@@ -15,7 +16,7 @@
 
 figlet -f chunky $(hostname)
 echo -e "$SHELL :\e[1;30m $USER\e[0m"
-echo -e 'Last User :\e[1;30m'; last -a | grep pts
+echo -e 'Last 3 SSH:\e[1;30m'; last -a | grep pts |  head -3
 echo -e "\033[0m"
 [ -r /etc/lsb-release ] && . /etc/lsb-release
 
