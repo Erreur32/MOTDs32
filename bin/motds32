@@ -595,7 +595,7 @@ esac
 gen_mount_point_table
 
 # Create e-mail REPORT header
-REPORT="MOTDs32 System report\n=============\nHost: ${HOSTNAME}\nDate: $(date)\n (You can change and set this report alarm in /etc/motds32/motds32.conf)"
+REPORT="MOTDs32 System report\n==================\nHost: ${HOSTNAME}\nDate: $(date)\n(to set this report alarm in /etc/motds32/motds32.conf)\n"
 
 # Get disk statistics
 disk
@@ -620,6 +620,8 @@ check_ntp
 
 # Create MOTD system status header
 load
+
+
 
 # clean terminal when load MOTDs32
 echo -en "\ec" > $MOTD
