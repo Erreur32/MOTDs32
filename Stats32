@@ -38,6 +38,8 @@ users=`users | wc -w`
 time=`uptime | grep -ohe 'up .*' | sed 's/,/\ hours/g' | awk '{ printf $2" "$3 }'`
 processes=`ps aux | wc -l`
 ip=`hostname -i`
+# if IP  fail try this 
+# ip=`hostname -i | awk '{ printf $2 }'`
 
 printf "%s-----------\t---\t------------\t----------\n"
 printf "System load :\t%s\tIP Address:\t%s\n" $load $ip 
