@@ -632,7 +632,13 @@ echo >> $MOTD
 
 paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC | head -n $MAX_ROWS_LIMIT   >> $MOTD
 #paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC >> $MOTD
+if [[ $EUID -ne 0 ]]; then
+    echo "MOTD available only with root" 1>&2
+ else
 cat /etc/motds32/Stats32.txt >>  $MOTD
+#   /bin/bash /etc/motds32/Stats32  > /etc/motds32/Stats32.txt
+#  echo -e "\n   Generating Stats file" 1>&2
+ fi
 
 # Full report
 #paste -d "" $COLL_DISK $COLL_EMPTY $COLL_MEM $COLL_EMPTY $COLL_PROC  > $MOTD.full
