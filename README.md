@@ -1,4 +1,4 @@
-[![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square)]() Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*  
+![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square) Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*  
 
 
 ##  **MOTDs32** = MOTD + Stats32
