@@ -3,7 +3,7 @@
 
 ##  **MOTDs32** = MOTD + Stats32
 
- https://gitlab.echosystem.fr/Erreur32/MOTDs32
+ https://git.echosystem.fr/Erreur32/MOTDs32
 
 
 ```
