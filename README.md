@@ -1,9 +1,15 @@
-![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square) Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*  
+![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square) 
+Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*  
+
+
+
+-----
+
 
 
 ##  **MOTDs32** = MOTD + Stats32
 
- https://git.echosystem.fr/Erreur32/MOTDs32
+
 
 
 ```
@@ -15,6 +21,8 @@
 
           |  +	Ｓｔａｔｓ３２   |
                                              by  🅴🆁🆁🅴🆄🆁32
+                                             
+        https://git.echosystem.fr/Erreur32/MOTDs32                                                 
           
 ```          
          
@@ -50,7 +58,7 @@ Requirements
 Installation
 ------------
 
-(See [install](https://git.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL)   file.)
+(See [install](https://git.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL)  file.)
  
  type inside the directory: 
 
