@@ -50,7 +50,7 @@ Requirements
 Installation
 ------------
 
-(See [install](https://gitlab.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL)   file.)
+(See [install](https://git.echosystem.fr/Erreur32/MOTDs32/blob/master/INSTALL)   file.)
  
  type inside the directory: 
 
@@ -72,7 +72,7 @@ You Need to redownload (git pull) the lastest version form gitlab.
 do the following:
 
 ```bash
-$ git clone https://gitlab.echosystem.fr/Erreur32/MOTDs32.git
+$ git clone https://git.echosystem.fr/Erreur32/MOTDs32.git
 $ cd MOTDs32
 $ ./install.sh (option 3)
 $ git pull
