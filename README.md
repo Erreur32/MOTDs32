@@ -1,4 +1,8 @@
 ![MIT Licence](https://img.shields.io/dub/l/vibe-d.svg?style=flat-square) 
+![bash](https://img.shields.io/badge/bash-100%25-brightgreen.svg?style=flat)
+![bash](https://img.shields.io/badge/Installation-Easy-blue.svg)
+
+
 Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*  
 
 
