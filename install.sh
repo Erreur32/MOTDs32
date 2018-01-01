@@ -71,17 +71,17 @@ echo -e "\n \e[34m  Installation of ＭＯＴＤｓ３２ in progress... \e[0m\n
 # Check files
 #echo -e "  -->\e[34m  Check files:"
 if hash figlet 2>/dev/null; then
-echo -e "    \e[34m-  Figlet          \e[32minstalled.\e[0m"
+echo -e "    \e[34m-  Figlet          \e[32m✔ installed.\e[0m"
     else
 echo -e "    \e[34m-  Figlet         \e[1;31mis not installed.\e[0m"
     fi
 if hash ntpd 2>/dev/null; then
-echo -e "    \e[34m-  NTP             \e[32minstalled.\e[0m"
+echo -e "    \e[34m-  NTP             \e[32m✔ installed.\e[0m"
     else
 echo -e "    \e[34m-  NTP           \e[1;31mis not installed.\e[0m"
     fi
 if hash make 2>/dev/null; then
-echo -e "    \e[34m-  build-essential \e[32minstalled.\e[0m"
+echo -e "    \e[34m-  build-essential \e[32m✔ installed.\e[0m"
     else
 echo -e "    \e[34m-  build-essential  \e[1;31mis not installed.\e[0m"
     fi
