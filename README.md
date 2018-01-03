@@ -73,6 +73,10 @@ $ ./install.sh
 
 ```
 
+<!--
+[![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5) -->
+[![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://echosystem.fr/MOTDs32/player/)
+
 You can set differents features in   `/etc/motds32/motds32.conf`
 
 
@@ -123,9 +127,6 @@ Result with **motds32**:
 $  /usr/bin/motds32
 ```
 
-<!--
-[![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5) -->
-[![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://echosystem.fr/MOTDs32/player/)
 --------------------------------------------------
  
 Sample MOTD32 Report
