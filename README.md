@@ -29,7 +29,7 @@ Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*
         https://git.echosystem.fr/Erreur32/MOTDs32                                                 
           
 ```          
-         
+ Show "Message Of The Day" in Unix terminal.        
 --------------------------------------------------
  
 
