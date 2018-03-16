@@ -30,7 +30,10 @@
 #
 #      As root execute this command (the easy way!):
 #
-#           ./install.sh
+#        #   ./install.sh
+#      or
+#        #   bash install-sh
+#
 #
 ################################################################################
 # Make sure only root can run our script
@@ -45,6 +48,7 @@ BG_BLUE="$(tput setab 4)"
 BG_BLACK="$(tput setab 0)"
 FG_GREEN="$(tput setaf 2)"
 FG_WHITE="$(tput setaf 7)"
+
 # Save screen
 tput smcup
 # Display menu until selection == 0
@@ -68,8 +72,23 @@ echo -e "\033[1;30m # MOTDs32 is dynamicaly refreshing the /etc/motd file with c
 echo -e "\033[1;30m # about system status and usage."
 echo -e "\n \e[34m  Installation of ＭＯＴＤｓ３２ in progress... \e[0m\n\n"
 
+# Check dependenciess
+echo -e "Check required dependencies ! (need to be installed)"
+
+# Check installed
+        if [ -f  "/usr/sbin/sendmail" ]
+         then
+           echo -e "  - \e[34m  Posfix \e[92m OK\e[0m\n"
+         else
+           echo -e "  - \e[34m  Select option 1 \e[91m Missing package !! \e[0m\n"
+        fi
+
+
+
 # Check files
 #echo -e "  -->\e[34m  Check files:"
+
+
 if hash figlet 2>/dev/null; then
 echo -e "    \e[34m-  Figlet          \e[32m✔ installed.\e[0m"
     else
