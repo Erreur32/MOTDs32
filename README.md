@@ -58,7 +58,7 @@ Requirements
 - SHELL    >= bash: 4.3.30(1)
 - figlet (*install auto in install.sh*)
 - build-essential (package for build) (*install auto in install.sh*)
-
+- Postfix  
   
 Installation
 ------------
