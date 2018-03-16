@@ -34,7 +34,7 @@ Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*
 --------------------------------------------------
  
 
- [What it is?](#what-it-is) | [Requirements](#requirements) | [Installation](#install) | [Uninstall](#uninstall) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo-) | [License](#license) 
+ [What it is?](#what-it-is) | [Requirements](#requirements) | [Installation](#install) | [Uninstall](#uninstall) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo) | [License](#license) 
 ---------------|---------------------|------------------|-----------------|-----------------|-------------------------|----------------------|----------------------
 
 --------------------------------------------------
@@ -60,6 +60,7 @@ Requirements
 - build-essential (package for build) (*install auto in install.sh*)
 - Postfix  
   
+
 Installation
 ------------
 
@@ -78,15 +79,21 @@ $ ./install.sh
 ```bash
  bash install.sh
 ```
- 
-<!--
-[![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5) -->
-[![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://echosystem.fr/MOTDs32/player/)
 
 You can set differents features in   `/etc/motds32/motds32.conf`
 
 
-Update:
+Screen:
+------------ 
+
+[![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5) 
+
+[![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://echosystem.fr/MOTDs32/player/)
+
+
+
+
+Update
 -------
 
 You Need to redownload (git pull) the lastest version form gitlab.
