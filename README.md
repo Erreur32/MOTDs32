@@ -34,7 +34,7 @@ Project 2017 *fork on MOTDstat https://bitbucket.org/hetii/motdstat*
 --------------------------------------------------
  
 
- [What it is?](#what-it-is) | [Requirements](#requirements) | [Installation](#install) | [Uninstall](#uninstall) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo) | [License](#license) 
+ [What it is?](#what-it-is) | [Requirements](#requirements) | [Installation](#installation) | [Uninstall](#uninstall) | [Documentation](#documentation) | [Sample Report](#sample-motd32-report) | [Stats git Repo](#stats-repo) | [License](#license) 
 ---------------|---------------------|------------------|-----------------|-----------------|-------------------------|----------------------|----------------------
 
 --------------------------------------------------
