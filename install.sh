@@ -80,7 +80,7 @@ echo -e "\e[34m Check required dependencies ! (need to be installed)"
          then
            echo -e "    \e[34m-  Posfix \e[92m OK\e[0m\n"
          else
-           echo -e "   - \e[34m  Select option 1 \e[91m Missing package !! \e[0m\n"
+           echo -e "    \e[34m-  Select option 1 \e[91m Missing package !! \e[0m\n"
         fi
  if hash build-dep 2>/dev/null; then
 echo -e "    \e[34m-  build-dep          \e[32m✔ installed.\e[0m"
