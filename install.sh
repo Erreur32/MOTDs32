@@ -73,44 +73,49 @@ echo -e "\033[1;30m # about system status and usage."
 echo -e "\n \e[34m  Installation of ＭＯＴＤｓ３２ in progress... \e[0m\n\n"
 
 # Check dependenciess
-echo -e "Check required dependencies ! (need to be installed)"
+echo -e "\e[34m Check required dependencies ! (need to be installed)"
 
 # Check installed
         if [ -f  "/usr/sbin/sendmail" ]
          then
-           echo -e "  - \e[34m  Posfix \e[92m OK\e[0m\n"
+           echo -e "    \e[34m-  Posfix \e[92m OK\e[0m\n"
          else
-           echo -e "  - \e[34m  Select option 1 \e[91m Missing package !! \e[0m\n"
+           echo -e "   - \e[34m  Select option 1 \e[91m Missing package !! \e[0m\n"
         fi
-
+ if hash build-dep 2>/dev/null; then
+echo -e "    \e[34m-  build-dep          \e[32m✔ installed.\e[0m"
+    else
+echo -e "    \e[34m-  build-dep         \e[1;31m Select option 1 \e[91m Missing package !!\e[0m"
+    fi
 
 
 # Check files
-#echo -e "  -->\e[34m  Check files:"
-
 
 if hash figlet 2>/dev/null; then
 echo -e "    \e[34m-  Figlet          \e[32m✔ installed.\e[0m"
     else
-echo -e "    \e[34m-  Figlet         \e[1;31mis not installed.\e[0m"
+echo -e "    \e[34m-  Figlet         \e[1;31m Select option 1 \e[91m Missing package !!\e[0m"
     fi
 if hash ntpd 2>/dev/null; then
 echo -e "    \e[34m-  NTP             \e[32m✔ installed.\e[0m"
     else
-echo -e "    \e[34m-  NTP           \e[1;31mis not installed.\e[0m"
+echo -e "    \e[34m-  NTP           \e[1;31mSelect option 1 \e[91m Missing package !!\e[0m"
     fi
 if hash make 2>/dev/null; then
 echo -e "    \e[34m-  build-essential \e[32m✔ installed.\e[0m"
     else
-echo -e "    \e[34m-  build-essential  \e[1;31mis not installed.\e[0m"
+echo -e "    \e[34m-  build-essential  \e[1;31mSelect option 1 \e[91m Missing package !!\e[0m"
     fi
+
+
 echo -e "\n        YOU CAN SKIP (auto) install if you want"
 echo -e "\n\e[92m  Please Select:"
 echo -e "        1. \e[0m(auto) Install Missing Package\e[92m"
-echo -e "        2. \e[0mContinue installation script\e[92m"
-echo -e "        3. \e[0mUninstall completly the script\e[92m"
+echo -e "        2. \e[0mInstallation MOTDs32 script\e[92m"
+echo -e "        3. \e[0mUninstall completly  MOTDs32 script\e[92m"
 echo -e "        0. \e[0m(Enter or any key) to Quit\n \e[0m"
 read -p "     Enter selection [0-3] or (Enter) to Quit > " selection
+
 
 # Clear area beneath menu
 tput cup 10 0
@@ -121,7 +126,7 @@ tput cup 11 0
  # Act on selection
       case $selection in
         1)  echo -e " \e[32m install missing package  ...\e[0m\n"
-            apt-get install -y build-essential ntp figlet
+            apt-get install -y build-essential ntp figlet postfix
             echo -e "\n\e[34m - apt-get installation build-essential ntp figlet \e[0m>> Succesfull"
      if [ -f "/usr/bin/motds32" ]
       then
