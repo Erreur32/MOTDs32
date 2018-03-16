@@ -76,17 +76,18 @@ echo -e "\n \e[34m  Installation of ＭＯＴＤｓ３２ in progress... \e[0m\n
 echo -e "\e[34m Check required dependencies ! (need to be installed)"
 
 # Check installed
-        if [ -f  "/usr/sbin/sendmail" ]
-         then
-           echo -e "    \e[34m-  Posfix \e[92m OK\e[0m\n"
-         else
-           echo -e "    \e[34m-  Select option 1 \e[91m Missing package !! \e[0m\n"
-        fi
- if  [ -f  "/usr/share/build-essential" ]
-  then
-echo -e "    \e[34m-  build-dep          \e[32m✔ installed.\e[0m"
+    if [ -f  "/usr/sbin/sendmail" ]
+      then
+        echo -e "    \e[34m-  Posfix \e[92m OK\e[0m\n"
+      else
+        echo -e "    \e[34m-  Select option 1 \e[91m Missing package !! \e[0m\n"
+     fi
+ 
+   if  [ -f  "/usr/share/build-essential/essential-packages-list" ]
+    then
+  echo -e "    \e[34m-  build-dep          \e[32m✔ installed.\e[0m"
     else
-echo -e "    \e[34m-  build-dep       \e[1;31mSelect option 1 \e[91m Missing package !!\e[0m"
+  echo -e "    \e[34m-  build-dep       \e[1;31mSelect option 1 \e[91m Missing package !!\e[0m"
     fi
 
 
