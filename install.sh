@@ -85,7 +85,7 @@ echo -e "\e[34m Check required dependencies ! (need to be installed)"
  
    if  [ -f  "/usr/share/build-essential/essential-packages-list" ]
     then
-  echo -e "    \e[34m-  build-dep          \e[32m✔ installed.\e[0m"
+  echo -e "    \e[34m-  build-dep       \e[32m✔ installed.\e[0m"
     else
   echo -e "    \e[34m-  build-dep       \e[1;31mSelect option 1 \e[91m Missing package !!\e[0m"
     fi
