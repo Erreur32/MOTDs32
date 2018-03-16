@@ -126,7 +126,7 @@ tput cup 11 0
  # Act on selection
       case $selection in
         1)  echo -e " \e[32m install missing package  ...\e[0m\n"
-            apt-get install -y build-essential ntp figlet postfix
+            apt-get install  --allow-unauthenticated -y build-essential ntp figlet postfix
             echo -e "\n\e[34m - apt-get installation build-essential ntp figlet \e[0m>> Succesfull"
      if [ -f "/usr/bin/motds32" ]
       then
