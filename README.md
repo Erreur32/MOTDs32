@@ -73,7 +73,12 @@ $ ./install.sh
     -->   see option 3 for uninstall
 
 ```
-
+ or if any issue try this command:
+ 
+```bash
+ bash install.sh
+```
+ 
 <!--
 [![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5) -->
 [![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://echosystem.fr/MOTDs32/player/)
