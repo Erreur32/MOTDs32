@@ -83,7 +83,7 @@ $ ./install.sh
 You can set differents features in   `/etc/motds32/motds32.conf`
 
 
-Screen:
+Screen Install:
 ------------ 
 
 [![asciicast](https://asciinema.org/a/Tzr3NNF8pEB9FZ13d3kYDMBw5.png)](https://echosystem.fr/MOTDs32/player/)
