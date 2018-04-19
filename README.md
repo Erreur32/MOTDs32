@@ -49,15 +49,15 @@ The original message of the day is now stored in /etc/motd.orig file.
 Everytime you connect throught the SSH you will see some informations (customisable).*
 
 
- - It's only for a g33k or adminsys for check some services status in the shell.
+ - It's for a g33k or adminsys to check some services status in the shell.
  
- - Add a beautifull MOTD for shell bash, each ssh connection and also with bash command. 
+ - Add a beautifull MOTD for shell bash. 
 
 Requirements
 ------------
 - SHELL    >= bash: 4.3.30(1)
-- figlet (*install auto in install.sh*)
-- build-essential (package for build) (*install auto in install.sh*)
+- figlet (*Asking to install it with install.sh*)
+- build-essential (package for build) (*Asking to install it with install.sh*)
 - Postfix  
   
 
