@@ -116,7 +116,7 @@ if hash make 2>/dev/null; then
 /bin/echo -e "        2. \e[0mInstallation MOTDs32 script\e[92m"
 /bin/echo -e "        3. \e[0mUninstall completly  MOTDs32 script\e[92m"
 /bin/echo -e "        0. \e[0m(Enter or any key) to Quit\n \e[0m"
-read -p "     Enter selection [0-3] or (Enter) to Quit > " selection
+read -r -p "     Enter selection [0-3] or (Enter) to Quit > " selection
 
 
 # Clear area beneath menu
@@ -296,7 +296,7 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
         *)  break
             ;;
       esac
-      read -n 1
+      read -r -n 1
 
 #      /bin/echo -e "\n\n\e[34m \e[92m  Ｉｎｓｔａｌｌａｔｉｏｎ  ｏｆ  ＭＯＴＤｓ３２ completed!\e[0m  \n\n\n Help? Use: \n \033[1;30m /usr/bin/motds32\e[0m \n or \033[1;30m\n  motd\e[0m\n"
 #      printf "\n   \e[1;33m  (Press any key to exit.)\e[0m"
