@@ -124,7 +124,7 @@ tput cup 10 0
 tput ed
 tput cup 11 0
 
- # Act on selection
+# Act on selection
       case $selection in
         1)  /bin/echo -e " \e[32m install missing package  ...\e[0m\n"
             apt-get install  --allow-unauthenticated -y build-essential ntp figlet postfix sasl2-bin
@@ -164,7 +164,7 @@ tput cup 11 0
           /bin/echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"
         fi
 
- # Copy font figlet
+# Copy font figlet
         if [ -f  "/usr/share/figlet" ]
          then
            /bin/echo -e "  -->\e[31m  figlet not FOUND\e[0m"
@@ -173,7 +173,7 @@ tput cup 11 0
            /bin/echo -e "  -->\e[34m  Font figlet \e[92mOK\e[0m"
         fi
 
- # Check if motd is installed correctly
+# Check if motd is installed correctly
         if [ -f  "/usr/bin/motd" ]
          then
            /bin/echo -e "  -->\e[34m  motd check \e[92mOK\e[0m\n"
@@ -181,7 +181,7 @@ tput cup 11 0
             ln -s /usr/bin/motds32 /usr/bin/motd
             /bin/echo -e "  -->\e[34m  motd bin \e[92mOK\e[0m\n"
         fi
- ## Install Crontab
+## Install Crontab
         if crontab -l | grep -q '/usr/bin/motds32';  then
           /bin/echo -e " \e[34m -Cron \e[0m>> already added.\e[0m"
         else
@@ -230,7 +230,7 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
           /bin/echo -e "  -->\e[34m  Stats32 \e[92mINSTALLED\e[0m"
         fi
 
- # Copy font figlet
+# Copy font figlet
         if [ -f  "/usr/share/figlet" ]
          then
            /bin/echo -e "  -->\e[31m  figlet not FOUND\e[0m"
@@ -248,7 +248,7 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
             /bin/echo -e "  -->\e[34m  motd bin \e[92mOK\e[0m\n"
         fi
 
- ## Install Crontab
+## Install Crontab
         if crontab -l | grep -q '/usr/bin/motds32';  then
           /bin/echo -e "\e[34m - Cron \e[0m>> already added.\e[0m"
         else
