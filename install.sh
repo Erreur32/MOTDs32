@@ -53,7 +53,7 @@ FG_WHITE="$(tput setaf 7)"
 tput smcup
 # Display menu until selection == 0
 while [[ $REPLY != 0 ]]; do
-/bin/echo -n ${BG_BLACK}${FG_WHITE}
+/bin/echo -n "${BG_BLACK}${FG_WHITE}"
 clear
 cat <<- "EOFMO"
 
@@ -142,7 +142,7 @@ tput cup 11 0
      fi
 
       /bin/echo -e "\e[92m"
-        if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
+        if [ `grep -c "/etc/motd" /root/.bashrc` == 0 ]
          then
             /bin/echo -e " \e[1;31m code bash missing"
             /bin/echo "cat /etc/motd" >> /root/.bashrc
@@ -197,7 +197,7 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
       printf "\n   \e[1;33m  (Or any key to go back.)\e[0m" 
        ;;
         2)  /bin/echo -e "\n\e[92m"
-        if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
+        if [ `grep -c "/etc/motd" /root/.bashrc` == 0 ]
          then
             /bin/echo -e " code bash missing"
             /bin/echo "cat /etc/motd" >> /root/.bashrc
