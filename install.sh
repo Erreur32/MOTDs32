@@ -278,7 +278,7 @@ if test -f /usr/bin/motds32; then /usr/bin/motds32 -g; fi
     /bin/echo -e "  \e[93m Cron not find\n"
     fi
 
-    if [ `grep -c /etc/motd /root/.bashrc` == 0 ]
+    if [ `grep -c /etc/motd /root/.bashrc` = 0 ]
     then
      /bin/echo "  Code bash not founded"
     else
