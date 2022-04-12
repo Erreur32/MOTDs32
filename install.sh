@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 #  MOTDs32 installation instructions
 #  ==================================
