@@ -121,7 +121,7 @@ read -p "     Enter selection [0-3] or (Enter) to Quit > " selection
 
 # Clear area beneath menu
 tput cup 10 0
-echo -n ${BG_BLACK}${FG_GREEN}
+echo -n "${BG_BLACK}${FG_GREEN}"
 tput ed
 tput cup 11 0
 
